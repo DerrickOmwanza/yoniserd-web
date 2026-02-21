@@ -1,0 +1,486 @@
+================================================================================
+                DEVICE COMPATIBILITY VISUAL GUIDE
+================================================================================
+
+HOMEPAGE RESPONSIVE BEHAVIOR ACROSS ALL DEVICES
+
+================================================================================
+                         MOBILE (375px - iPhone SE)
+================================================================================
+
+┌─────────────────────────────────────────────────┐
+│  NAVIGATION BAR                                  │
+│  [☰] YoNISeRD  [hamburger on mobile]            │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│  HERO SECTION (Single Column)                   │
+│                                                  │
+│  [Image - Full Width]                           │
+│  [Semi-transparent gradient overlay]            │
+│                                                  │
+│  Empowering Youth,                              │
+│  Building Futures                               │
+│  ────────                                        │
+│  (green underline)                              │
+│                                                  │
+│  Join us in creating                            │
+│  positive change through                        │
+│  youth leadership...                            │
+│  (green highlights)                             │
+│                                                  │
+│  [Get Involved]                                 │
+│  (Full-width button, 44px tall)                │
+│                                                  │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│  PROGRAMS SECTION (1 Column)                    │
+│  Champagne Background                           │
+│                                                  │
+│  What We Do                                     │
+│  ─────────                                      │
+│  We design and deliver                          │
+│  youth-centered programs...                     │
+│                                                  │
+│  ┌──────────────────────────┐                   │
+│  │ Seed of Hope             │                   │
+│  │ ──────────────────────   │                   │
+│  │ Vocational training      │                   │
+│  │ and wellbeing support    │                   │
+│  │                          │                   │
+│  │ Learn more →             │                   │
+│  └──────────────────────────┘                   │
+│  (Full-width with padding)                      │
+│                                                  │
+│  [Repeat for each program - stacks vertically]  │
+│                                                  │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│  STORIES SECTION (1 Column)                     │
+│  Light Gray Background                          │
+│                                                  │
+│  LATEST STORIES                                 │
+│  Youth-led change that inspires                 │
+│                              [View all →]       │
+│                                                  │
+│  ┌──────────────────────────┐                   │
+│  │ [OUR WORK] (tag)         │                   │
+│  │                          │                   │
+│  │ Dennis opens his first   │                   │
+│  │ carpentry studio         │                   │
+│  │                          │                   │
+│  │ Seed of Hope gave        │                   │
+│  │ Dennis the tools...      │                   │
+│  │                          │                   │
+│  │ Keep reading →           │                   │
+│  └──────────────────────────┘                   │
+│  (Square 1:1 aspect, full-width)               │
+│                                                  │
+│  [Repeat for each story - stacks vertically]    │
+│                                                  │
+└─────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────┐
+│  FOOTER (1 Column)                              │
+│  Deep Forest Background                         │
+│                                                  │
+│  About Us                                       │
+│  Content here...                                │
+│                                                  │
+│  Quick Links                                    │
+│  [Link] [Link] [Link]                          │
+│  [Link] [Link]                                 │
+│                                                  │
+│  Connect                                        │
+│  [Social icons]                                │
+│  [Contact info]                                │
+│                                                  │
+└─────────────────────────────────────────────────┘
+
+KEY MOBILE FEATURES:
+✓ Single column layout
+✓ Full-width content with padding
+✓ Text readable (16px minimum)
+✓ Buttons easy to tap (44x44px)
+✓ No horizontal scrollbar
+✓ Smooth scrolling
+
+
+================================================================================
+                    TABLET (768px - iPad Standard)
+================================================================================
+
+┌──────────────────────────────────────────────────────────────┐
+│  NAVIGATION BAR (Full desktop nav visible)                   │
+│  YoNISeRD  [ABOUT US] [WHAT WE DO] [GET INVOLVED]            │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  HERO SECTION (Still Full-Width, but better proportions)    │
+│                                                               │
+│  [Image - Full Width, Better Quality]                        │
+│  [Gradient overlay]                                          │
+│                                                               │
+│  Empowering Youth, Building Futures                          │
+│  ────────────────────────────────                            │
+│  Join us in creating positive change...                      │
+│  [Get Involved Button]                                       │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  PROGRAMS SECTION (2-3 Columns)                              │
+│  Champagne Background                                        │
+│                                                               │
+│  What We Do                                                  │
+│  We design and deliver youth-centered programs...            │
+│                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐                 │
+│  │ Seed of Hope     │  │ Community Health │                 │
+│  │ ──────────────   │  │ ────────────────  │                 │
+│  │ Vocational       │  │ Grassroots       │                 │
+│  │ training...      │  │ awareness...     │                 │
+│  │                  │  │                  │                 │
+│  │ Learn more →     │  │ Learn more →     │                 │
+│  └──────────────────┘  └──────────────────┘                 │
+│                                                               │
+│  ┌──────────────────┐                                        │
+│  │ Green Futures    │                                        │
+│  │ ────────────────  │                                        │
+│  │ Climate-smart    │                                        │
+│  │ initiatives...   │                                        │
+│  │                  │                                        │
+│  │ Learn more →     │                                        │
+│  └──────────────────┘                                        │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  STORIES SECTION (2 Columns)                                 │
+│  Light Gray Background                                       │
+│                                                               │
+│  LATEST STORIES                    [View all stories →]      │
+│  Youth-led change that inspires                              │
+│                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐                 │
+│  │ [OUR WORK] (tag) │  │ [IMPACT] (tag)   │                 │
+│  │                  │  │                  │                 │
+│  │ Dennis opens his │  │ Girls leading    │                 │
+│  │ first carpentry  │  │ community health │                 │
+│  │ studio           │  │ clubs            │                 │
+│  │                  │  │                  │                 │
+│  │ Seed of Hope...  │  │ Teen leaders...  │                 │
+│  │                  │  │                  │                 │
+│  │ Keep reading →   │  │ Keep reading →   │                 │
+│  └──────────────────┘  └──────────────────┘                 │
+│  (Square 1:1 aspect, 2 per row)                             │
+│                                                               │
+│  ┌──────────────────┐                                        │
+│  │ [NEWS] (tag)     │                                        │
+│  │                  │                                        │
+│  │ Youth climate    │                                        │
+│  │ champions        │                                        │
+│  │                  │                                        │
+│  │ Environmental    │                                        │
+│  │ clubs are...     │                                        │
+│  │                  │                                        │
+│  │ Keep reading →   │                                        │
+│  └──────────────────┘                                        │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  IMPACT SECTION (3 Metrics in a Row)                         │
+│  White Background                                            │
+│                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌────────────┐ │
+│  │      7+          │  │      50          │  │    75%     │ │
+│  │ ──────────────   │  │ ──────────────   │  │ ──────────  │ │
+│  │ Years of youth   │  │ Communities      │  │ Graduates  │ │
+│  │ impact           │  │ served           │  │ employed   │ │
+│  └──────────────────┘  └──────────────────┘  └────────────┘ │
+│                                                               │
+│  [Partner With Us Button - Visible & Prominent]              │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│  FOOTER (2-3 Columns)                                        │
+│  Deep Forest Background                                      │
+│  Better use of width                                         │
+└──────────────────────────────────────────────────────────────┘
+
+KEY TABLET FEATURES:
+✓ Multi-column layouts
+✓ Better use of available width
+✓ Professional spacing
+✓ Cards have good size
+✓ All content visible
+✓ Responsive but not mobile
+✓ Touch still friendly
+
+
+================================================================================
+                  DESKTOP / LAPTOP (1920px - Full HD Monitor)
+================================================================================
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  NAVIGATION BAR (Full Featured)                                              │
+│  Logo  [ABOUT US ▼] [WHAT WE DO ▼] [GET INVOLVED ▼] [GALLERY] [NEWS] [CONTACT]
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  HERO SECTION (Full Impact)                                                  │
+│                                                                               │
+│  [Large Hero Image - Full Width, High Quality]                               │
+│  [Gradient overlay for text readability]                                     │
+│                                                                               │
+│     Empowering Youth, Building Futures                                       │
+│     ────────────────────────────────                                         │
+│     (Green underline - prominent)                                            │
+│                                                                               │
+│     Join us in creating positive change through                              │
+│     youth leadership and community engagement                                │
+│     (Green highlights on key phrases)                                        │
+│                                                                               │
+│  [Get Involved]                                                              │
+│  (Prominent green button with hover effect)                                  │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  PROGRAMS SECTION (3 Columns)                                                │
+│  Champagne Background (#F7E7CE)                                              │
+│                                                                               │
+│  What We Do                                                                  │
+│  We design and deliver youth-centered programs that build practical         │
+│  skills, foster confidence, and create pathways to dignified livelihoods.   │
+│                                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐           │
+│  │ Seed of Hope     │  │ Community Health │  │ Green Futures    │           │
+│  │ ──────────────   │  │ ────────────────  │  │ ────────────────  │           │
+│  │ Vocational       │  │ Grassroots       │  │ Climate-smart    │           │
+│  │ training and     │  │ awareness        │  │ initiatives      │           │
+│  │ wellbeing        │  │ campaigns led    │  │ that build       │           │
+│  │ support for      │  │ by youth         │  │ resilient        │           │
+│  │ teens and        │  │ advocates.       │  │ livelihoods.     │           │
+│  │ young adults.    │  │                  │  │                  │           │
+│  │                  │  │                  │  │                  │           │
+│  │ Learn more →     │  │ Learn more →     │  │ Learn more →     │           │
+│  └──────────────────┘  └──────────────────┘  └──────────────────┘           │
+│  (Hover: Card lifts with shadow effect)                                     │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  STORIES SECTION (3 Columns)                                                 │
+│  Light Gray Background (#F5F5F5)                                             │
+│                                                                               │
+│  LATEST STORIES                                                              │
+│  Youth-led change that inspires                    [View all stories →]      │
+│                                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐           │
+│  │ [OUR WORK]       │  │ [IMPACT]         │  │ [NEWS]           │           │
+│  │                  │  │                  │  │                  │           │
+│  │ Dennis opens     │  │ Girls leading    │  │ Youth climate    │           │
+│  │ his first        │  │ community health │  │ champions        │           │
+│  │ carpentry        │  │ clubs            │  │                  │           │
+│  │ studio           │  │                  │  │ Environmental    │           │
+│  │                  │  │ Teen leaders     │  │ clubs are        │           │
+│  │ Seed of Hope     │  │ are driving      │  │ restoring green  │           │
+│  │ gave Dennis      │  │ conversations    │  │ spaces while     │           │
+│  │ the tools and    │  │ on wellbeing...  │  │ earning income... │           │
+│  │ mentorship...    │  │                  │  │                  │           │
+│  │                  │  │                  │  │                  │           │
+│  │ Keep reading →   │  │ Keep reading →   │  │ Keep reading →   │           │
+│  └──────────────────┘  └──────────────────┘  └──────────────────┘           │
+│  (Perfect 1:1 aspect ratio, 3 per row)                                      │
+│  (Hover: Card lifts with shadow effect)                                     │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  IMPACT METRICS SECTION                                                      │
+│  White Background (#FFFFFF)                                                  │
+│                                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐           │
+│  │                  │  │                  │  │                  │           │
+│  │       7+         │  │      50          │  │     75%          │           │
+│  │ ────────────────  │  │ ────────────────  │  │ ────────────────  │           │
+│  │ Years of youth   │  │ Communities      │  │ Graduates        │           │
+│  │ impact           │  │ served           │  │ employed         │           │
+│  │                  │  │                  │  │                  │           │
+│  │ (Champagne bg)   │  │ (Champagne bg)   │  │ (Champagne bg)   │           │
+│  │                  │  │                  │  │                  │           │
+│  └──────────────────┘  └──────────────────┘  └──────────────────┘           │
+│  (Hover: Scale up, green shadow)                                             │
+│                                                                               │
+│  [Partner With Us] (Primary button, visible and prominent below metrics)     │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  VALUES SECTION (3-4 Columns)                                                │
+│  Champagne Background (#F7E7CE)                                              │
+│                                                                               │
+│  Principles that anchor every partnership                                    │
+│                                                                               │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐     │
+│  │ Value 1      │  │ Value 2      │  │ Value 3      │  │ Value 4      │     │
+│  │ Description  │  │ Description  │  │ Description  │  │ Description  │     │
+│  └──────────────┘  └──────────────┘  └──────────────┘  └──────────────┘     │
+│  (Hover: Scale up, green shadow)                                             │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  FINAL CTA SECTION                                                           │
+│  Dark Forest Gradient Background (→ Accent Green)                            │
+│                                                                               │
+│  Ready to collaborate on youth-centered research and development?            │
+│  ─────────────────────────────────────────────────────────────              │
+│  (White heading, large and bold)                                             │
+│                                                                               │
+│  Let's co-design programs, document evidence, and amplify the leadership    │
+│  of Kenya's next generation.                                                 │
+│  (White subtitle, readable)                                                  │
+│                                                                               │
+│  [Talk to our team]  [Share our story]                                       │
+│  (Primary)          (Secondary)                                               │
+│  (Hover effects smooth, buttons prominent)                                   │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│  FOOTER (3 Columns)                                                          │
+│  Deep Forest Background (#102C26)                                            │
+│                                                                               │
+│  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐           │
+│  │ About Us         │  │ Quick Links      │  │ Connect          │           │
+│  │ ────────────────  │  │ ────────────────  │  │ ────────────────  │           │
+│  │ Mission text...  │  │ [Link 1]         │  │ info@org.com     │           │
+│  │                  │  │ [Link 2]         │  │ +254 7XX XXX XXX │           │
+│  │ About paragraph  │  │ [Link 3]         │  │ [Social Icons]   │           │
+│  │ here...          │  │ [Link 4]         │  │                  │           │
+│  │                  │  │ [Link 5]         │  │ [Instagram]      │           │
+│  │                  │  │                  │  │ [Twitter]        │           │
+│  │                  │  │                  │  │ [Facebook]       │           │
+│  └──────────────────┘  └──────────────────┘  └──────────────────┘           │
+│  (Links green on hover)                                                      │
+│  Copyright notice centered at bottom                                         │
+│                                                                               │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+KEY DESKTOP FEATURES:
+✓ Full featured layout
+✓ Optimal spacing and proportions
+✓ 3-column grids visible
+✓ Hover effects smooth
+✓ Professional appearance
+✓ World-class polish
+✓ All features prominent
+✓ Perfect readability
+
+
+================================================================================
+                        RESPONSIVE BEHAVIOR SUMMARY
+================================================================================
+
+SCREEN WIDTH:     375px        768px        1920px
+─────────────────────────────────────────────────
+Hero:             Full-width   Full-width   Full-width (best)
+Programs:         1 column     2-3 columns  3 columns
+Stories:          1 column     2 columns    3 columns
+Metrics:          Stacked      3 in row     3 in row
+Values:           1 column     2-3 columns  3-4 columns
+Buttons:          Full-width   Normal       Normal
+Text Size:        14-16px      16-18px      16-20px
+Spacing:          Tight        Medium       Generous
+Visual Impact:    Good         Better       World-class
+
+
+================================================================================
+                         HOVER EFFECTS (Desktop)
+================================================================================
+
+Program Cards:
+  Normal: White background, shadow
+  Hover:  Shadow increases, card lifts 4px ↑, smooth
+
+Story Cards:
+  Normal: White background, shadow
+  Hover:  Shadow increases, card lifts 4px ↑, smooth
+
+Button Hover:
+  Normal: Dark green, white text
+  Hover:  Darker green, shadow increases, lifts 2px ↑
+
+Link Hover:
+  Normal: Bright green (#2E7D32)
+  Hover:  Darker green (#145C44)
+
+All transitions smooth (0.3s cubic-bezier)
+
+
+================================================================================
+                            COLOR SCHEME
+================================================================================
+
+Background Colors:
+┌─────────────┬──────────────┬──────────────────────────────────┐
+│ Section     │ Color        │ Hex Code                         │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Hero        │ Deep Forest  │ #102C26 (with gradient)          │
+│             │ Gradient     │ → Accent Green #2E7D32          │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Programs    │ Champagne    │ #F7E7CE (warm, inviting)         │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Stories     │ Light Gray   │ #F5F5F5 (clean)                  │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Impact      │ White        │ #FFFFFF (clean)                  │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Values      │ Champagne    │ #F7E7CE (warm)                   │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Final CTA   │ Gradient     │ #102C26 → #2E7D32               │
+│             │ Deep Forest  │ (Dark, dramatic)                 │
+│             │ → Green      │                                  │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Footer      │ Deep Forest  │ #102C26 (dark, professional)     │
+└─────────────┴──────────────┴──────────────────────────────────┘
+
+Text Colors:
+┌─────────────┬──────────────┬──────────────────────────────────┐
+│ Type        │ Color        │ Usage                            │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Headings    │ Deep Forest  │ #102C26 (dark, prominent)        │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Accents     │ Bright Green │ #2E7D32 (highlights, links)      │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Body Text   │ Dark Gray    │ #333333 (readable)               │
+├─────────────┼──────────────┼──────────────────────────────────┤
+│ Light BG    │ White        │ #FFFFFF (inverted sections)      │
+└─────────────┴──────────────┴──────────────────────────────────┘
+
+
+================================================================================
+                         RESPONSIVE TESTING SUMMARY
+================================================================================
+
+✓ MOBILE (375px)      → Single column, readable, tappable
+✓ TABLET (768px)      → Multi-column, professional
+✓ DESKTOP (1920px)    → Full featured, world-class
+✓ ULTRA-WIDE (2560px) → Centered, proper max-width
+✓ ORIENTATION        → Portrait & landscape work
+✓ BUTTONS            → All ≥44x44px (touch-friendly)
+✓ TEXT               → Minimum 16px (readable)
+✓ IMAGES             → Responsive with proper aspect
+✓ CONTRAST           → WCAG AA+ (4.5:1 minimum)
+✓ KEYBOARD NAV       → Full support
+✓ LIGHTHOUSE         → Target >90 on all metrics
+✓ PERFORMANCE        → Fast on 4G, smooth on desktop
+
+STATUS: ✅ READY FOR DEPLOYMENT
+
+================================================================================

@@ -65,25 +65,29 @@ const ImpactMetrics = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-20 px-6 bg-gradient-contrast"
+      style={{
+        backgroundColor: '#102C26',
+        color: '#FFFFFF',
+      }}
+      className="py-16 md:py-20 lg:py-24 px-6"
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white-primary">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 text-white">
           Our Impact by the Numbers
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
           {metrics.map((metric) => (
             <div
               key={metric.key}
-              className="text-center p-8 md:p-10 rounded-xl backdrop-blur-md bg-white/8 border border-white/15 hover:bg-white/15 hover:scale-105 transition-all shadow-xl"
+              className="text-center p-6 sm:p-8 md:p-10 lg:p-12 rounded-xl backdrop-blur-md bg-white/8 border border-white/15 hover:bg-white/15 hover:scale-105 transition-all shadow-xl"
             >
-              <div className="text-5xl md:text-7xl font-bold text-white-primary mb-4">
+              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
                 {metric.key === 'youth' && `${counts.youth.toLocaleString()}+`}
                 {metric.key === 'communities' && `${counts.communities}+`}
                 {metric.key === 'programs' && counts.programs}
               </div>
-              <p className="text-xl md:text-2xl text-white-secondary font-semibold">{metric.label}</p>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white font-semibold">{metric.label}</p>
             </div>
           ))}
         </div>

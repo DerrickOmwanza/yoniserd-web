@@ -1,0 +1,393 @@
+- generic [ref=e3]:
+  - link "Skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation "Main navigation" [ref=e5]:
+    - generic [ref=e6]:
+      - link "YoNISeRD Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "YoNISeRD Logo" [ref=e8]
+        - generic [ref=e9]:
+          - generic [ref=e10]: Youth Network Integrated Services
+          - generic [ref=e11]: Research & Development
+      - button "Toggle navigation menu" [ref=e12] [cursor=pointer]:
+        - img [ref=e13]
+    - dialog "Mobile navigation menu" [ref=e15]:
+      - button "Close navigation menu" [ref=e17] [cursor=pointer]:
+        - img [ref=e18]
+      - generic [ref=e20]:
+        - button "About Us" [ref=e22] [cursor=pointer]:
+          - generic [ref=e23]: About Us
+          - img [ref=e24]
+        - button "What We Do" [ref=e27] [cursor=pointer]:
+          - generic [ref=e28]: What We Do
+          - img [ref=e29]
+        - button "Get Involved" [ref=e32] [cursor=pointer]:
+          - generic [ref=e33]: Get Involved
+          - img [ref=e34]
+        - link "Gallery" [ref=e36] [cursor=pointer]:
+          - /url: /gallery
+        - link "News" [ref=e37] [cursor=pointer]:
+          - /url: /news
+        - link "Contact Us" [ref=e38] [cursor=pointer]:
+          - /url: /contact
+  - main [ref=e39]:
+    - generic [ref=e40]:
+      - region "Mission and Vision statements" [ref=e41]:
+        - generic [ref=e42]:
+          - heading "Mission & Vision" [level=1] [ref=e43]
+          - generic [ref=e44]:
+            - generic [ref=e45]:
+              - heading "Our Mission" [level=2] [ref=e46]
+              - paragraph [ref=e47]: To connect, empower, and mobilize youth through inclusive networks, innovative research, and integrated development services that foster leadership, knowledge creation, and sustainable impact across communities.
+            - generic [ref=e48]:
+              - heading "Our Vision" [level=2] [ref=e49]
+              - paragraph [ref=e50]: Empowering youth through collaborative networks, innovative research, and integrated development services to build a resilient, inclusive, and knowledge-driven future.
+      - generic [ref=e52]:
+        - heading "Organization Details" [level=2] [ref=e53]
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - paragraph [ref=e57]: Organization Name
+              - paragraph [ref=e58]: Youth Network Integrated Services for Research and Development
+            - generic [ref=e59]:
+              - paragraph [ref=e60]: Founded
+              - paragraph [ref=e61]: 30th April, 2018
+            - generic [ref=e62]:
+              - paragraph [ref=e63]: Headquarters
+              - paragraph [ref=e64]: Kisii, Kenya
+          - generic [ref=e65]:
+            - generic [ref=e66]:
+              - paragraph [ref=e67]: Legal Status
+              - paragraph [ref=e68]: Registered Non-Governmental Organization (NGO) under section 10 of the Non-Governmental Organizations Co-ordination Act
+            - generic [ref=e69]:
+              - paragraph [ref=e70]: Registration Number
+              - paragraph [ref=e71]: OP.218/051/18-058/11164
+            - generic [ref=e72]:
+              - paragraph [ref=e73]: Registration Date
+              - paragraph [ref=e74]: 30th April, 2018
+        - generic [ref=e75]:
+          - paragraph [ref=e76]: Download Certificate of Registration
+          - link "📥 Download Certificate" [ref=e77] [cursor=pointer]:
+            - /url: /static/media/gallery11.119590eea02848991eb5.jpg
+            - generic [ref=e78]: 📥
+            - generic [ref=e79]: Download Certificate
+      - region "CEO leadership message" [ref=e80]:
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - paragraph [ref=e83]: Leadership
+            - heading "Message from the CEO" [level=2] [ref=e84]
+          - blockquote [ref=e86]:
+            - paragraph [ref=e87]: "\"Empowering youth through research-driven innovation and community-led change\""
+            - generic [ref=e88]: — CEO, YoNISeRD
+          - generic [ref=e89]:
+            - generic [ref=e90]:
+              - img "CEO of YoNISeRD" [ref=e93]
+              - heading "Dr. Samson Barongo, PhD" [level=4] [ref=e94]
+              - paragraph [ref=e95]: Chief Executive Officer
+              - paragraph [ref=e96]: Leading sustainable youth development and community-led research initiatives
+            - generic [ref=e97]:
+              - generic [ref=e98]:
+                - heading "Welcome to YoNISeRD" [level=3] [ref=e99]
+                - paragraph [ref=e100]: As CEO of YoNISeRD, I'm honored to welcome you to our community. We believe that youth empowerment is the cornerstone of sustainable development.
+              - generic [ref=e101]:
+                - heading "Our Core Commitment" [level=3] [ref=e102]
+                - list [ref=e103]:
+                  - listitem [ref=e104]:
+                    - generic [ref=e105]: 🎯
+                    - generic [ref=e106]: Connect and empower youth through research-backed programs and practical services
+                  - listitem [ref=e107]:
+                    - generic [ref=e108]: 🌱
+                    - generic [ref=e109]: Build resilient communities through inclusive networks and knowledge sharing
+                  - listitem [ref=e110]:
+                    - generic [ref=e111]: 🤝
+                    - generic [ref=e112]: "Address critical needs: youth development, reproductive health, environmental sustainability"
+              - generic [ref=e113]:
+                - heading "Together We Create Impact" [level=3] [ref=e114]
+                - paragraph [ref=e115]: Your partnership and support enable us to transform lives and create lasting, positive change across Kenya. Let's build a future where youth lead innovation and communities thrive.
+              - generic [ref=e116]:
+                - link "Get involved as a volunteer" [ref=e117] [cursor=pointer]:
+                  - /url: /contact#volunteer
+                  - text: Get Involved
+                - link "Partner with us" [ref=e118] [cursor=pointer]:
+                  - /url: /programs#partnerships
+                  - text: Partner With Us
+      - region "Leadership team" [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - paragraph [ref=e122]: Our Team
+            - heading "Leadership Team" [level=2] [ref=e123]
+            - paragraph [ref=e124]: Dedicated professionals driving our mission forward
+          - generic [ref=e125]:
+            - generic [ref=e126]:
+              - img "Chief Executive Officer" [ref=e127]
+              - heading "Dr. Samson Barongo, PhD" [level=3] [ref=e128]
+              - paragraph [ref=e129]: CEO
+              - paragraph [ref=e130]: Executive leadership and strategic vision for organizational growth and impact
+            - generic [ref=e131]:
+              - img "Managing Director" [ref=e132]
+              - heading "Robert Foster" [level=3] [ref=e133]
+              - paragraph [ref=e134]: Managing Director
+              - paragraph [ref=e135]: Oversight of program implementation, financial management, and daily operational excellence
+            - generic [ref=e136]:
+              - img "Programme Officer" [ref=e137]
+              - heading "Catherine Ngotho" [level=3] [ref=e138]
+              - paragraph [ref=e139]: Programme Officer
+              - paragraph [ref=e140]: Oversight of program design, implementation, and community partnerships
+            - generic [ref=e141]:
+              - img "Field Officer" [ref=e142]
+              - heading "Odliah Temba" [level=3] [ref=e143]
+              - paragraph [ref=e144]: Field Officer
+              - paragraph [ref=e145]: Direct community engagement and ground-level program execution
+            - generic [ref=e146]:
+              - img "Board Member" [ref=e147]
+              - heading "Mukolwe Alubokho Patrick" [level=3] [ref=e148]
+              - paragraph [ref=e149]: Board Member
+              - paragraph [ref=e150]: He optimizes program outcomes through resource mobilization, data-driven decision-making and stakeholder engagement.
+            - generic [ref=e151]:
+              - img "Board Member" [ref=e152]
+              - heading "EUGENE GWAYA" [level=3] [ref=e153]
+              - paragraph [ref=e154]: Board Member
+              - paragraph [ref=e155]: Mental health advocate and Sexual Reproductive Health Advocate
+            - generic [ref=e156]:
+              - img "Programme Officer" [ref=e157]
+              - heading "Sherille Adoyo" [level=3] [ref=e158]
+              - paragraph [ref=e159]: Programme Officer
+              - paragraph [ref=e160]: Responsible for assisting in the planning, implementation, and monitoring of various programs and projects.
+      - region "Our organizational journey" [ref=e161]:
+        - generic [ref=e162]:
+          - generic [ref=e163]:
+            - paragraph [ref=e164]: Timeline
+            - heading "Our Journey" [level=2] [ref=e165]
+            - paragraph [ref=e166]: Key milestones in our commitment to youth empowerment
+          - generic [ref=e167]:
+            - generic [ref=e169]:
+              - generic [ref=e170]: "2018"
+              - generic [ref=e171]:
+                - generic [ref=e172]:
+                  - generic [ref=e173]: 📜
+                  - heading "Official Registration" [level=3] [ref=e174]
+                - paragraph [ref=e175]: YoNISeRD officially registered as an NGO on 30th April, 2018
+            - generic [ref=e177]:
+              - generic [ref=e178]: "2019"
+              - generic [ref=e179]:
+                - generic [ref=e180]:
+                  - generic [ref=e181]: 🚀
+                  - heading "First Program Launch" [level=3] [ref=e182]
+                - paragraph [ref=e183]: Seed of Hope vocational training program reaches 100+ youth
+            - generic [ref=e185]:
+              - generic [ref=e186]: "2020"
+              - generic [ref=e187]:
+                - generic [ref=e188]:
+                  - generic [ref=e189]: 🌍
+                  - heading "Community Expansion" [level=3] [ref=e190]
+                - paragraph [ref=e191]: Extended operations to 20 communities across Kenya
+            - generic [ref=e193]:
+              - generic [ref=e194]: "2022"
+              - generic [ref=e195]:
+                - generic [ref=e196]:
+                  - generic [ref=e197]: 📊
+                  - heading "Research Hub Launch" [level=3] [ref=e198]
+                - paragraph [ref=e199]: Launched dedicated community research hub for evidence-building
+            - generic [ref=e201]:
+              - generic [ref=e202]: "2023"
+              - generic [ref=e203]:
+                - generic [ref=e204]:
+                  - generic [ref=e205]: 🏆
+                  - heading "Research Leadership" [level=3] [ref=e206]
+                - paragraph [ref=e207]: Recognized as leading youth research and development organization
+            - generic [ref=e209]:
+              - generic [ref=e210]: "2024"
+              - generic [ref=e211]:
+                - generic [ref=e212]:
+                  - generic [ref=e213]: 💡
+                  - heading "10,000+ Youth Reached" [level=3] [ref=e214]
+                - paragraph [ref=e215]: Operating in 50 communities with 15 active programs
+      - region "Awards and recognition" [ref=e216]:
+        - generic [ref=e217]:
+          - generic [ref=e218]:
+            - generic [ref=e219]:
+              - generic [ref=e220]: 🏆
+              - paragraph [ref=e221]: Recognition
+            - heading "Awards & Milestones" [level=2] [ref=e222]
+            - paragraph [ref=e223]: Notable achievements in our journey
+          - generic [ref=e224]:
+            - generic [ref=e225]:
+              - paragraph [ref=e226]: Award Year
+              - paragraph [ref=e227]: "2024"
+              - generic [ref=e229]: 🏅
+              - heading "Kisii Development Forum Recognition" [level=3] [ref=e230]
+              - paragraph [ref=e231]: Recognized for outstanding youth mentorship and research partnerships.
+              - link "Learn more about Kisii Development Forum Recognition" [ref=e232] [cursor=pointer]:
+                - /url: /impact
+                - generic [ref=e233]: Learn more
+                - generic [ref=e234]: →
+            - generic [ref=e235]:
+              - paragraph [ref=e236]: Award Year
+              - paragraph [ref=e237]: "2023"
+              - generic [ref=e239]: 🌍
+              - heading "East African Innovation Index" [level=3] [ref=e240]
+              - paragraph [ref=e241]: Featured for bridging climate action with vocational skills.
+              - link "Learn more about East African Innovation Index" [ref=e242] [cursor=pointer]:
+                - /url: /impact
+                - generic [ref=e243]: Learn more
+                - generic [ref=e244]: →
+            - generic [ref=e245]:
+              - paragraph [ref=e246]: Award Year
+              - paragraph [ref=e247]: "2022"
+              - generic [ref=e249]: 🤝
+              - heading "Youth Networks Alliance Award" [level=3] [ref=e250]
+              - paragraph [ref=e251]: Awarded Best Community-Led Research Collaboration.
+              - link "Learn more about Youth Networks Alliance Award" [ref=e252] [cursor=pointer]:
+                - /url: /impact
+                - generic [ref=e253]: Learn more
+                - generic [ref=e254]: →
+          - link "View all recognition and awards" [ref=e256] [cursor=pointer]:
+            - /url: /impact
+            - generic [ref=e257]: 🏆
+            - generic [ref=e258]: View All
+      - region "Impact statistics and metrics" [ref=e259]:
+        - generic [ref=e260]:
+          - heading "Our Impact by Numbers" [level=2] [ref=e262]
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - generic [ref=e265]: ⏱️
+              - paragraph [ref=e266]: 7+
+              - paragraph [ref=e268]: Years of Youth Impact
+            - generic [ref=e269]:
+              - generic [ref=e270]: 📍
+              - paragraph [ref=e271]: "50"
+              - paragraph [ref=e273]: Communities Served
+            - generic [ref=e274]:
+              - generic [ref=e275]: 👥
+              - paragraph [ref=e276]: 2000+
+              - paragraph [ref=e278]: Youth Empowered
+            - generic [ref=e279]:
+              - generic [ref=e280]: 💼
+              - paragraph [ref=e281]: 75%
+              - paragraph [ref=e283]: Graduate Employment Rate
+      - region "Success stories and testimonials" [ref=e284]:
+        - generic [ref=e285]:
+          - generic [ref=e286]:
+            - generic [ref=e287]:
+              - generic [ref=e288]: 📖
+              - paragraph [ref=e289]: Success Stories
+            - heading "What People Say" [level=2] [ref=e290]
+            - paragraph [ref=e291]: Testimonials from beneficiaries and partners who've experienced our impact
+          - generic [ref=e292]:
+            - generic [ref=e293]:
+              - generic [ref=e294]: ⭐⭐⭐⭐⭐
+              - blockquote [ref=e295]: "\"YoNISeRD transformed my life through their programs and mentorship.\""
+              - generic [ref=e297]:
+                - paragraph [ref=e298]: Youth Leader, Kisii
+                - paragraph [ref=e299]: Program Graduate
+            - generic [ref=e300]:
+              - generic [ref=e301]: ⭐⭐⭐⭐⭐
+              - blockquote [ref=e302]: "\"Their research-driven approach to youth development is exceptional.\""
+              - generic [ref=e304]:
+                - paragraph [ref=e305]: Development Partner
+                - paragraph [ref=e306]: International NGO
+            - generic [ref=e307]:
+              - generic [ref=e308]: ⭐⭐⭐⭐⭐
+              - blockquote [ref=e309]: "\"The impact on our community has been remarkable and sustainable.\""
+              - generic [ref=e311]:
+                - paragraph [ref=e312]: Community Leader
+                - paragraph [ref=e313]: Local Government
+          - link "Read more success stories" [ref=e315] [cursor=pointer]:
+            - /url: /our-work
+            - generic [ref=e316]: 📖
+            - generic [ref=e317]: Read More Stories
+      - region "Core organizational principles" [ref=e318]:
+        - generic [ref=e319]:
+          - generic [ref=e320]:
+            - generic [ref=e321]:
+              - generic [ref=e322]: 🔗
+              - paragraph [ref=e323]: Foundation
+            - heading "Our Core Values" [level=2] [ref=e324]
+            - paragraph [ref=e325]: Principles that guide every decision and partnership
+          - generic [ref=e326]:
+            - button "Youth Empowerment" [ref=e327] [cursor=pointer]:
+              - paragraph [ref=e328]: Youth Empowerment
+            - button "Innovation" [ref=e329] [cursor=pointer]:
+              - paragraph [ref=e330]: Innovation
+            - button "Inclusivity" [ref=e331] [cursor=pointer]:
+              - paragraph [ref=e332]: Inclusivity
+            - button "Collaboration" [ref=e333] [cursor=pointer]:
+              - paragraph [ref=e334]: Collaboration
+            - button "Integrity" [ref=e335] [cursor=pointer]:
+              - paragraph [ref=e336]: Integrity
+            - button "Sustainability" [ref=e337] [cursor=pointer]:
+              - paragraph [ref=e338]: Sustainability
+            - button "Leadership" [ref=e339] [cursor=pointer]:
+              - paragraph [ref=e340]: Leadership
+            - button "Knowledge Sharing" [ref=e341] [cursor=pointer]:
+              - paragraph [ref=e342]: Knowledge Sharing
+      - region "Call to action" [ref=e343]:
+        - generic [ref=e344]:
+          - heading "Ready to Join Our Movement?" [level=2] [ref=e345]
+          - paragraph [ref=e346]: Discover how you can empower youth in Kenya and create lasting, positive change in communities across the nation.
+          - generic [ref=e347]:
+            - link "Get in touch to learn more about our initiatives" [ref=e348] [cursor=pointer]:
+              - /url: /contact
+              - generic [ref=e349]: 📧
+              - generic [ref=e350]: Get in Touch
+            - link "Explore our programs and initiatives" [ref=e351] [cursor=pointer]:
+              - /url: /programs
+              - generic [ref=e352]: 📘
+              - generic [ref=e353]: Explore Programs
+  - contentinfo [ref=e354]:
+    - generic [ref=e355]:
+      - generic [ref=e356]:
+        - generic [ref=e357]:
+          - heading "About YoNISeRD" [level=3] [ref=e358]
+          - paragraph [ref=e359]: Youth Network Integrated Services for Research and Development empowers youth through collaborative networks, innovative research, and sustainable development services.
+        - generic [ref=e360]:
+          - heading "Quick Links" [level=3] [ref=e361]
+          - list [ref=e362]:
+            - listitem [ref=e363]:
+              - link "Home" [ref=e364] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e365]:
+              - link "About Us" [ref=e366] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e367]:
+              - link "Programs" [ref=e368] [cursor=pointer]:
+                - /url: /programs
+            - listitem [ref=e369]:
+              - link "Our Work" [ref=e370] [cursor=pointer]:
+                - /url: /our-work
+            - listitem [ref=e371]:
+              - link "Contact" [ref=e372] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e373]:
+          - heading "Connect With Us" [level=3] [ref=e374]
+          - generic [ref=e375]:
+            - paragraph [ref=e376]:
+              - generic [ref=e377]: 📍
+              - generic [ref=e378]: Kisii, Kenya
+            - paragraph [ref=e379]:
+              - generic [ref=e380]: 📧
+              - link "youthnetwork4@gmail.com" [ref=e381] [cursor=pointer]:
+                - /url: mailto:youthnetwork4@gmail.com
+            - paragraph [ref=e382]:
+              - generic [ref=e383]: 📞
+              - link "+254 725 451 006" [ref=e384] [cursor=pointer]:
+                - /url: tel:+254 725 451 006
+          - generic [ref=e385]:
+            - link "Visit our LinkedIn page" [ref=e386] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/youth-network-integrated-services-for-research-and-development/
+              - img [ref=e387]
+            - link "Visit us on X" [ref=e389] [cursor=pointer]:
+              - /url: https://twitter.com
+              - img [ref=e390]
+            - link "Visit our Instagram page" [ref=e392] [cursor=pointer]:
+              - /url: https://www.instagram.com/yoniserd6?igsh=YmFxY2dzZ3BtbTFp
+              - img [ref=e393]
+            - link "Visit our Facebook page" [ref=e397] [cursor=pointer]:
+              - /url: https://facebook.com
+              - img [ref=e398]
+      - generic [ref=e401]:
+        - paragraph [ref=e402]: © 2026 YoNISeRD | Youth Network Integrated Services for Research and Development
+        - generic [ref=e403]:
+          - generic [ref=e404]: Privacy Policy
+          - generic [ref=e405]: Terms of Service
+          - generic [ref=e406]: Cookie Policy

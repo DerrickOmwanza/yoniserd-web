@@ -1,0 +1,373 @@
+================================================================================
+                    IMPROVED HERO SECTION - LAYOUT REFERENCE
+================================================================================
+
+DESKTOP LAYOUT (≥769px)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  DUAL-TONE GRADIENT BACKGROUND                                              │
+│  Deep Forest (#102C26) ─→ Champagne (#F7E7CE)                               │
+│                                                                              │
+│  ┌─────────────────────────────┬──────────────────────────────┐            │
+│  │ TEXT BLOCK (50%)            │ IMAGE BLOCK (50%)            │            │
+│  │ ─────────────────────────   │ ──────────────────────────   │            │
+│  │                             │                              │            │
+│  │ Empowering Youth,           │  ┌────────────────────────┐  │            │
+│  │ Building Futures            │  │                        │  │            │
+│  │ ───────────────    (accent  │  │   Hero Image           │  │            │
+│  │   underline)       green)   │  │   (500px height)       │  │            │
+│  │                             │  │                        │  │            │
+│  │ Join us in creating         │  │  Gradient Overlay      │  │            │
+│  │ positive change through     │  │  (semi-transparent)    │  │            │
+│  │ youth leadership and        │  │                        │  │            │
+│  │ community engagement        │  │  Image Caption:        │  │            │
+│  │ (green accents)             │  │  "Youth leaders at     │  │            │
+│  │                             │  │   community engagement"│  │            │
+│  │ ┌─────────────────────┐     │  │                        │  │            │
+│  │ │  Get Involved   →   │     │  └────────────────────────┘  │            │
+│  │ └─────────────────────┘     │                              │            │
+│  │ (Emerald Green button)      │                              │            │
+│  │                             │                              │            │
+│  │ Our Partners                │                              │            │
+│  │ ┌──────┐ ┌──────┐           │                              │            │
+│  │ │Logo1 │ │Logo2 │ ...       │                              │            │
+│  │ └──────┘ └──────┘           │                              │            │
+│  │                             │                              │            │
+│  └─────────────────────────────┴──────────────────────────────┘            │
+│                                                                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+TABLET LAYOUT (641-768px)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌───────────────────────────────────────────────────────────┐
+│ DUAL-TONE GRADIENT BACKGROUND                             │
+│                                                            │
+│ ┌──────────────────┬────────────────────┐                │
+│ │ TEXT (50%)       │ IMAGE (50%)        │                │
+│ │                  │                    │                │
+│ │ Empowering       │ ┌────────────────┐ │                │
+│ │ Youth, Building  │ │   Hero Image   │ │                │
+│ │ Futures          │ │   (400px)      │ │                │
+│ │                  │ │                │ │                │
+│ │ Join us...       │ │   Overlay +    │ │                │
+│ │ (green accents)  │ │   Caption      │ │                │
+│ │                  │ │                │ │                │
+│ │ Get Involved →   │ │                │ │                │
+│ │ (button)         │ │                │ │                │
+│ │                  │ │                │ │                │
+│ │ Our Partners:    │ └────────────────┘ │                │
+│ │ [Logo Grid]      │                    │                │
+│ └──────────────────┴────────────────────┘                │
+│                                                            │
+└───────────────────────────────────────────────────────────┘
+
+
+MOBILE LAYOUT (≤640px)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+┌──────────────────────────────────┐
+│ DUAL-TONE GRADIENT BACKGROUND    │
+│                                  │
+│  TEXT BLOCK (100%)               │
+│  ───────────────────────────     │
+│                                  │
+│  Empowering Youth,               │
+│  Building Futures                │
+│  ───────  (green accent)         │
+│                                  │
+│  Join us in creating positive    │
+│  change through youth leadership │
+│  and community engagement        │
+│  (green highlights on keywords)  │
+│                                  │
+│  ┌──────────────────────────┐    │
+│  │  Get Involved →          │    │
+│  └──────────────────────────┘    │
+│  (Full-width button)             │
+│                                  │
+│  Our Partners                    │
+│  ┌────────┬────────┐             │
+│  │ Logo 1 │ Logo 2 │             │
+│  ├────────┼────────┤             │
+│  │ Logo 3 │ Logo 4 │             │
+│  └────────┴────────┘             │
+│  (Responsive grid)               │
+│                                  │
+│  IMAGE BLOCK (100%)              │
+│  ────────────────────────────    │
+│                                  │
+│  ┌──────────────────────────┐    │
+│  │                          │    │
+│  │   Hero Image             │    │
+│  │   (350px height)         │    │
+│  │                          │    │
+│  │   Gradient Overlay       │    │
+│  │   + Caption              │    │
+│  │                          │    │
+│  └──────────────────────────┘    │
+│                                  │
+└──────────────────────────────────┘
+
+
+================================================================================
+                        COLOR REFERENCE
+================================================================================
+
+BACKGROUND & GRADIENTS:
+  Deep Forest     #102C26    Primary background, headings, navbar
+  Champagne       #F7E7CE    Gradient accent, warm tones
+  Gradient        #102C26 → #1a3d34 → #F7E7CE (135° angle)
+
+INTERACTIVE ELEMENTS:
+  Emerald Green   #2E7D32    Buttons, accents, highlights
+  Muted Forest    #145C44    Hover states, darker green
+
+TEXT & CONTRAST:
+  White           #FFFFFF    Primary text (11.5:1 contrast on dark)
+  Transparent     rgba(255,255,255,0.95)  Sub-text, soft white
+
+OVERLAYS:
+  Dark overlay    rgba(16, 44, 38, 0.85)  Caption background
+  Image overlay   135° gradient with opacity
+
+
+================================================================================
+                        BUTTON STATES
+================================================================================
+
+NORMAL STATE:
+┌────────────────────┐
+│  Get Involved  →   │
+└────────────────────┘
+Background: Emerald Green (#2E7D32)
+Text: White
+Shadow: 0 4px 12px rgba(46, 125, 50, 0.3)
+
+
+HOVER STATE:
+┌────────────────────┐
+│  Get Involved  →   │ ← Lifted 2px (transform: translateY(-2px))
+└────────────────────┘
+Background: Muted Forest (#145C44)
+Shadow: 0 6px 20px rgba(20, 92, 68, 0.4) (stronger)
+Arrow: Slides right 4px
+
+
+FOCUS STATE (Keyboard):
+┌┆──────────────────┆┐
+│  Get Involved  →   │
+└┆──────────────────┆┘
+Outline: 3px solid #7EBBBFF (blue)
+Outline offset: 2px
+
+
+ACTIVE STATE (Click):
+┌────────────────────┐
+│  Get Involved  →   │
+└────────────────────┘
+Returns to normal position
+No elevation effect
+
+
+================================================================================
+                        SPACING & RHYTHM
+================================================================================
+
+DESKTOP VERTICAL SPACING:
+  Top padding:             3rem
+  Heading → Subheading:    1.5rem
+  Subheading → Button:     2.5rem
+  Button → Partners:       3rem
+  Partner label separator: 2rem top border
+
+TABLET VERTICAL SPACING:
+  Top padding:             2rem
+  Heading → Subheading:    1.25rem
+  Subheading → Button:     2rem
+  Button → Partners:       2.5rem
+
+MOBILE VERTICAL SPACING:
+  Top padding:             1.5rem
+  Heading → Subheading:    1rem
+  Subheading → Button:     1.5rem
+  Button → Partners:       2rem
+
+HORIZONTAL SPACING:
+  Desktop gap between columns: 2rem
+  Tablet/Mobile padding:       1.5rem sides
+
+
+================================================================================
+                        FONT SIZES
+================================================================================
+
+DESKTOP:
+  Heading (h1):      3rem       (48px)  - Bold, white, green accent
+  Subheading:        1.25rem    (20px)  - Medium, white with accents
+  Button text:       1.1rem     (18px)  - Bold, white
+  Caption text:      0.95rem    (15px)  - Medium, white
+
+TABLET:
+  Heading:           2rem       (32px)
+  Subheading:        1rem       (16px)
+  Button:            1rem       (16px)
+  Caption:           0.9rem     (14px)
+
+MOBILE:
+  Heading:           1.5rem     (24px)
+  Subheading:        0.95rem    (15px)
+  Button:            0.95rem    (15px)
+  Caption:           0.85rem    (13px)
+
+
+================================================================================
+                        SHADOW & DEPTH
+================================================================================
+
+IMAGE CONTAINER:
+  Box shadow: 0 20px 40px rgba(0, 0, 0, 0.3)
+  Adds depth and separation from background
+
+BUTTON NORMAL:
+  Box shadow: 0 4px 12px rgba(46, 125, 50, 0.3)
+  Subtle lift effect
+
+BUTTON HOVER:
+  Box shadow: 0 6px 20px rgba(20, 92, 68, 0.4)
+  Enhanced elevation effect
+
+PARTNER LOGO HOVER:
+  Box shadow: 0 4px 12px rgba(46, 125, 50, 0.2)
+  Subtle interactive feedback
+
+
+================================================================================
+                        ANIMATIONS
+================================================================================
+
+IMAGE FADE-IN:
+  Duration:  0.6 seconds
+  Easing:    ease-in-out
+  Property:  opacity (0 → 1)
+  Result:    Smooth appearance on page load
+
+BUTTON HOVER:
+  Duration:  0.3 seconds
+  Easing:    cubic-bezier(0.4, 0, 0.2, 1)
+  Effects:   - Color change (#2E7D32 → #145C44)
+             - Elevation translateY(-2px)
+             - Shadow increase
+
+ARROW ANIMATION:
+  Duration:  0.3 seconds
+  Effect:    Arrow slides right +4px on button hover
+
+PARTNER LOGO HOVER:
+  Duration:  0.3 seconds
+  Effects:   - Scale: 1 → 1.05 (5% larger)
+             - Background fade
+             - Border glow
+
+
+================================================================================
+                        ACCESSIBILITY FEATURES
+================================================================================
+
+FOCUS INDICATORS:
+  Width:        3px
+  Color:        #7EBBBFF (Friendly blue)
+  Outline:      solid
+  Offset:       2px
+  Visible on:   Button, partner logos, all interactive elements
+
+CONTRAST RATIOS:
+  White on Deep Forest:    11.5:1 (AAA - exceeds AA)
+  Green on Dark:           5.2:1  (AA+)
+  All text meets AA+ minimum standard (4.5:1)
+
+KEYBOARD NAVIGATION:
+  Tab:   Cycles through interactive elements (button, logos)
+  Enter: Activates links/buttons
+  Focus: Always visible with blue outline
+
+REDUCED MOTION:
+  On prefers-reduced-motion: reduce
+  All animations disabled
+  No transitions
+  Instant state changes
+
+
+================================================================================
+                        RESPONSIVE BREAKPOINTS
+================================================================================
+
+DESKTOP:   ≥ 769px
+  Layout:  50/50 grid (side-by-side)
+  Heading: 3rem
+  Image:   500px height
+  Logos:   4-column grid
+
+TABLET:    641px - 768px
+  Layout:  Transitional (50/50 → stacked)
+  Heading: 2rem
+  Image:   400px height
+  Logos:   3-column grid
+
+MOBILE:    481px - 640px
+  Layout:  100% stacked (text above image)
+  Heading: 1.5rem
+  Image:   350px height
+  Logos:   2-column grid
+
+SMALL MOBILE: ≤ 480px
+  Layout:  100% stacked
+  Heading: 1.5rem
+  Image:   280px height
+  Logos:   1-2 column responsive
+
+
+================================================================================
+                        FILE STRUCTURE REFERENCE
+================================================================================
+
+ImprovedHeroSection.jsx
+├── Imports (React, Link, CSS)
+├── Component declaration
+├── Props: heroImage, partnersLogos (optional)
+├── State: imageLoaded
+├── useEffect: Image preloading
+├── JSX Structure:
+│  ├── Outer section
+│  ├── Gradient background div
+│  ├── Container grid
+│  │  ├── Text block column
+│  │  │  ├── Heading with accent
+│  │  │  ├── Subheading with accents
+│  │  │  ├── CTA button
+│  │  │  └── Partner logos (conditional)
+│  │  └── Image block column
+│  │     ├── Gradient overlay
+│  │     ├── Hero image
+│  │     └── Image caption
+│  └── Close tags
+└── Export
+
+ImprovedHeroSection.css
+├── CSS Variables (colors, sizes)
+├── Section & container styles
+├── Background gradient styles
+├── Text block styles (heading, subheading, CTA, partners)
+├── Image block styles (container, overlay, caption)
+├── Interactive states (hover, focus, active)
+├── Media queries (tablet, mobile, small mobile)
+└── Accessibility features (focus-visible, reduced-motion)
+
+
+================================================================================
+                        This is a visual reference guide for the layout,
+                        colors, spacing, and behavior of the ImprovedHeroSection.
+                        For complete details, see IMPROVED_HERO_VISUAL_REFERENCE.md
+================================================================================

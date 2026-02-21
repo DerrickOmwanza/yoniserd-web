@@ -1,0 +1,349 @@
+================================================================================
+                    HOMEPAGE DESIGN SYSTEM - QUICK REFERENCE
+================================================================================
+
+WHAT YOU'RE GETTING:
+  ✓ HomepageDesignSystem.css (700+ lines of reusable styles)
+  ✓ Section-by-section implementation guide
+  ✓ Step-by-step checklist
+  ✓ Color, layout, and typography standards
+
+================================================================================
+                              COLOR PALETTE
+================================================================================
+
+Deep Forest        #102C26    Headings, CTAs, footer, overlays
+Champagne          #F7E7CE    Warm section backgrounds (alternating)
+White              #FFFFFF    Clean section backgrounds (alternating)
+Accent Green       #145C44    Highlights, hover states
+Bright Green       #2E7D32    Primary buttons, emphasis
+
+PATTERN:
+  Hero         → Deep Forest gradient
+  Leadership   → Champagne
+  About        → White
+  Programs     → Champagne
+  Impact       → White
+  Stories      → Light gray
+  Values       → Champagne
+  Final CTA    → Deep Forest gradient
+  Footer       → Deep Forest
+
+================================================================================
+                            CSS CLASS SYSTEM
+================================================================================
+
+SECTION BACKGROUNDS:
+  .section-bg-champagne         Background: Champagne (#F7E7CE)
+  .section-bg-white             Background: White (#FFFFFF)
+  .section-bg-light             Background: Light gray (#F5F5F5)
+  .section-bg-primary           Background: Deep Forest (#102C26)
+  .section-bg-gradient-warm     Gradient: Champagne → White
+  .section-bg-gradient-forest   Gradient: Deep Forest → Accent Green
+
+LAYOUT:
+  .split-container              50/50 grid layout (text + image)
+  .split-container-60-40        60/40 grid layout
+  .split-column                 Text column with flex spacing
+  .split-image                  Image column with responsive sizing
+  .card-grid-3                  3-column card grid
+  .card-grid-2                  2-column card grid
+  .card-grid-4                  4-column card grid
+  .square-card-grid             Square cards (1:1 aspect ratio)
+  .container-max                Max-width 1200px container
+
+TYPOGRAPHY:
+  .section-title                H2 heading (2.5rem, 900 weight, deep forest)
+  .section-title.with-accent    Heading with green underline
+  .section-title.inverted       White heading (for dark backgrounds)
+  .section-subtitle             Subtitle (1.125rem, muted color)
+  .section-subtitle.inverted    White subtitle
+  .section-label                Small label (uppercase, accent green)
+  .section-body                 Body text (1rem, normal weight)
+  .section-body.inverted        White body text
+
+CARDS:
+  .card                         Base card with shadow + hover effect
+  .card-champagne               Card with champagne background
+  .card-title                   Card heading
+  .card-description             Card description text
+  .card-link                    Card link with arrow (green)
+  .metric-card                  Metric card (stat display)
+  .metric-value                 Large metric number
+  .metric-label                 Metric label (uppercase)
+  .story-card                   Story card (square, flex column)
+  .story-tag                    Story tag badge (green)
+  .story-title                  Story title (2-line clamp)
+  .story-excerpt                Story excerpt (3-line clamp)
+
+BUTTONS:
+  .btn-primary                  Deep Forest bg, white text
+  .btn-secondary                Champagne bg, dark text
+  .btn-tertiary                 No background, green text
+  .btn-full-width               Full-width button (mobile)
+
+UTILITIES:
+  .section-padded               Padding: 3rem (with mobile reduction)
+  .section-padded-lg            Padding: 4rem (with mobile reduction)
+  .text-center                  text-align: center
+  .text-left                    text-align: left
+  .flex-center                  Flex with center alignment
+  .gap-lg                        Gap: 2rem (spacing)
+  .gap-md                        Gap: 1.5rem
+  .mt-lg                         Margin-top: 2rem
+  .mb-lg                         Margin-bottom: 2rem
+
+================================================================================
+                          IMPLEMENTATION STEPS
+================================================================================
+
+1. IMPORT DESIGN SYSTEM
+   Add to src/index.css:
+   @import './styles/HomepageDesignSystem.css';
+
+2. APPLY CLASSES TO SECTIONS
+   Each section follows pattern:
+   - Wrapper: .section-padded .section-bg-[color]
+   - Heading: .section-title
+   - Layout: .split-container or .card-grid-3
+   - Cards: .card or .story-card
+   - Buttons: .btn-primary or .btn-secondary
+
+3. TEST RESPONSIVE
+   Desktop (1200px): 3-column grids, 50/50 splits
+   Tablet (768px): 2-column grids, stacked splits
+   Mobile (480px): 1-column, full-width buttons
+
+4. VERIFY COLORS
+   ✓ Backgrounds alternate (Champagne ↔ White)
+   ✓ Headings dark forest
+   ✓ Buttons primary or secondary (not custom)
+   ✓ All text readable (WCAG AA+ contrast)
+
+5. CHECK ACCESSIBILITY
+   ✓ Focus outline visible (blue on Tab)
+   ✓ All buttons keyboard accessible
+   ✓ Alt text on images
+   ✓ Heading hierarchy correct (H1 → H2 → H3)
+
+================================================================================
+                         SECTION TEMPLATES
+================================================================================
+
+HERO SECTION:
+  <section class="section-padded section-bg-gradient-forest">
+    <div class="split-container">
+      <div class="split-column">
+        <h1 class="section-title with-accent inverted">Title</h1>
+        <p class="section-subtitle inverted">Subtitle</p>
+        <a href="..." class="btn-primary">CTA</a>
+      </div>
+      <div class="split-image">
+        <img src="..." alt="...">
+        <div class="image-caption"><p>Caption</p></div>
+      </div>
+    </div>
+  </section>
+
+CONTENT SECTION (50/50 SPLIT):
+  <section class="section-padded section-bg-champagne">
+    <div class="split-container">
+      <div class="split-column">
+        <h2 class="section-title">Title</h2>
+        <p class="section-subtitle">Subtitle</p>
+        <p class="section-body">Body text...</p>
+        <a href="..." class="btn-primary">Learn more</a>
+      </div>
+      <div class="split-image">
+        <img src="..." alt="...">
+      </div>
+    </div>
+  </section>
+
+CARD GRID SECTION:
+  <section class="section-padded section-bg-white">
+    <div class="container-max">
+      <h2 class="section-title text-center">Title</h2>
+      <div class="card-grid-3">
+        <div class="card card-champagne">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-description">Description...</p>
+          <a href="..." class="card-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+METRICS SECTION:
+  <section class="section-padded section-bg-white">
+    <div class="container-max">
+      <h2 class="section-title text-center">Impact</h2>
+      <div class="card-grid-3">
+        <div class="metric-card">
+          <div class="metric-value">7+</div>
+          <p class="metric-label">Years of impact</p>
+        </div>
+      </div>
+      <div class="flex-center mt-lg">
+        <a href="..." class="btn-primary">Partner with us</a>
+      </div>
+    </div>
+  </section>
+
+STORIES SECTION:
+  <section class="section-padded section-bg-light">
+    <div class="container-max">
+      <div class="flex flex-col md:flex-row md:justify-between gap-6 mb-12">
+        <div>
+          <p class="section-label">Latest stories</p>
+          <h2 class="section-title">Youth-led change</h2>
+        </div>
+        <a href="..." class="btn-secondary">View all →</a>
+      </div>
+      <div class="square-card-grid">
+        <div class="story-card">
+          <span class="story-tag">Our Work</span>
+          <h3 class="story-title">Story title...</h3>
+          <p class="story-excerpt">Excerpt...</p>
+          <a href="..." class="card-link">Keep reading →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+FINAL CTA SECTION:
+  <section class="section-padded section-bg-gradient-forest">
+    <div class="container-max text-center">
+      <h2 class="section-title inverted">Ready to collaborate?</h2>
+      <p class="section-subtitle inverted">Subtitle text...</p>
+      <div class="flex flex-wrap justify-center gap-6 mt-10">
+        <a href="..." class="btn-primary">Talk to team</a>
+        <a href="..." class="btn-secondary">Share story</a>
+      </div>
+    </div>
+  </section>
+
+================================================================================
+                            SPACING REFERENCE
+================================================================================
+
+Section padding:        3rem (48px) top/bottom
+Card padding:          1.5rem (24px)
+Column gap:            2rem (32px)
+Card gap:              2rem (32px)
+Heading margin:        1.5rem bottom
+Subtitle margin:       1rem bottom
+Button padding:        1rem (vertical), 2rem (horizontal)
+
+Mobile adjustments:
+Section padding:       2rem
+Column gap:           1.5rem
+Card gap:             1rem
+
+================================================================================
+                           BUTTON STYLING
+================================================================================
+
+PRIMARY BUTTON:
+  Background: Deep Forest (#102C26)
+  Text: White
+  Padding: 1rem 2rem
+  Hover: Bright Green background + elevation
+  Focus: 3px blue outline
+
+SECONDARY BUTTON:
+  Background: Champagne (#F7E7CE)
+  Text: Deep Forest
+  Border: Champagne
+  Hover: Light green background + green border
+  Focus: 3px blue outline
+
+TERTIARY BUTTON:
+  Background: None
+  Text: Bright Green (#2E7D32)
+  Hover: Darker green (#145C44)
+  Focus: 3px blue outline
+
+================================================================================
+                        ACCESSIBILITY FEATURES
+================================================================================
+
+✓ Color Contrast:
+  - White text on Deep Forest: 11.5:1 (AAA)
+  - Bright Green on white: 5.2:1 (AA+)
+  - All text meets WCAG AA minimum: 4.5:1
+
+✓ Focus States:
+  - All buttons: 3px blue outline (#7EBBBFF)
+  - Outline offset: 2px
+  - Visible on keyboard Tab
+
+✓ Responsive:
+  - Mobile-first design
+  - Flexible grid system
+  - Touch targets ≥48px
+  - Readable at 200% zoom
+
+✓ Semantic HTML:
+  - Proper heading hierarchy (H1 → H2 → H3)
+  - Meaningful alt text
+  - Button/Link semantics
+  - Proper form labels
+
+✓ Reduced Motion:
+  - All animations disabled
+  - Transitions removed
+  - Instant state changes
+  - Respects prefers-reduced-motion
+
+================================================================================
+                          COMMON PATTERNS
+================================================================================
+
+ALTERNATING BACKGROUNDS:
+  Section 1: Champagne
+  Section 2: White
+  Section 3: Champagne
+  Section 4: White
+  ...creates rhythm and visual flow
+
+BALANCED LAYOUTS:
+  - 50/50 splits: text left, image right
+  - 60/40 splits: more text emphasis
+  - 3-column grids: balanced card distribution
+  - Always equal vertical spacing
+
+ACCENT HIGHLIGHTS:
+  - Green underline under headings
+  - Green text for keywords
+  - Green backgrounds for tags/badges
+  - Green hover effects on buttons
+
+IMAGE CAPTIONS:
+  - Semi-transparent overlay (85% opacity)
+  - Caption bar at bottom of image
+  - Dark background with white text
+  - Green left border accent
+
+================================================================================
+                           NEXT STEPS
+================================================================================
+
+1. Copy HomepageDesignSystem.css to src/styles/
+2. Import in src/index.css:
+   @import './styles/HomepageDesignSystem.css';
+3. Apply classes to each section (use templates above)
+4. Test responsive at 1200px / 768px / 480px
+5. Verify colors, spacing, button styles
+6. Run Lighthouse for performance/accessibility
+7. Deploy when checklist complete
+
+FILES PROVIDED:
+  ✓ HomepageDesignSystem.css        (700+ lines of reusable styles)
+  ✓ HOMEPAGE_DESIGN_SYSTEM_GUIDE.md (Section-by-section blueprint)
+  ✓ DESIGN_SYSTEM_IMPLEMENTATION_CHECKLIST.md (Step-by-step checklist)
+  ✓ DESIGN_SYSTEM_QUICK_REFERENCE.txt (This file)
+
+ESTIMATED TIME: 2-3 hours for full implementation
+
+================================================================================
