@@ -38,7 +38,7 @@ const simpleLinks = [
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  const [mobileDropdowns, setMobileDropdowns] = useState({});
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
@@ -56,10 +56,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const handleMobileToggle = (label) => {
-    setMobileDropdowns((prev) => ({
-      ...prev,
-      [label]: !prev[label],
-    }));
+    setMobileOpenDropdown((prev) => (prev === label ? null : label));
   };
 
   return (
@@ -161,7 +158,7 @@ const Navbar = () => {
       {/* Slide-in drawer panel */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-screen w-80 bg-slate-900/90 backdrop-blur-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-out flex flex-col border-l border-white/10 ${
+        className={`fixed top-0 right-0 h-screen w-[10vw] max-w-[80px] bg-[#102C26] backdrop-blur-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-300 ease-out flex flex-col border-l border-white/10 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -195,22 +192,22 @@ const Navbar = () => {
           {dropdownMenus.map((menu) => (
             <div key={menu.label}>
               <button
-                 type="button"
-                 className="w-full px-4 py-4 text-left bg-white/5 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-400 transition-all duration-200 flex items-center justify-between border-b border-white/10 cursor-pointer z-10 relative"
-                 onClick={() => handleMobileToggle(menu.label)}
-                 aria-expanded={Boolean(mobileDropdowns[menu.label])}
-               >
-                 <span className="text-white font-bold text-base block">{menu.label}</span>
-                 <svg
-                   className={`w-5 h-5 text-white/70 transition-transform ${mobileDropdowns[menu.label] ? 'rotate-180' : ''}`}
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  type="button"
+                  className="w-full px-4 py-4 text-left bg-white/5 hover:bg-white/15 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-400 transition-all duration-200 flex items-center justify-between border-b border-white/10 cursor-pointer z-10 relative"
+                  onClick={() => handleMobileToggle(menu.label)}
+                  aria-expanded={mobileOpenDropdown === menu.label}
                 >
-                  <path d="M5 7l5 5 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-              {mobileDropdowns[menu.label] && (
+                  <span className="text-white font-bold text-base block">{menu.label}</span>
+                  <svg
+                    className={`w-5 h-5 text-white/70 transition-transform ${mobileOpenDropdown === menu.label ? 'rotate-180' : ''}`}
+                   viewBox="0 0 20 20"
+                   fill="none"
+                   xmlns="http://www.w3.org/2000/svg"
+                 >
+                   <path d="M5 7l5 5 5-5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                 </svg>
+               </button>
+               {mobileOpenDropdown === menu.label && (
                 <div className="mobile-dropdown">
                   {menu.items.map((item) => (
                     <NavLink
@@ -218,7 +215,7 @@ const Navbar = () => {
                       to={item.to}
                       onClick={() => {
                         closeMenu();
-                        setMobileDropdowns({});
+                        setMobileOpenDropdown(null);
                       }}
                       className="block w-full px-6 py-3 bg-white/5 hover:bg-white/10 transition-colors text-white border-b border-white/10"
                     >
@@ -238,7 +235,7 @@ const Navbar = () => {
               className="block w-full px-4 py-4 font-bold text-white bg-white/5 hover:bg-white/15 transition-colors border-b border-white/10 text-base"
               onClick={() => {
                 closeMenu();
-                setMobileDropdowns({});
+                setMobileOpenDropdown(null);
               }}
             >
               {link.label}
@@ -250,7 +247,7 @@ const Navbar = () => {
             className="block w-full m-4 px-4 py-3 text-center font-bold text-base bg-cyan-400 text-slate-900 rounded-lg hover:bg-cyan-300 transition-colors"
             onClick={() => {
               closeMenu();
-              setMobileDropdowns({});
+              setMobileOpenDropdown(null);
             }}
           >
             Contact Us
