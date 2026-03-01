@@ -229,45 +229,62 @@ footer address {
     top: calc(100% + 0.75rem);
     left: 50%;
     transform: translateX(-50%) translateY(-10px);
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, #050F2A 0%, #0A1F2E 100%);
     color: #fff;
     padding: 1.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 
+                0 0 1px rgba(126, 187, 191, 0.1);
     min-width: 18rem;
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
-    border-top: 4px solid var(--primary-purple);
+    border-top: 4px solid #7EBBBF;
+    border: 1px solid rgba(126, 187, 191, 0.15);
     opacity: 0;
     pointer-events: none;
     transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+                transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
     will-change: opacity, transform;
     contain: layout style paint;
+    backdrop-filter: blur(10px);
 }
 
 .dropdown-wrapper.open .dropdown-panel {
     opacity: 1;
     pointer-events: auto;
     transform: translateX(-50%) translateY(0);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(126, 187, 191, 0.15);
 }
 
 .dropdown-link {
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
-    padding: 0.35rem 0;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
     transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
 }
 
 .dropdown-link:hover {
-    padding-left: 0.5rem;
+    background-color: rgba(126, 187, 191, 0.1);
+    padding-left: 1rem;
+}
+
+.dropdown-link strong {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-link:hover strong {
+    color: #7EBBBF;
 }
 
 .dropdown-link span {
     font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.7);
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     font-weight: 400;
     text-transform: none;
