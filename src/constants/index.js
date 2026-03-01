@@ -65,13 +65,6 @@ export const BOARD_MEMBER_1_INFO = {
 
 // Board Member 2 Information
 export const BOARD_MEMBER_2_INFO = {
-    name: 'EUGENE GWAYA',
-    title: 'Board Member',
-    description: 'Mental health advocate and Sexual Reproductive Health Advocate',
-};
-
-// Programme Officer 2 Information
-export const PROGRAMME_OFFICER_2_INFO = {
     name: 'Sherille Adoyo',
     title: 'Programme Officer',
     description: 'Responsible for assisting in the planning, implementation, and monitoring of various programs and projects.',

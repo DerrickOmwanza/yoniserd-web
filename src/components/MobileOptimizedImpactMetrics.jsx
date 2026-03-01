@@ -119,9 +119,13 @@ const MobileOptimizedImpactMetrics = memo(() => {
     return (
         <section
             ref={sectionRef}
-            className="py-12 md:py-20 px-4 md:px-6 bg-gradient-contrast"
+            className="py-12 md:py-20 px-4 md:px-6"
             aria-label="Impact metrics"
-            style={{ contain: 'layout style paint' }}
+            style={{ 
+                contain: 'layout style paint',
+                backgroundImage: 'linear-gradient(135deg, #0A1F2E 0%, #0A2139 100%)',
+                backgroundColor: '#0A1F2E'
+            }}
         >
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-16 text-white-primary">

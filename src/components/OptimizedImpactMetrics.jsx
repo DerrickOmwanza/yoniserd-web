@@ -92,9 +92,13 @@ const OptimizedImpactMetrics = memo(() => {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-20 px-6 bg-gradient-contrast"
+      className="py-16 md:py-20 px-6"
       aria-label="Impact metrics"
-      style={{ contain: 'layout style paint' }} // CSS containment for performance
+      style={{ 
+        contain: 'layout style paint', // CSS containment for performance
+        backgroundImage: 'linear-gradient(135deg, #0A1F2E 0%, #0A2139 100%)',
+        backgroundColor: '#0A1F2E'
+      }}
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-white-primary">

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/HomepageDesignSystem.css';
 import Layout from '../components/Layout';
 import YouthLeadershipSection from '../components/YouthLeadershipSection';
 import AboutHeroSectionStyled from '../components/AboutHeroSectionStyled';
@@ -120,7 +121,7 @@ const Home = () => {
                 </section>
 
                 {/* Impact Metrics */}
-                 <section id="impact">
+                 <section id="impact" style={{ backgroundImage: 'linear-gradient(135deg, #0A1F2E 0%, #0A2139 100%)', backgroundColor: '#0A1F2E' }}>
                      <ImpactMetricsComponent />
                  </section>
 

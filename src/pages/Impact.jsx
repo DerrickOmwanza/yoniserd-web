@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
-import img1 from '../assets/gallery1.jpg';
-import img2 from '../assets/gallery2.jpg';
-import img3 from '../assets/gallery3.jpg';
-import img4 from '../assets/gallery4.jpg';
 
 const Impact = () => {
   const [counts, setCounts] = useState({
@@ -14,98 +10,82 @@ const Impact = () => {
     employment: 0,
   });
   const [hasAnimated, setHasAnimated] = useState(false);
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const sectionRef = useRef(null);
 
   const metrics = [
-    { label: 'Youth Reached', value: 10000, key: 'youth', icon: '👥' },
-    { label: 'Communities Served', value: 50, key: 'communities', icon: '🌍' },
-    { label: 'Programs Running', value: 15, key: 'programs', icon: '📊' },
-    { label: 'Employment Success Rate', value: 75, key: 'employment', icon: '💼' },
+    { label: 'Youth Reached', value: 10000, key: 'youth' },
+    { label: 'Communities Served', value: 50, key: 'communities' },
+    { label: 'Programs Running', value: 15, key: 'programs' },
+    { label: 'Employment Success Rate', value: 75, key: 'employment' },
   ];
 
   const impactAreas = [
     {
       title: 'Youth Empowerment',
-      description: 'Vocational training, mentorship, and leadership development.',
+      description: 'Providing vocational training, mentorship, and leadership development to young people across 50 communities.',
       icon: '🚀',
-      stat: '10,000+ youth trained',
+      stats: '10,000+ youth trained',
     },
     {
       title: 'Economic Resilience',
-      description: 'Sustainable livelihoods through skills and job placement.',
+      description: 'Enabling sustainable livelihoods through skills training, entrepreneurship support, and job placement.',
       icon: '💼',
-      stat: '75% employment rate',
+      stats: '75% employment rate',
     },
     {
       title: 'Community Health',
-      description: 'Youth-led health campaigns and disease prevention.',
+      description: 'Youth-led health awareness campaigns on reproductive health, mental wellness, and disease prevention.',
       icon: '💚',
-      stat: '2,500+ reached annually',
+      stats: '2,500+ reached annually',
     },
     {
       title: 'Environmental Action',
-      description: 'Climate-smart initiatives and land restoration.',
+      description: 'Climate-smart initiatives led by youth, including land restoration and sustainable agriculture.',
       icon: '🌍',
-      stat: '50+ hectares restored',
+      stats: '50+ hectares restored',
     },
     {
       title: 'Research & Evidence',
-      description: 'Rigorous research to inform policy and impact.',
+      description: 'Building evidence through rigorous research to document impact and inform policy decisions.',
       icon: '📊',
-      stat: '5+ publications',
+      stats: '5+ publications',
     },
     {
       title: 'Gender Equality',
-      description: 'Empowering young women as leaders.',
+      description: 'Empowering young women as leaders in their communities and tackling gender-based violence.',
       icon: '👩‍⚖️',
-      stat: '3,000+ girls reached',
+      stats: '3,000+ girls reached',
     },
   ];
 
   const testimonials = [
     {
-      quote: 'YoNISeRD gave me the skills to start my business. Now I employ 5 other youth.',
+      quote: 'YoNISeRD gave me the skills and confidence to start my own business. Now I employ 5 other youth in my community.',
       author: 'Dennis',
-      role: 'Business Owner',
+      role: 'Carpentry Business Owner',
       icon: '🏗️',
     },
     {
-      quote: 'The mentorship changed my perspective on leadership. I now lead a health club.',
+      quote: 'The mentorship I received changed my perspective on leadership. I now lead a health club at my school.',
       author: 'Sarah',
       role: 'Youth Health Leader',
       icon: '👩‍⚕️',
     },
     {
-      quote: 'Our partnership amplified our environmental efforts. Together we restored 50 hectares.',
+      quote: 'Our partnership with YoNISeRD has amplified our environmental efforts. Together we restored 50 hectares of land.',
       author: 'Mr. Kipchoge',
       role: 'Community Partner',
       icon: '🌱',
     },
     {
-      quote: 'YoNISeRD research shaped our youth development policy at county level.',
+      quote: 'The research conducted by YoNISeRD helped shape our youth development policy at the county level.',
       author: 'Dr. Kiplagat',
       role: 'Policy Maker',
       icon: '📋',
     },
   ];
 
-  const stackedImages = [
-    { image: img1, title: 'Community Engagement', description: 'Youth leaders organizing community awareness campaigns.' },
-    { image: img2, title: 'Health Advocacy', description: 'Young advocates promoting mental health and wellbeing.' },
-    { image: img3, title: 'Large-Scale Campaigns', description: 'Community members participating in health awareness walks.' },
-    { image: img4, title: 'Field Work', description: 'Our team delivering health initiatives across Kisii region.' },
-  ];
-
-  // Auto-rotate images every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveImageIndex((prev) => (prev + 1) % stackedImages.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [stackedImages.length]);
-
+  // Intersection Observer to trigger animation when section comes into view
   useEffect(() => {
     const currentRef = sectionRef.current;
     const observer = new IntersectionObserver(
@@ -129,8 +109,9 @@ const Impact = () => {
     };
   }, [hasAnimated]);
 
+  // Animate counter from 0 to target value
   const animateCounters = () => {
-    const duration = 2000;
+    const duration = 2000; // 2 seconds
     const startTime = Date.now();
 
     const updateCounts = () => {
@@ -154,95 +135,69 @@ const Impact = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="py-10 md:py-12 px-6 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <h1
-              className="text-3xl md:text-4xl font-bold mb-2 text-center uppercase tracking-wide"
-              style={{ color: '#102C26', letterSpacing: '0.05em' }}
-            >
+      <div className="min-h-screen bg-gradient-contrast">
+        {/* Page Header */}
+        <section className="bg-gradient-to-br from-brand-blue to-brand-pink py-16 md:py-24 px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Our Impact
             </h1>
-            <p
-              className="text-center text-base md:text-lg max-w-3xl mx-auto italic"
-              style={{ color: '#145C44' }}
-            >
+            <p className="text-white/90 text-lg md:text-xl">
               7 years of measurable change, youth-led innovation, and sustainable development across Kenya's communities.
             </p>
           </div>
         </section>
 
         {/* Key Metrics */}
-        <section ref={sectionRef} className="py-12 px-6" style={{ backgroundColor: '#F7E7CE' }}>
+        <section
+          ref={sectionRef}
+          className="py-16 md:py-24 px-6 bg-gradient-contrast"
+        >
           <div className="max-w-6xl mx-auto">
-            <h2
-              className="text-2xl md:text-3xl font-bold mb-10 text-center"
-              style={{ color: '#102C26' }}
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
               Impact by the Numbers
             </h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {metrics.map((metric) => (
                 <div
                   key={metric.key}
-                  className="text-center p-5 md:p-6 rounded-lg transition-all duration-300 hover:shadow-lg"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid #E8F3EE',
-                  }}
+                  className="text-center p-8 md:p-10 rounded-xl backdrop-blur-md bg-white/8 border border-white/15 hover:bg-white/15 hover:scale-105 transition-all shadow-xl"
                 >
-                  <div className="text-3xl mb-2">{metric.icon}</div>
-                  <div className="text-2xl md:text-3xl font-bold mb-2" style={{ color: '#145C44' }}>
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-4">
                     {metric.key === 'youth' && `${counts.youth.toLocaleString()}+`}
                     {metric.key === 'communities' && `${counts.communities}+`}
                     {metric.key === 'programs' && counts.programs}
                     {metric.key === 'employment' && `${counts.employment}%`}
                   </div>
-                  <p className="text-xs md:text-sm" style={{ color: '#102C26' }}>
-                    {metric.label}
-                  </p>
+                  <p className="text-lg md:text-xl text-white/80 font-semibold">{metric.label}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Areas of Impact */}
-        <section className="py-12 px-6 bg-white">
+        {/* Impact Areas */}
+        <section className="py-16 md:py-24 px-6 bg-gradient-ocean">
           <div className="max-w-6xl mx-auto">
-            <h2
-              className="text-2xl md:text-3xl font-bold mb-10 text-center"
-              style={{ color: '#102C26' }}
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
               Areas of Impact
             </h2>
+            <p className="text-center text-white/80 max-w-2xl mx-auto mb-16">
+              Our work spans multiple sectors, always putting youth and communities at the center of change.
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {impactAreas.map((area, index) => (
                 <div
                   key={index}
-                  className="p-5 rounded-lg transition-all duration-300 hover:shadow-lg group h-full"
-                  style={{
-                    backgroundColor: index % 2 === 0 ? '#F7E7CE' : '#FFFFFF',
-                    border: '1px solid #E8F3EE',
-                  }}
+                  className="bg-white/10 backdrop-blur-md border border-white/15 rounded-xl p-8 hover:bg-white/15 transition-all duration-300"
                 >
-                  <div className="text-3xl mb-3 transition-transform duration-300 group-hover:scale-110">
-                    {area.icon}
-                  </div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#145C44' }}>
-                    {area.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: '#8B8B8B' }}>
-                    {area.description}
-                  </p>
-                  <div
-                    className="pt-3 border-t text-xs font-semibold"
-                    style={{ borderColor: '#E8F3EE', color: '#145C44' }}
-                  >
-                    {area.stat}
+                  <div className="text-5xl mb-4">{area.icon}</div>
+                  <h3 className="text-2xl font-bold text-white mb-3">{area.title}</h3>
+                  <p className="text-white/80 mb-4">{area.description}</p>
+                  <div className="pt-4 border-t border-white/10">
+                    <p className="text-primary-blue font-semibold">{area.stats}</p>
                   </div>
                 </div>
               ))}
@@ -250,330 +205,163 @@ const Impact = () => {
           </div>
         </section>
 
-        {/* Voices of Change */}
-        <section className="py-12 px-6" style={{ backgroundColor: '#F7E7CE' }}>
+        {/* Testimonials */}
+        <section className="py-16 md:py-24 px-6 bg-light">
           <div className="max-w-6xl mx-auto">
-            <h2
-              className="text-2xl md:text-3xl font-bold mb-10 text-center"
-              style={{ color: '#102C26' }}
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
               Voices of Change
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-8">
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="p-6 rounded-lg shadow-sm transition-all duration-300 hover:shadow-md"
-                  style={{
-                    backgroundColor: '#FFFFFF',
-                    border: '1px solid #E8F3EE',
-                  }}
+                  className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all"
                 >
-                  <div className="flex items-start gap-3 mb-4">
-                    <span className="text-3xl flex-shrink-0">{testimonial.icon}</span>
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="text-4xl">{testimonial.icon}</span>
                     <div>
-                      <p className="font-bold" style={{ color: '#102C26' }}>
-                        {testimonial.author}
-                      </p>
-                      <p className="text-xs" style={{ color: '#145C44' }}>
-                        {testimonial.role}
-                      </p>
+                      <p className="text-gray-900 font-bold">{testimonial.author}</p>
+                      <p className="text-primary-blue text-sm font-semibold">{testimonial.role}</p>
                     </div>
                   </div>
-                  <p className="text-sm leading-relaxed italic" style={{ color: '#666666' }}>
-                    "{testimonial.quote}"
-                  </p>
+                  <p className="text-gray-700 italic text-lg">"{testimonial.quote}"</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Stacked Overlay Animation - Real Impact */}
-        <section className="py-12 px-6 bg-white">
+        {/* Impact Timeline */}
+        <section className="py-16 md:py-24 px-6 bg-gradient-contrast">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white">
+              Our Journey
+            </h2>
+
+            <div className="space-y-8">
+              {[
+                { year: '2018', milestone: 'Official Registration', description: 'YoNISeRD officially registered as an NGO on 30th April, 2018' },
+                { year: '2019', milestone: 'First Programs Launched', description: 'Seed of Hope vocational training and Community Health initiatives begin' },
+                { year: '2020', milestone: 'Community Expansion', description: 'Extended operations to 20 communities across Kenya during COVID-19 response' },
+                { year: '2021', milestone: 'Research Hub Launched', description: 'Created dedicated space for youth-led research and evidence-building' },
+                { year: '2023', milestone: 'Policy Influence', description: 'Our evidence shaped national youth development strategies' },
+                { year: '2024', milestone: '10,000+ Youth Reached', description: 'Operating in 50 communities with 15 active programs and growing impact' },
+              ].map((item, index) => (
+                <div key={index} className="flex gap-6 md:gap-8">
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 rounded-full bg-primary-blue text-primary-dark font-bold text-xl flex items-center justify-center">
+                      {item.year.slice(-2)}
+                    </div>
+                    {index < 5 && <div className="w-1 h-20 bg-white/20 mt-4"></div>}
+                  </div>
+                  <div className="pb-8">
+                    <h3 className="text-2xl font-bold text-white mb-2">{item.milestone}</h3>
+                    <p className="text-white/80 text-lg">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Photo Showcase */}
+        <section className="py-16 md:py-24 px-6 bg-light">
           <div className="max-w-6xl mx-auto">
-            <h2
-              className="text-2xl md:text-3xl font-bold mb-4 text-center"
-              style={{ color: '#102C26' }}
-            >
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900">
               Real Impact, Real People
             </h2>
-            <p className="text-center text-sm md:text-base max-w-2xl mx-auto mb-10" style={{ color: '#666666' }}>
+            <p className="text-center text-gray-700 max-w-2xl mx-auto mb-16">
               See our work in action through the voices and faces of the communities we serve.
             </p>
 
-            <div className="max-w-4xl mx-auto">
-              {/* Stacked Image Container */}
-              <div className="relative h-80 md:h-96 mb-8">
-                {stackedImages.map((img, index) => {
-                  const isActive = index === activeImageIndex;
-                  const isBefore = index < activeImageIndex;
-                  const translateY = isBefore ? -20 : (isActive ? 0 : 20);
-                  const opacity = isActive ? 1 : 0.3;
-
-                  return (
-                    <div
-                      key={index}
-                      className="absolute inset-0 rounded-lg overflow-hidden transition-all duration-700 ease-out"
-                      style={{
-                        transform: `translateY(${translateY}px)`,
-                        opacity: opacity,
-                        zIndex: activeImageIndex === index ? 10 : 5 - index,
-                        visibility: isActive || isBefore ? 'visible' : 'hidden',
-                      }}
-                    >
-                      <img
-                        src={img.image}
-                        alt={img.title}
-                        className="w-full h-full object-cover"
-                      />
-                      
-                      {/* Bottom Gradient Overlay - Minimal coverage */}
-                      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80" />
-                      
-                      {/* Overlay Content - Text at bottom only */}
-                      {isActive && (
-                        <div 
-                          className="absolute bottom-0 left-0 right-0 p-6 md:p-8 animate-fadeIn"
-                          style={{ zIndex: 20 }}
-                        >
-                          {/* Title */}
-                          <h3 
-                            className="text-xl md:text-2xl font-bold mb-2 uppercase tracking-wide"
-                            style={{ 
-                              color: '#FFFFFF',
-                              textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)',
-                              letterSpacing: '0.05em',
-                            }}
-                          >
-                            {img.title}
-                          </h3>
-                          
-                          {/* Description */}
-                          <p 
-                            className="text-xs md:text-sm leading-relaxed max-w-2xl"
-                            style={{ 
-                              color: '#F0F0F0',
-                              textShadow: '1px 1px 3px rgba(0, 0, 0, 0.8)',
-                              lineHeight: '1.5',
-                            }}
-                          >
-                            {img.description}
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Navigation Dots */}
-              <div className="flex justify-center gap-3">
-                {stackedImages.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveImageIndex(index)}
-                    className="transition-all duration-300 rounded-full"
-                    style={{
-                      width: activeImageIndex === index ? '32px' : '12px',
-                      height: '12px',
-                      backgroundColor: activeImageIndex === index ? '#145C44' : '#E8F3EE',
-                      border: 'none',
-                      cursor: 'pointer',
-                    }}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="rounded-xl overflow-hidden shadow-xl group">
+                <div className="relative overflow-hidden h-72">
+                  <img
+                    src={require('../assets/gallery1.jpg')}
+                    alt="Youth Community Events"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                ))}
+                </div>
+                <div className="bg-white p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Community Engagement</h3>
+                  <p className="text-gray-600">Youth leaders organizing impactful community awareness campaigns.</p>
+                </div>
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Journey/Timeline - Horizontal Format */}
-        <section className="py-16 px-6" style={{ backgroundColor: '#F7E7CE' }}>
-          <div className="max-w-6xl mx-auto">
-            <h2
-              className="text-2xl md:text-3xl font-bold mb-3 text-center uppercase tracking-wide"
-              style={{ color: '#102C26', letterSpacing: '0.05em' }}
-            >
-              Our Journey
-            </h2>
-            <p
-              className="text-center text-sm md:text-base max-w-2xl mx-auto mb-12 italic"
-              style={{ color: '#145C44' }}
-            >
-              Milestones that shaped our impact across Kenya's communities
-            </p>
+              <div className="rounded-xl overflow-hidden shadow-xl group">
+                <div className="relative overflow-hidden h-72">
+                  <img
+                    src={require('../assets/gallery2.jpg')}
+                    alt="Mental Health Awareness"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="bg-white p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Health Advocacy</h3>
+                  <p className="text-gray-600">Young advocates promoting mental health and wellbeing in communities.</p>
+                </div>
+              </div>
 
-            {/* Horizontal Timeline - Desktop */}
-            <div className="hidden md:block">
-              <div className="relative px-4 py-12">
-                {/* Timeline Line */}
-                <div
-                  className="absolute top-1/2 left-0 right-0 h-1 transform -translate-y-1/2"
-                  style={{ backgroundColor: '#145C44' }}
-                />
+              <div className="rounded-xl overflow-hidden shadow-xl group">
+                <div className="relative overflow-hidden h-72">
+                  <img
+                    src={require('../assets/gallery3.jpg')}
+                    alt="National Mental Health Walk"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="bg-white p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Large-Scale Campaigns</h3>
+                  <p className="text-gray-600">Thousands of community members participating in health awareness walks.</p>
+                </div>
+              </div>
 
-                {/* Timeline Markers Container */}
-                <div className="flex justify-between relative z-10">
-                  {[
-                    { year: '2018', milestone: 'Official Registration', desc: 'YoNISeRD registered as an NGO', icon: '📜' },
-                    { year: '2019', milestone: 'First Programs Launched', desc: 'Seed of Hope and Community Health begin', icon: '🚀' },
-                    { year: '2020', milestone: 'Community Expansion', desc: 'Extended to 20 communities during COVID-19', icon: '🌍' },
-                    { year: '2021', milestone: 'Research Hub Launched', desc: 'Created space for youth-led research', icon: '📊' },
-                    { year: '2023', milestone: 'Policy Influence', desc: 'Evidence shaped national youth strategies', icon: '🏛️' },
-                    { year: '2024', milestone: '10,000+ Youth Reached', desc: 'Operating in 50 communities, 15 programs', icon: '👥' },
-                  ].map((item, index) => (
-                    <div
-                      key={index}
-                      className="flex flex-col items-center group cursor-pointer flex-1"
-                      style={{
-                        animation: `slideUp 0.6s ease-out ${index * 0.1}s both`,
-                      }}
-                    >
-                      {/* Card - alternates above and below timeline */}
-                      <div
-                        className={`relative mb-8 md:mb-0 transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1 rounded-lg p-4 text-center ${
-                          index % 2 === 0 ? 'md:mb-20' : 'md:mt-20'
-                        }`}
-                        style={{
-                          backgroundColor: '#FFFFFF',
-                          border: '2px solid #145C44',
-                          width: '160px',
-                          minHeight: '140px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <div className="text-2xl mb-2">{item.icon}</div>
-                        <h3 className="font-bold text-xs md:text-sm leading-tight" style={{ color: '#102C26' }}>
-                          {item.milestone}
-                        </h3>
-                        <p className="text-xs mt-2 leading-tight" style={{ color: '#666666' }}>
-                          {item.desc}
-                        </p>
-                      </div>
-
-                      {/* Connecting Line - only for non-mobile */}
-                      <div
-                        className={`hidden md:block absolute w-1 transition-all duration-300 group-hover:bg-yellow-600 ${
-                          index % 2 === 0 ? 'top-full' : 'bottom-full'
-                        }`}
-                        style={{
-                          backgroundColor: '#145C44',
-                          height: '20px',
-                          opacity: 0.3,
-                        }}
-                      />
-
-                      {/* Milestone Marker - Circle on the line */}
-                      <div
-                        className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-white shadow-md transition-all duration-300 group-hover:scale-125 group-hover:shadow-2xl relative z-20"
-                        style={{
-                          backgroundColor: '#102C26',
-                          fontSize: '20px',
-                        }}
-                      >
-                        {item.year.slice(-2)}
-                      </div>
-                    </div>
-                  ))}
+              <div className="rounded-xl overflow-hidden shadow-xl group">
+                <div className="relative overflow-hidden h-72">
+                  <img
+                    src={require('../assets/gallery4.jpg')}
+                    alt="Community Health Campaigns"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+                <div className="bg-white p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">Field Work</h3>
+                  <p className="text-gray-600">Our team delivering health initiatives and support across Kisii region.</p>
                 </div>
               </div>
             </div>
-
-            {/* Mobile Timeline - Vertical Zig-Zag */}
-            <div className="md:hidden space-y-4 px-2">
-              {[
-                { year: '2018', milestone: 'Official Registration', desc: 'YoNISeRD registered as an NGO', icon: '📜' },
-                { year: '2019', milestone: 'First Programs Launched', desc: 'Seed of Hope and Community Health begin', icon: '🚀' },
-                { year: '2020', milestone: 'Community Expansion', desc: 'Extended to 20 communities during COVID-19', icon: '🌍' },
-                { year: '2021', milestone: 'Research Hub Launched', desc: 'Created space for youth-led research', icon: '📊' },
-                { year: '2023', milestone: 'Policy Influence', desc: 'Evidence shaped national youth strategies', icon: '🏛️' },
-                { year: '2024', milestone: '10,000+ Youth Reached', desc: 'Operating in 50 communities, 15 programs', icon: '👥' },
-              ].map((item, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 p-5 rounded-lg transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  style={{
-                    backgroundColor: index % 2 === 0 ? '#FFFFFF' : '#F0F9F6',
-                    border: '2px solid #145C44',
-                    animation: `slideUp 0.6s ease-out ${index * 0.1}s both`,
-                  }}
-                >
-                  <div className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center font-bold text-white text-sm" style={{ backgroundColor: '#102C26' }}>
-                    {item.year}
-                  </div>
-                  <div className="flex-grow">
-                    <h3 className="font-bold text-base" style={{ color: '#102C26' }}>
-                      {item.milestone}
-                    </h3>
-                    <p className="text-sm mt-2 leading-relaxed" style={{ color: '#666666' }}>
-                      {item.desc}
-                    </p>
-                  </div>
-                  <div className="text-2xl flex-shrink-0">{item.icon}</div>
-                </div>
-              ))}
-            </div>
           </div>
-
-          <style>{`
-            @keyframes slideUp {
-              from {
-                opacity: 0;
-                transform: translateY(20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-          `}</style>
         </section>
 
         {/* CTA Section */}
-        <section className="py-12 px-6 bg-white">
+        <section className="py-16 px-6 bg-gradient-to-br from-primary-purple to-blue-600">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#102C26' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Be Part of the Change
             </h2>
-            <p className="text-base md:text-lg mb-8 max-w-2xl mx-auto" style={{ color: '#666666' }}>
+            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
               Join us in creating lasting impact. Whether through volunteering, partnership, or support, your involvement matters.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex px-8 py-3 rounded font-semibold transition-all duration-300 hover:shadow-lg"
-              style={{
-                backgroundColor: '#102C26',
-                color: '#FFFFFF',
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#145C44';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = '#102C26';
-              }}
-            >
-              Get Involved
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-white text-primary-purple font-bold py-3 px-8 rounded-lg hover:bg-primary-light transition-all duration-200 hover:scale-105"
+              >
+                Partner with Us
+                <span>→</span>
+              </Link>
+              <Link
+                to="/contact#volunteer"
+                className="inline-flex items-center gap-2 border-2 border-white text-white font-bold py-3 px-8 rounded-lg hover:bg-white hover:text-primary-purple transition-all duration-200"
+              >
+                Volunteer
+                <span>→</span>
+              </Link>
+            </div>
           </div>
         </section>
-
-        <style>{`
-          @keyframes fadeIn {
-            from {
-              opacity: 0;
-            }
-            to {
-              opacity: 1;
-            }
-          }
-          .animate-fadeIn {
-            animation: fadeIn 0.6s ease-in-out;
-          }
-        `}</style>
       </div>
     </Layout>
   );

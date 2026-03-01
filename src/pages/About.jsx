@@ -2,15 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import PrinciplesModal from '../components/PrinciplesModal';
-import { ORG_INFO, CEO_INFO, MANAGING_DIRECTOR_INFO, BOARD_MEMBER_1_INFO, BOARD_MEMBER_2_INFO, PROGRAMME_OFFICER_2_INFO } from '../constants';
+import { ORG_INFO, CEO_INFO, MANAGING_DIRECTOR_INFO, BOARD_MEMBER_1_INFO, BOARD_MEMBER_2_INFO } from '../constants';
 import ceo from '../assets/ceo.png';
-import managingDirector from '../assets/Managing Director.jpg';
+import managingDirector from '../assets/managing director1.jpg';
 import fieldOfficer from '../assets/Field Officer.jpg';
 import programmeOfficer from '../assets/programme officer.jpeg';
 import certificate from '../assets/gallery11.jpg';
 import boardMember1 from '../assets/Board Member1.jpeg';
-import boardMember2 from '../assets/Board Member2.jpeg';
-import programmeOfficer2 from '../assets/programme officer2.jpeg';
+import boardMember2 from '../assets/programme officer2.jpeg';
 
 const About = () => {
     const [activeSection, setActiveSection] = useState('mission');
@@ -599,8 +598,12 @@ const About = () => {
                                     <img
                                         src={managingDirector}
                                         alt={`${MANAGING_DIRECTOR_INFO.name}, Managing Director`}
-                                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 group-hover:scale-105 transition-transform duration-300"
-                                        style={{ borderColor: '#145C44' }}
+                                        className="w-28 h-28 rounded-full object-cover shadow-lg border-4 group-hover:scale-105 transition-transform duration-300"
+                                        style={{ 
+                                            borderColor: '#145C44',
+                                            filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
+                                            WebkitFilter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                                        }}
                                     />
                                 </div>
 
@@ -627,8 +630,12 @@ const About = () => {
                                     <img
                                         src={programmeOfficer}
                                         alt="Catherine Ngotho, Programme Officer"
-                                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 group-hover:scale-105 transition-transform duration-300"
-                                        style={{ borderColor: '#145C44' }}
+                                        className="w-28 h-28 rounded-full object-cover shadow-lg border-4 group-hover:scale-105 transition-transform duration-300"
+                                        style={{ 
+                                            borderColor: '#145C44',
+                                            filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
+                                            WebkitFilter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                                        }}
                                     />
                                 </div>
 
@@ -655,8 +662,12 @@ const About = () => {
                                     <img
                                         src={fieldOfficer}
                                         alt="Odliah Temba, Field Officer"
-                                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 group-hover:scale-105 transition-transform duration-300"
-                                        style={{ borderColor: '#145C44' }}
+                                        className="w-28 h-28 rounded-full object-cover shadow-lg border-4 group-hover:scale-105 transition-transform duration-300"
+                                        style={{ 
+                                            borderColor: '#145C44',
+                                            filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
+                                            WebkitFilter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                                        }}
                                     />
                                 </div>
 
@@ -683,8 +694,12 @@ const About = () => {
                                     <img
                                         src={boardMember1}
                                         alt={`${BOARD_MEMBER_1_INFO.name}, Board Member`}
-                                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 group-hover:scale-105 transition-transform duration-300"
-                                        style={{ borderColor: '#145C44' }}
+                                        className="w-28 h-28 rounded-full object-cover shadow-lg border-4 group-hover:scale-105 transition-transform duration-300"
+                                        style={{ 
+                                            borderColor: '#145C44',
+                                            filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
+                                            WebkitFilter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                                        }}
                                     />
                                 </div>
 
@@ -703,16 +718,20 @@ const About = () => {
                                 </p>
                             </div>
 
-                            {/* Board Member 2 Card */}
+                            {/* Board Member 2 Card - Now Sherille Adoyo (Programme Officer) */}
                             <div
                                 className="group bg-white rounded-xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col items-center text-center"
                             >
                                 <div className="relative mb-6">
                                     <img
                                         src={boardMember2}
-                                        alt={`${BOARD_MEMBER_2_INFO.name}, Board Member`}
-                                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 group-hover:scale-105 transition-transform duration-300"
-                                        style={{ borderColor: '#145C44' }}
+                                        alt={`${BOARD_MEMBER_2_INFO.name}, Programme Officer`}
+                                        className="w-28 h-28 rounded-full object-cover shadow-lg border-4 group-hover:scale-105 transition-transform duration-300"
+                                        style={{ 
+                                            borderColor: '#145C44',
+                                            filter: 'brightness(1.05) contrast(1.1) saturate(1.1)',
+                                            WebkitFilter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                                        }}
                                     />
                                 </div>
 
@@ -728,34 +747,6 @@ const About = () => {
 
                                 <p className="text-xs md:text-sm leading-snug" style={{ color: '#565449' }}>
                                     {BOARD_MEMBER_2_INFO.description}
-                                </p>
-                            </div>
-
-                            {/* Programme Officer 2 Card */}
-                            <div
-                                className="group bg-white rounded-xl p-8 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-100 flex flex-col items-center text-center"
-                            >
-                                <div className="relative mb-6">
-                                    <img
-                                        src={programmeOfficer2}
-                                        alt={`${PROGRAMME_OFFICER_2_INFO.name}, Programme Officer`}
-                                        className="w-28 h-28 rounded-full object-cover shadow-md border-4 group-hover:scale-105 transition-transform duration-300"
-                                        style={{ borderColor: '#145C44' }}
-                                    />
-                                </div>
-
-                                <h3 className="text-lg md:text-xl font-bold mb-1" style={{ color: '#102C26' }}>
-                                    {PROGRAMME_OFFICER_2_INFO.name}
-                                </h3>
-
-                                <p className="text-sm md:text-base font-semibold mb-3" style={{ color: '#145C44' }}>
-                                    {PROGRAMME_OFFICER_2_INFO.title}
-                                </p>
-
-                                <div className="w-6 h-0.5 bg-gradient-to-r from-accent-green to-champagne mb-3" />
-
-                                <p className="text-xs md:text-sm leading-snug" style={{ color: '#565449' }}>
-                                    {PROGRAMME_OFFICER_2_INFO.description}
                                 </p>
                             </div>
                         </div>

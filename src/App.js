@@ -9,7 +9,6 @@ import Contact from './pages/Contact';
 import News from './pages/News';
 import Impact from './pages/Impact';
 import Gallery from './pages/Gallery';
-import PrinciplePage from './pages/PrinciplePage';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -26,7 +25,6 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/impact" element={<Impact />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/values/:principle" element={<PrinciplePage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>

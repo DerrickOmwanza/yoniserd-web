@@ -261,25 +261,29 @@
 
 /* Image caption - anchored within image */
 .image-caption {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  z-index: 3;
-  background: rgba(16, 44, 38, 0.85);
-  color: white;
-  padding: 1rem;
-  border-radius: 6px;
-  border-left: 4px solid #2E7D32;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.4;
-  backdrop-filter: blur(4px);
+   position: absolute;
+   bottom: 1.5rem;
+   left: 1.5rem;
+   right: 1.5rem;
+   z-index: 3;
+   background: rgba(16, 44, 38, 0.95);
+   color: #FFFFFF;
+   padding: 1rem;
+   border-radius: 6px;
+   border-left: 4px solid #2E7D32;
+   font-size: 0.95rem;
+   font-weight: 700;
+   line-height: 1.5;
+   backdrop-filter: blur(8px);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+   letter-spacing: 0.3px;
+   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .image-caption p {
-  margin: 0;
-  padding: 0;
+   margin: 0;
+   padding: 0;
+   color: #FFFFFF;
 }
 
 /* ===== MOBILE RESPONSIVE ===== */
