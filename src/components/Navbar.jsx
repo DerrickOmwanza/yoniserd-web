@@ -56,10 +56,14 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   const handleMobileToggle = (label) => {
-    setMobileDropdowns((prev) => ({
-      ...prev,
-      [label]: !prev[label],
-    }));
+    setMobileDropdowns((prev) => {
+      // If the clicked dropdown is already open, close it
+      if (prev[label]) {
+        return { ...prev, [label]: false };
+      }
+      // If it's closed, open it and close all others
+      return { [label]: true };
+    });
   };
 
   return (
