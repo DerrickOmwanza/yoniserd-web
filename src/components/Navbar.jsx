@@ -116,12 +116,19 @@ const Navbar = () => {
           ))}
 
           {simpleLinks.map((link) => (
-            <NavLink key={link.label} to={link.to} className="nav-link">
+            <NavLink
+              key={link.label}
+              to={link.to}
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
               {link.label}
             </NavLink>
           ))}
 
-          <NavLink to="/contact" className="brand-cta">
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => `brand-cta ${isActive ? 'active' : ''}`}
+          >
             Contact
           </NavLink>
         </div>

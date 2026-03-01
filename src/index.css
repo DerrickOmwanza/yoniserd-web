@@ -173,6 +173,14 @@ footer address {
     color: var(--sandstone);
 }
 
+.brand-nav .nav-link.active {
+    color: var(--sandstone);
+}
+
+.brand-nav .nav-link.active::after {
+    transform: scaleX(1);
+}
+
 .brand-nav .brand-cta {
     color: #fff;
     font-size: 0.95rem;
@@ -204,7 +212,13 @@ footer address {
     color: var(--sandstone);
 }
 
+.brand-nav .brand-cta.active {
+    color: var(--sandstone);
+}
 
+.brand-nav .brand-cta.active::after {
+    transform: scaleX(1);
+}
 
 .dropdown-wrapper {
     position: relative;
