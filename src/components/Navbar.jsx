@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
@@ -39,9 +39,25 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [mobileDropdowns, setMobileDropdowns] = useState({});
+  const dropdownTimeoutRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const closeMenu = () => setIsMenuOpen(false);
+
+  // Handle dropdown open with clear timeout
+  const handleDropdownEnter = (label) => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    setActiveDropdown(label);
+  };
+
+  // Handle dropdown close with delay
+  const handleDropdownLeave = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 300); // 300ms delay before closing
+  };
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -83,8 +99,8 @@ const Navbar = () => {
             <div
               key={menu.label}
               className={`dropdown-wrapper ${activeDropdown === menu.label ? 'open' : ''}`}
-              onMouseEnter={() => setActiveDropdown(menu.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
+              onMouseEnter={() => handleDropdownEnter(menu.label)}
+              onMouseLeave={() => handleDropdownLeave()}
             >
               <button type="button" className="nav-link flex items-center gap-2">
                 {menu.label}
@@ -99,7 +115,7 @@ const Navbar = () => {
                   <path d="M1 3L5 7L9 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
-              <div className="dropdown-panel" onMouseEnter={() => setActiveDropdown(menu.label)} onMouseLeave={() => setActiveDropdown(null)}>
+              <div className="dropdown-panel" onMouseEnter={() => handleDropdownEnter(menu.label)} onMouseLeave={() => handleDropdownLeave()}>
                 {menu.items.map((item) => (
                   <NavLink
                     key={item.label}

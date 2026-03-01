@@ -222,6 +222,7 @@ footer address {
 
 .dropdown-wrapper {
     position: relative;
+    padding-bottom: 8px;
 }
 
 .dropdown-panel {
