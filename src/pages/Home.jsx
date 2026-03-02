@@ -121,7 +121,7 @@ const Home = () => {
                 </section>
 
                 {/* Impact Metrics */}
-                 <section id="impact" style={{ backgroundImage: 'linear-gradient(135deg, #0A1F2E 0%, #0A2139 100%)', backgroundColor: '#0A1F2E' }}>
+                 <section id="impact" style={{ backgroundImage: 'linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%)', backgroundColor: 'var(--navy-900)' }}>
                      <ImpactMetricsComponent />
                  </section>
 

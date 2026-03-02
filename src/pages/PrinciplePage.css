@@ -1,7 +1,7 @@
 .principle-ticker-container {
   overflow: hidden;
-  background: #F7E7CE;
-  color: #102C26;
+  background: var(--champagne);
+  color: var(--forest-dark);
   padding: 2rem 1rem;
   border-radius: 12px;
   position: relative;

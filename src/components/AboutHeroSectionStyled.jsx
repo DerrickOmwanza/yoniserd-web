@@ -58,7 +58,7 @@ const AboutHeroSectionStyled = ({
       aria-label="About Us with visual slideshow"
       className="w-full"
       style={{
-        background: 'linear-gradient(to right, #F7E7CE 0%, #F7E7CE 50%, #102C26 50%, #102C26 100%)',
+        background: 'linear-gradient(to right, var(--champagne) 0%, var(--champagne) 50%, var(--forest-dark) 50%, var(--forest-dark) 100%)',
         padding: '3rem 0'
       }}
     >
@@ -70,7 +70,7 @@ const AboutHeroSectionStyled = ({
           <div className="flex flex-col justify-center space-y-6 animate-slideInLeft py-8 lg:py-0">
             {/* Section Label */}
             <div>
-              <p className="text-sm md:text-base font-bold uppercase tracking-widest mb-4 transition-all duration-500" style={{ color: '#102C26' }}>
+              <p className="text-sm md:text-base font-bold uppercase tracking-widest mb-4 transition-all duration-500" style={{ color: 'var(--forest-dark)' }}>
                 Our Foundation
               </p>
             </div>
@@ -79,7 +79,7 @@ const AboutHeroSectionStyled = ({
             <div>
               <h1 
                 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-4 transition-all duration-500"
-                style={{ color: '#102C26' }}
+                style={{ color: 'var(--forest-dark)' }}
               >
                 Research-driven programs
                 <br />
@@ -87,7 +87,7 @@ const AboutHeroSectionStyled = ({
               </h1>
               <p 
                 className="text-lg md:text-xl font-semibold italic opacity-80 mb-6"
-                style={{ color: '#145C44' }}
+                style={{ color: 'var(--forest)' }}
               >
                 Creating measurable, meaningful impact
               </p>
@@ -96,10 +96,10 @@ const AboutHeroSectionStyled = ({
             {/* Body Text */}
             <p 
               className="text-lg leading-relaxed opacity-95"
-              style={{ color: '#102C26' }}
+              style={{ color: 'var(--forest-dark)' }}
             >
               We work alongside local partners to co-design initiatives that respond to the priorities of children, young women, and grassroots innovators. Our approach blends rigorous research with{' '}
-              <span className="font-bold" style={{ color: '#0f4c3a' }}>
+              <span className="font-bold" style={{ color: 'var(--forest-mid)' }}>
                 human-centered design
               </span>{' '}
               so impact is measurable—and meaningful.
@@ -111,11 +111,11 @@ const AboutHeroSectionStyled = ({
                 to="/about#mission"
                 className="inline-flex items-center justify-center px-8 py-4 font-bold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 text-white"
                 style={{
-                  backgroundColor: '#102C26',
-                  color: '#FFFFFF',
+                  backgroundColor: 'var(--forest-dark)',
+                  color: 'var(--white)',
                 }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#145C44'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#102C26'}
+                onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--forest)'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--forest-dark)'}
                 aria-label="Learn our story"
               >
                 Learn our story
@@ -124,12 +124,12 @@ const AboutHeroSectionStyled = ({
                 to="/about#leadership"
                 className="inline-flex items-center justify-center px-8 py-4 font-bold rounded-lg transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4"
                 style={{
-                  backgroundColor: '#F7E7CE',
-                  color: '#102C26',
-                  border: '2px solid #102C26',
+                  backgroundColor: 'var(--champagne)',
+                  color: 'var(--forest-dark)',
+                  border: '2px solid var(--forest-dark)',
                 }}
-                onMouseEnter={(e) => e.target.style.backgroundColor = '#e6d2b8'}
-                onMouseLeave={(e) => e.target.style.backgroundColor = '#F7E7CE'}
+                onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--champagne-hover)'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--champagne)'}
                 aria-label="Meet the leadership team"
               >
                 Meet the leadership
@@ -185,7 +185,7 @@ const AboutHeroSectionStyled = ({
                 <p 
                   className="text-2xl md:text-3xl font-bold leading-tight"
                   style={{
-                    color: '#FFFFFF',
+                    color: 'var(--white)',
                     textShadow: '0 2px 8px rgba(0, 0, 0, 0.7), 0 4px 12px rgba(0, 0, 0, 0.5)',
                     letterSpacing: '0.5px'
                   }}
@@ -255,18 +255,17 @@ const AboutHeroSectionStyled = ({
                   style={{
                     width: index === currentIndex ? '2.5rem' : '0.75rem',
                     height: '0.75rem',
-                    backgroundColor: index === currentIndex ? '#102C26' : '#9CA3AF',
-                    focusRingColor: '#102C26'
+                    backgroundColor: index === currentIndex ? 'var(--forest-dark)' : 'var(--gray-slate-light)'
                   }}
-                  onMouseEnter={(e) => !e.target.style.width && (e.target.style.backgroundColor = '#4B5563')}
-                  onMouseLeave={(e) => !e.target.style.width && (e.target.style.backgroundColor = '#9CA3AF')}
+                  onMouseEnter={(e) => !e.target.style.width && (e.target.style.backgroundColor = 'var(--gray-slate-dark)')}
+                  onMouseLeave={(e) => !e.target.style.width && (e.target.style.backgroundColor = 'var(--gray-slate-light)')}
                 />
               ))}
             </div>
 
             {/* Slide Counter */}
             <div className="text-center mt-4 md:mt-6">
-              <p className="text-sm font-semibold opacity-75" style={{ color: '#102C26' }}>
+              <p className="text-sm font-semibold opacity-75" style={{ color: 'var(--forest-dark)' }}>
                 {currentIndex + 1} <span className="opacity-50">/ {totalSlides}</span>
               </p>
             </div>
@@ -334,7 +333,7 @@ const AboutHeroSectionStyled = ({
         /* Mobile responsive adjustments */
         @media (max-width: 1024px) {
           section {
-            background: #F7E7CE !important;
+            background: var(--champagne) !important;
           }
         }
       `}</style>

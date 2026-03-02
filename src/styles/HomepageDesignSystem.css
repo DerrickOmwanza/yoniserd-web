@@ -6,16 +6,16 @@
 /* ===== COLOR PALETTE (4-color system) ===== */
 :root {
   /* Brand Colors */
-  --color-primary: #102C26;           /* Deep Forest - headings, CTAs, overlays */
-  --color-secondary: #F7E7CE;         /* Champagne - warm section backgrounds */
-  --color-accent: #145C44;            /* Accent Green - highlights, hover states */
-  --color-accent-bright: #2E7D32;     /* Bright Green - primary CTAs */
+  --color-primary: var(--forest-dark);           /* Deep Forest - headings, CTAs, overlays */
+  --color-secondary: var(--champagne);           /* Champagne - warm section backgrounds */
+  --color-accent: var(--forest);                 /* Accent Green - highlights, hover states */
+  --color-accent-bright: var(--emerald);         /* Bright Green - primary CTAs */
   
   /* Neutral Colors */
-  --color-white: #FFFFFF;
-  --color-light: #F5F5F5;             /* Off-white backgrounds */
-  --color-text-dark: #102C26;         /* Primary text */
-  --color-text-muted: #6B6B6B;        /* Secondary text */
+  --color-white: var(--white);
+  --color-light: var(--surface-offwhite-alt);    /* Off-white backgrounds */
+  --color-text-dark: var(--forest-dark);         /* Primary text */
+  --color-text-muted: var(--text-gray);          /* Secondary text */
   
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -373,7 +373,7 @@
 }
 
 .btn-primary:focus-visible {
-  outline: 3px solid #7EBBBFF;
+  outline: 3px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
@@ -401,7 +401,7 @@
 }
 
 .btn-secondary:focus-visible {
-  outline: 3px solid #7EBBBFF;
+  outline: 3px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
@@ -426,7 +426,7 @@
 }
 
 .btn-tertiary:focus-visible {
-  outline: 3px solid #7EBBBFF;
+  outline: 3px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
@@ -482,7 +482,7 @@
   padding: 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid #102C26;
+  border: 2px solid var(--forest-dark);
   position: relative;
 }
 
@@ -493,7 +493,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #E8D5C4;
+  background: var(--champagne-deep);
   border-radius: 1.25rem;
   opacity: 0;
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -503,7 +503,7 @@
 .story-card:hover {
   box-shadow: 0 12px 32px rgba(46, 125, 50, 0.15);
   transform: translateY(-6px);
-  border-color: #E8D5C4;
+  border-color: var(--champagne-deep);
 }
 
 .story-card:hover::before {
@@ -512,7 +512,7 @@
 
 .story-tag {
   display: inline-block;
-  background-color: #2E7D32;
+  background-color: var(--emerald);
   color: var(--color-white);
   font-size: 0.75rem;
   font-weight: 700;
@@ -528,13 +528,13 @@
 }
 
 .story-card:hover .story-tag {
-  background-color: #2E7D32;
+  background-color: var(--emerald);
 }
 
 .story-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #102C26;
+  color: var(--forest-dark);
   margin: 0 0 var(--spacing-sm) 0;
   line-height: 1.4;
   display: -webkit-box;
@@ -547,12 +547,12 @@
 }
 
 .story-card:hover .story-title {
-  color: #102C26;
+  color: var(--forest-dark);
 }
 
 .story-excerpt {
   font-size: 1rem;
-  color: #4C4F54;
+  color: var(--text-dark-secondary);
   margin: 0 0 var(--spacing-md) 0;
   flex-grow: 1;
   line-height: 1.6;
@@ -566,11 +566,11 @@
 }
 
 .story-card:hover .story-excerpt {
-  color: #2C2C2C;
+  color: var(--text-darker);
 }
 
 .story-card .card-link {
-  color: #2E7D32;
+  color: var(--emerald);
   font-weight: 700;
   font-size: 1rem;
   position: relative;
@@ -589,12 +589,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #2E7D32;
+  background: var(--emerald);
   transition: width 0.3s ease;
 }
 
 .story-card:hover .card-link {
-  color: #145C44;
+  color: var(--forest);
 }
 
 .story-card:hover .card-link::after {

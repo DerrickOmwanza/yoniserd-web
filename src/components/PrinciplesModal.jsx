@@ -12,12 +12,12 @@ const PrinciplesModal = () => {
           <button
             key={principle.slug}
             onClick={() => setSelectedPrinciple(principle)}
-            className="principle-card bg-white p-8 rounded-lg shadow-md border border-gray-100 transition-all duration-300 transform hover:shadow-xl hover:-translate-y-2 cursor-pointer group text-left hover:bg-[#F7E7CE]"
+            className="principle-card bg-white p-8 rounded-lg shadow-md border border-gray-100 transition-all duration-300 transform hover:shadow-xl hover:-translate-y-2 cursor-pointer group text-left hover:bg-[var(--champagne)]"
             style={{
               animation: `staggerFadeUp 600ms ease-out ${index * 100}ms both`
             }}
           >
-            <p className="text-[#102C26] font-semibold text-base md:text-lg group-hover:text-[#102C26] transition-colors">
+            <p className="text-[var(--forest-dark)] font-semibold text-base md:text-lg group-hover:text-[var(--forest-dark)] transition-colors">
               {principle.title}
             </p>
           </button>
@@ -45,12 +45,12 @@ const PrinciplesModal = () => {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Principle Title */}
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#102C26] mb-8 text-center">
+            <h2 className="text-4xl md:text-5xl font-extrabold text-[var(--forest-dark)] mb-8 text-center">
               {selectedPrinciple.title}
             </h2>
 
             {/* Single Line Definition */}
-            <p className="text-xl md:text-2xl text-[#102C26] text-center font-medium leading-relaxed whitespace-normal">
+            <p className="text-xl md:text-2xl text-[var(--forest-dark)] text-center font-medium leading-relaxed whitespace-normal">
               {selectedPrinciple.definition}
             </p>
           </div>

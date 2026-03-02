@@ -57,12 +57,12 @@ const AboutHeroSection = ({
     <section 
       aria-label="About Us with visual slideshow"
       className="w-full py-12 md:py-16 lg:py-20"
-      style={{ backgroundColor: '#F7E7CE' }}
+      style={{ backgroundColor: 'var(--champagne)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Label */}
         <div className="mb-6 md:mb-8 animate-fadeIn">
-          <p className="text-sm md:text-base font-bold uppercase tracking-widest mb-3" style={{ color: '#102C26' }}>
+          <p className="text-sm md:text-base font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--forest-dark)' }}>
             Our Foundation
           </p>
         </div>
@@ -76,7 +76,7 @@ const AboutHeroSection = ({
             <div>
               <h1 
                 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight mb-4 transition-all duration-500"
-                style={{ color: '#102C26' }}
+                style={{ color: 'var(--forest-dark)' }}
               >
                 Research-driven programs
                 <br />
@@ -84,7 +84,7 @@ const AboutHeroSection = ({
               </h1>
               <p 
                 className="text-lg md:text-xl font-semibold italic opacity-75 mb-6"
-                style={{ color: '#102C26' }}
+                style={{ color: 'var(--forest-dark)' }}
               >
                 Creating measurable, meaningful impact
               </p>
@@ -93,7 +93,7 @@ const AboutHeroSection = ({
             {/* Body Text */}
             <p 
               className="text-lg leading-relaxed opacity-90"
-              style={{ color: '#102C26' }}
+              style={{ color: 'var(--forest-dark)' }}
             >
               We work alongside local partners to co-design initiatives that respond to the priorities of children, young women, and grassroots innovators. Our approach blends rigorous research with <span className="font-bold text-blue-600">human-centered design</span> so impact is measurable—and meaningful.
             </p>
@@ -209,7 +209,7 @@ const AboutHeroSection = ({
 
             {/* Slide Counter */}
             <div className="text-center mt-4 md:mt-6">
-              <p className="text-sm font-semibold opacity-75" style={{ color: '#102C26' }}>
+              <p className="text-sm font-semibold opacity-75" style={{ color: 'var(--forest-dark)' }}>
                 {currentIndex + 1} <span className="opacity-50">/ {totalSlides}</span>
               </p>
             </div>

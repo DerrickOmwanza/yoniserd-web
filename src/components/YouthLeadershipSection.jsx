@@ -20,7 +20,7 @@ const MetricCard = ({ icon: Icon, number, label, backgroundColor }) => {
         focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-accent-blue
       `}
       style={{
-        backgroundColor: isHovered ? '#ffffff' : backgroundColor,
+        backgroundColor: isHovered ? 'var(--white)' : backgroundColor,
       }}
       role="article"
       tabIndex="0"
@@ -34,7 +34,7 @@ const MetricCard = ({ icon: Icon, number, label, backgroundColor }) => {
           ${isHovered ? 'scale-110' : ''}
         `}
         style={{
-          backgroundColor: isHovered ? '#145C44' : '#102C26',
+          backgroundColor: isHovered ? 'var(--forest)' : 'var(--forest-dark)',
         }}
       >
         <Icon size={24} strokeWidth={2} color="white" />
@@ -75,7 +75,7 @@ const PartnerCTA = ({ onClick }) => {
         focus:outline-2 focus:outline-offset-2 focus:outline-accent-blue
       `}
       style={{
-        backgroundColor: isHovered ? '#145C44' : '#0F3D2B',
+        backgroundColor: isHovered ? 'var(--forest)' : 'var(--forest-darker)',
         color: 'white',
         boxShadow: isHovered ? '0 8px 20px rgba(15, 61, 43, 0.35)' : '0 4px 12px rgba(15, 61, 43, 0.2)',
         transform: isHovered ? 'translateY(-2px)' : 'translateY(0)',
@@ -137,19 +137,19 @@ export default function YouthLeadershipSection() {
                     icon={Clock}
                     number="7+"
                     label="Years of Impact"
-                    backgroundColor="#F7E7CE"
+                    backgroundColor="var(--champagne)"
                   />
                   <MetricCard
                     icon={MapPin}
                     number="50"
                     label="Communities"
-                    backgroundColor="#E8D5B7"
+                    backgroundColor="var(--champagne-spot-1)"
                   />
                   <MetricCard
                     icon={Briefcase}
                     number="75%"
                     label="Employed"
-                    backgroundColor="#D9C49F"
+                    backgroundColor="var(--champagne-spot-2)"
                   />
                 </div>
 

@@ -19,8 +19,21 @@ import video3 from '../assets/video3.mp4';
 import video4 from '../assets/video4.mp4';
 import video5 from '../assets/video5.mp4';
 
-// Lightbox Component
-const Lightbox = ({ image, caption, isOpen, onClose }) => {
+// Lightbox Component with Slideshow Navigation
+const Lightbox = ({ image, caption, isOpen, onClose, onNext, onPrev, currentIndex, total }) => {
+  React.useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') onNext?.();
+      if (e.key === 'ArrowLeft') onPrev?.();
+      if (e.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onNext, onPrev, onClose]);
+
   if (!isOpen) return null;
 
   const handleBackdropClick = (e) => {
@@ -38,7 +51,7 @@ const Lightbox = ({ image, caption, isOpen, onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+          className="absolute -top-10 right-0 text-white hover:text-[var(--primary-blue)] transition-colors z-10"
           aria-label="Close lightbox"
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,13 +63,43 @@ const Lightbox = ({ image, caption, isOpen, onClose }) => {
         <img
           src={image}
           alt={caption}
-          className="w-full h-auto rounded-lg max-h-[80vh] object-contain"
+          className="w-full h-auto rounded-lg max-h-[80vh] object-contain shadow-xl"
+          style={{ boxShadow: '0 0 20px rgba(126, 187, 191, 0.6)' }}
         />
+
+        {/* Navigation Arrows */}
+        {total > 1 && (
+          <>
+            <button
+              onClick={onPrev}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-teal-400 transition-colors"
+              aria-label="Previous image"
+            >
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={onNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-teal-400 transition-colors"
+              aria-label="Next image"
+            >
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Counter */}
+            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-white text-sm mt-4">
+              {currentIndex + 1} / {total}
+            </div>
+          </>
+        )}
 
         {/* Caption */}
         {caption && (
           <div className="mt-4 text-center">
-            <p className="text-white text-sm sm:text-base" style={{ color: '#F7E7CE' }}>
+            <p className="text-white text-sm sm:text-base" style={{ color: 'var(--champagne)' }}>
               {caption}
             </p>
           </div>
@@ -80,8 +123,21 @@ const Lightbox = ({ image, caption, isOpen, onClose }) => {
   );
 };
 
-// Video Modal Component
-const VideoModal = ({ video, caption, isOpen, onClose }) => {
+// Video Modal Component with Navigation
+const VideoModal = ({ video, caption, isOpen, onClose, onNext, onPrev, currentIndex, total }) => {
+  React.useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') onNext?.();
+      if (e.key === 'ArrowLeft') onPrev?.();
+      if (e.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onNext, onPrev, onClose]);
+
   if (!isOpen) return null;
 
   const handleBackdropClick = (e) => {
@@ -99,7 +155,7 @@ const VideoModal = ({ video, caption, isOpen, onClose }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+          className="absolute -top-10 right-0 text-white hover:text-[var(--primary-blue)] transition-colors z-10"
           aria-label="Close video player"
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +164,7 @@ const VideoModal = ({ video, caption, isOpen, onClose }) => {
         </button>
 
         {/* Video Player */}
-        <div className="aspect-video bg-black rounded-lg overflow-hidden">
+        <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-xl" style={{ boxShadow: '0 0 20px rgba(126, 187, 191, 0.6)' }}>
           <video
             src={video}
             controls
@@ -121,10 +177,39 @@ const VideoModal = ({ video, caption, isOpen, onClose }) => {
           </video>
         </div>
 
+        {/* Navigation Arrows */}
+        {total > 1 && (
+          <>
+            <button
+              onClick={onPrev}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-teal-400 transition-colors"
+              aria-label="Previous video"
+            >
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={onNext}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-teal-400 transition-colors"
+              aria-label="Next video"
+            >
+              <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Counter */}
+            <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-white text-sm mt-4">
+              {currentIndex + 1} / {total}
+            </div>
+          </>
+        )}
+
         {/* Caption */}
         {caption && (
           <div className="mt-4 text-center">
-            <p className="text-white text-sm sm:text-base" style={{ color: '#F7E7CE' }}>
+            <p className="text-white text-sm sm:text-base" style={{ color: 'var(--champagne)' }}>
               {caption}
             </p>
           </div>
@@ -156,7 +241,6 @@ const ImageCard = ({ image, caption, onClick }) => {
     <button
       onClick={onClick}
       className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(126,187,191,0.8)] hover:-translate-y-2 focus:outline-none focus:ring-4"
-      style={{ focusRing: '#145C44' }}
       aria-label={`View image: ${caption}`}
     >
       <div className="aspect-square bg-gray-200 overflow-hidden">
@@ -188,8 +272,8 @@ const ImageCard = ({ image, caption, onClick }) => {
       </div>
 
       {/* Caption */}
-      <div className="p-3 sm:p-4 border-t-2" style={{ backgroundColor: '#050F2A', borderColor: 'var(--primary-blue)' }}>
-        <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#FFFFFF' }}>
+      <div className="p-4 sm:p-5 border-t-2" style={{ backgroundColor: 'var(--primary-dark)', borderColor: 'var(--primary-blue)' }}>
+        <p className="text-sm md:text-base font-semibold text-center leading-tight" style={{ color: 'var(--white)' }}>
           {caption}
         </p>
       </div>
@@ -203,7 +287,6 @@ const VideoCard = ({ video, caption, onClick }) => {
     <button
       onClick={onClick}
       className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(126,187,191,0.8)] hover:-translate-y-2 focus:outline-none focus:ring-4"
-      style={{ focusRing: '#145C44' }}
       aria-label={`Play video: ${caption}`}
     >
       <div className="aspect-video bg-black overflow-hidden relative">
@@ -219,7 +302,7 @@ const VideoCard = ({ video, caption, onClick }) => {
         >
           <div
             className="w-16 h-16 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-125"
-            style={{ backgroundColor: '#145C44' }}
+            style={{ backgroundColor: 'var(--forest)' }}
           >
             <svg
               className="w-8 h-8 text-white fill-current ml-1"
@@ -232,8 +315,8 @@ const VideoCard = ({ video, caption, onClick }) => {
       </div>
 
       {/* Caption */}
-      <div className="p-3 sm:p-4 border-t-2" style={{ backgroundColor: '#050F2A', borderColor: 'var(--primary-blue)' }}>
-        <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#FFFFFF' }}>
+      <div className="p-4 sm:p-5 border-t-2" style={{ backgroundColor: 'var(--primary-dark)', borderColor: 'var(--primary-blue)' }}>
+        <p className="text-sm md:text-base font-semibold text-center leading-tight" style={{ color: 'var(--white)' }}>
           {caption}
         </p>
       </div>
@@ -270,95 +353,121 @@ const Gallery = () => {
   // State Management
   const [activeTab, setActiveTab] = useState('images');
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [videoModalOpen, setVideoModalOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideoIndex, setSelectedVideoIndex] = useState(null);
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
+  const handleImageClick = (index) => {
+    setSelectedImageIndex(index);
     setLightboxOpen(true);
   };
 
-  const handleVideoClick = (video) => {
-    setSelectedVideo(video);
+  const handleImageNext = () => {
+    setSelectedImageIndex((prev) => (prev + 1) % imageGallery.length);
+  };
+
+  const handleImagePrev = () => {
+    setSelectedImageIndex((prev) => (prev - 1 + imageGallery.length) % imageGallery.length);
+  };
+
+  const handleVideoClick = (index) => {
+    setSelectedVideoIndex(index);
     setVideoModalOpen(true);
+  };
+
+  const handleVideoNext = () => {
+    setSelectedVideoIndex((prev) => (prev + 1) % videoGallery.length);
+  };
+
+  const handleVideoPrev = () => {
+    setSelectedVideoIndex((prev) => (prev - 1 + videoGallery.length) % videoGallery.length);
   };
 
   return (
     <Layout>
       <div className="min-h-screen bg-white">
-        {/* Header Section */}
-        <section className="py-8 md:py-12 px-6" style={{ backgroundColor: '#FFFFFF' }}>
+        {/* ===== HERO SECTION (COMPACT, NEWS-STYLE) ===== */}
+        <section className="relative bg-[var(--primary-dark)] py-8 md:py-10 px-6 overflow-hidden gallery-hero">
           <div className="max-w-6xl mx-auto text-center">
-            <h1
-              className="text-3xl md:text-4xl font-bold mb-3 uppercase tracking-wide"
-              style={{ color: '#102C26', letterSpacing: '0.05em' }}
-            >
-              Gallery
-            </h1>
-            <p
-              className="text-base md:text-lg max-w-2xl mx-auto italic"
-              style={{ color: '#145C44' }}
-            >
+            {/* Main Heading with Icon */}
+            <div className="flex items-center justify-center gap-2 mb-3 animate-fadeIn">
+              <span className="text-4xl md:text-5xl">🖼️</span>
+              <h1 className="text-4xl md:text-5xl font-bold text-white uppercase tracking-widest leading-tight"
+                  style={{ fontSize: '2rem' }}>
+                Gallery
+              </h1>
+            </div>
+
+            {/* Decorative underline */}
+            <div className="h-1 bg-[var(--primary-blue)] w-20 mx-auto mb-4 rounded-full"></div>
+
+            {/* Subheading - Enhanced */}
+            <p className="text-base md:text-lg font-medium italic max-w-2xl mx-auto leading-relaxed"
+                style={{ color: 'var(--gray-muted)', fontSize: '1.1rem' }}>
               See our work in action through images and videos
             </p>
           </div>
+
+          {/* Subtle bottom border */}
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[var(--primary-blue)] to-transparent"></div>
         </section>
 
-        {/* Tab Navigation */}
-        <section className="py-6 px-6 sticky top-[72px] z-40" style={{ backgroundColor: '#FFFFFF', borderBottom: '2px solid #145C44' }}>
-          <div className="max-w-6xl mx-auto flex justify-center gap-6">
-            <button
-              onClick={() => setActiveTab('images')}
-              className="pb-3 px-4 font-semibold text-lg transition-all duration-300 relative"
-              style={{
-                color: activeTab === 'images' ? '#102C26' : '#8B8B8B',
-                borderBottom: activeTab === 'images' ? '3px solid #145C44' : 'none',
-              }}
-              aria-selected={activeTab === 'images'}
-              role="tab"
-            >
-              📷 Images
-            </button>
-            <button
-              onClick={() => setActiveTab('videos')}
-              className="pb-3 px-4 font-semibold text-lg transition-all duration-300 relative"
-              style={{
-                color: activeTab === 'videos' ? '#102C26' : '#8B8B8B',
-                borderBottom: activeTab === 'videos' ? '3px solid #145C44' : 'none',
-              }}
-              aria-selected={activeTab === 'videos'}
-              role="tab"
-            >
-              🎬 Videos
-            </button>
+        {/* ===== TAB NAVIGATION (COMPACT) ===== */}
+        <section className="bg-white border-b-2 border-champagne py-5 px-6 sticky top-[72px] z-40 shadow-sm">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex justify-center gap-6">
+              <button
+                onClick={() => setActiveTab('images')}
+                className="pb-3 px-4 font-bold text-base md:text-lg transition-all duration-300 relative"
+                style={{
+                  color: activeTab === 'images' ? 'var(--forest-dark)' : 'var(--gray-mid)',
+                  borderBottom: activeTab === 'images' ? '3px solid var(--primary-blue)' : 'none',
+                }}
+                aria-selected={activeTab === 'images'}
+                role="tab"
+              >
+                📷 Images
+              </button>
+              <button
+                onClick={() => setActiveTab('videos')}
+                className="pb-3 px-4 font-bold text-base md:text-lg transition-all duration-300 relative"
+                style={{
+                  color: activeTab === 'videos' ? 'var(--forest-dark)' : 'var(--gray-mid)',
+                  borderBottom: activeTab === 'videos' ? '3px solid var(--primary-blue)' : 'none',
+                }}
+                aria-selected={activeTab === 'videos'}
+                role="tab"
+              >
+                🎬 Videos
+              </button>
+            </div>
           </div>
         </section>
 
         {/* Images Tab */}
         {activeTab === 'images' && (
-          <section className="py-12 px-6" style={{ backgroundColor: '#F7E7CE' }}>
+          <section className="py-8 md:py-10 px-6 bg-white">
             <div className="max-w-6xl mx-auto">
               {imageGallery.length > 0 ? (
                 <>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
                     {imageGallery.map((item, index) => (
                       <ImageCard
                         key={index}
                         image={item.src}
                         caption={item.caption}
-                        onClick={() => handleImageClick(item)}
+                        onClick={() => handleImageClick(index)}
                       />
                     ))}
                   </div>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mt-6">
                     <button className="view-more-btn">View More</button>
                   </div>
                 </>
               ) : (
                 <div className="gallery-placeholder">
                   <span className="text-4xl">📸</span>
-                  <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginTop: '0.5rem' }}>
+                  <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginTop: '0.5rem' }}>
                     Coming Soon
                   </h3>
                   <p>No photos available yet. Check back later!</p>
@@ -370,28 +479,28 @@ const Gallery = () => {
 
         {/* Videos Tab */}
         {activeTab === 'videos' && (
-          <section className="py-12 px-6" style={{ backgroundColor: '#F7E7CE' }}>
+          <section className="py-8 md:py-10 px-6 bg-white">
             <div className="max-w-6xl mx-auto">
               {videoGallery.length > 0 ? (
                 <>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5">
                     {videoGallery.map((item, index) => (
                       <VideoCard
                         key={index}
                         video={item.src}
                         caption={item.caption}
-                        onClick={() => handleVideoClick(item)}
+                        onClick={() => handleVideoClick(index)}
                       />
                     ))}
                   </div>
-                  <div className="flex justify-center">
+                  <div className="flex justify-center mt-6">
                     <button className="view-more-btn">View More</button>
                   </div>
                 </>
               ) : (
                 <div className="gallery-placeholder">
                   <span className="text-4xl">🎬</span>
-                  <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginTop: '0.5rem' }}>
+                  <h3 style={{ color: 'var(--white)', fontSize: '1.6rem', marginTop: '0.5rem' }}>
                     Coming Soon
                   </h3>
                   <p>No videos available yet. Check back later!</p>
@@ -401,110 +510,109 @@ const Gallery = () => {
           </section>
         )}
 
-        {/* Bottom CTA Section */}
-        <section className="py-16 md:py-24 px-6" style={{ backgroundColor: '#F7E7CE' }}>
+        {/* Bottom CTA Section - Compact & Modern */}
+        <section className="py-8 md:py-10 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            {/* Main CTA Container */}
+            {/* Main CTA Container - Streamlined */}
             <div
-              className="rounded-2xl shadow-2xl p-10 md:p-16 text-center border-4"
+              className="rounded-xl shadow-lg p-6 md:p-8 border-l-4"
               style={{
-                backgroundColor: '#FFFFFF',
-                borderColor: '#145C44',
+                backgroundColor: 'var(--white)',
+                borderColor: 'var(--primary-blue)',
               }}
             >
-              {/* Decorative Icon */}
-              <div className="text-6xl mb-4">🤝</div>
+              {/* Content Grid - More Efficient */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                {/* Left: Main Message */}
+                <div className="md:col-span-2">
+                  <div className="flex items-start gap-3 mb-4">
+                    <span className="text-4xl md:text-5xl flex-shrink-0">🤝</span>
+                    <h2
+                      className="text-2xl md:text-3xl font-bold uppercase tracking-wide"
+                      style={{ color: 'var(--forest-dark)', letterSpacing: '0.05em' }}
+                    >
+                      Make a Difference
+                    </h2>
+                  </div>
 
-              <h2
-                className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide"
-                style={{ color: '#102C26', letterSpacing: '0.05em' }}
-              >
-                Ready to Make a Difference?
-              </h2>
-
-              <p
-                className="text-base md:text-lg mb-6 max-w-3xl mx-auto italic"
-                style={{ color: '#145C44' }}
-              >
-                Join thousands of young leaders creating lasting change in their communities.
-              </p>
-
-              <p
-                className="text-sm md:text-base mb-10 max-w-2xl mx-auto"
-                style={{ color: '#666666' }}
-              >
-                Your skills, passion, and time can shape the future. Whether you have 5 hours a month or can commit weekly, we'll find the perfect role for you.
-              </p>
-
-              {/* Primary CTA Button */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <Link
-                  to="/contact#volunteer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-10 py-5 rounded-lg font-bold text-base md:text-lg text-white transition-all duration-300 hover:shadow-2xl hover:scale-110 focus:outline-none focus:ring-4 focus:ring-offset-2"
-                  style={{
-                    backgroundColor: '#145C44',
-                    focusRingColor: '#145C44',
-                    focusRingOffsetColor: '#FFFFFF',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#102C26';
-                    e.currentTarget.style.boxShadow = '0 20px 40px rgba(16, 44, 38, 0.3)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#145C44';
-                    e.currentTarget.style.boxShadow = 'none';
-                  }}
-                >
-                  <span>🚀 Get Involved Now</span>
-                  <span className="text-xl">→</span>
-                </Link>
-
-                {/* Secondary CTA */}
-                <Link
-                  to="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 rounded-lg font-semibold text-base text-center transition-all duration-300 hover:shadow-lg border-2"
-                  style={{
-                    backgroundColor: 'transparent',
-                    color: '#145C44',
-                    borderColor: '#145C44',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#F0F9F6';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
-                >
-                  <span>📧 Contact Us</span>
-                  <span>→</span>
-                </Link>
-              </div>
-
-              {/* Trust Indicators */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mt-12 pt-8" style={{ borderTop: '2px solid #E8F3EE' }}>
-                <div>
-                  <p className="text-2xl md:text-3xl font-bold" style={{ color: '#145C44' }}>
-                    5+
+                  <p
+                    className="text-base md:text-lg leading-relaxed mb-4"
+                    style={{ color: 'var(--text-gray)' }}
+                  >
+                    Join thousands of young leaders creating lasting change. Whether you have 5 hours a month or can commit weekly, we'll find the perfect role for you.
                   </p>
-                  <p className="text-xs md:text-sm" style={{ color: '#666666' }}>
-                    Years of Impact
-                  </p>
+
+                  {/* CTA Buttons - Compact */}
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Link
+                      to="/contact#volunteer"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-bold text-sm md:text-base text-white transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-1"
+                      style={{
+                        backgroundColor: 'var(--forest)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--forest-dark)';
+                        e.currentTarget.style.boxShadow = '0 10px 20px rgba(16, 44, 38, 0.2)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--forest)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                    >
+                      <span>🚀 Get Involved</span>
+                      <span>→</span>
+                    </Link>
+
+                    <Link
+                      to="/contact"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 hover:shadow-md border-2"
+                      style={{
+                        backgroundColor: 'transparent',
+                        color: 'var(--forest)',
+                        borderColor: 'var(--forest)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--mint-surface)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
+                    >
+                      <span>📧 Contact</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-2xl md:text-3xl font-bold" style={{ color: '#145C44' }}>
-                    10K+
-                  </p>
-                  <p className="text-xs md:text-sm" style={{ color: '#666666' }}>
-                    Youth Reached
-                  </p>
-                </div>
-                <div>
-                  <p className="text-2xl md:text-3xl font-bold" style={{ color: '#145C44' }}>
-                    50+
-                  </p>
-                  <p className="text-xs md:text-sm" style={{ color: '#666666' }}>
-                    Partner Orgs
-                  </p>
+
+                {/* Right: Trust Indicators - Vertical Stack */}
+                <div className="md:border-l-2" style={{ borderColor: 'var(--border-soft)' }}>
+                  <div className="md:pl-6 space-y-4">
+                    <div>
+                      <p className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest)' }}>
+                        5+
+                      </p>
+                      <p className="text-sm md:text-base" style={{ color: 'var(--gray-soft)' }}>
+                        Years Impact
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest)' }}>
+                        10K+
+                      </p>
+                      <p className="text-sm md:text-base" style={{ color: 'var(--gray-soft)' }}>
+                        Youth Reached
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest)' }}>
+                        50+
+                      </p>
+                      <p className="text-sm md:text-base" style={{ color: 'var(--gray-soft)' }}>
+                        Partner Orgs
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -513,18 +621,26 @@ const Gallery = () => {
 
         {/* Lightbox */}
         <Lightbox
-          image={selectedImage?.src}
-          caption={selectedImage?.caption}
+          image={selectedImageIndex !== null ? imageGallery[selectedImageIndex]?.src : null}
+          caption={selectedImageIndex !== null ? imageGallery[selectedImageIndex]?.caption : null}
           isOpen={lightboxOpen}
           onClose={() => setLightboxOpen(false)}
+          onNext={handleImageNext}
+          onPrev={handleImagePrev}
+          currentIndex={selectedImageIndex}
+          total={imageGallery.length}
         />
 
         {/* Video Modal */}
         <VideoModal
-          video={selectedVideo?.src}
-          caption={selectedVideo?.caption}
+          video={selectedVideoIndex !== null ? videoGallery[selectedVideoIndex]?.src : null}
+          caption={selectedVideoIndex !== null ? videoGallery[selectedVideoIndex]?.caption : null}
           isOpen={videoModalOpen}
           onClose={() => setVideoModalOpen(false)}
+          onNext={handleVideoNext}
+          onPrev={handleVideoPrev}
+          currentIndex={selectedVideoIndex}
+          total={videoGallery.length}
         />
       </div>
     </Layout>

@@ -68,8 +68,8 @@ const ImpactMetrics = () => {
     <section
       ref={sectionRef}
       style={{
-        backgroundColor: '#050F2A',
-        color: '#FFFFFF',
+        backgroundColor: 'var(--primary-dark)',
+        color: 'var(--white)',
       }}
       className="py-16 md:py-20 lg:py-24 px-6"
       id="impact-home"

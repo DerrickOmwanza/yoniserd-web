@@ -96,8 +96,8 @@ const OptimizedImpactMetrics = memo(() => {
       aria-label="Impact metrics"
       style={{ 
         contain: 'layout style paint', // CSS containment for performance
-        backgroundImage: 'linear-gradient(135deg, #0A1F2E 0%, #0A2139 100%)',
-        backgroundColor: '#0A1F2E'
+        backgroundImage: 'linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%)',
+        backgroundColor: 'var(--navy-900)'
       }}
     >
       <div className="max-w-6xl mx-auto">

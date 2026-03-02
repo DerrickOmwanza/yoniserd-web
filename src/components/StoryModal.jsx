@@ -69,7 +69,7 @@ const StoryModal = ({ story, isOpen, onClose, categories }) => {
               {/* Category Badge with Icon */}
               <span
                 className="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest text-white"
-                style={{ backgroundColor: '#145C44' }}
+                style={{ backgroundColor: 'var(--forest)' }}
               >
                 <span>{getCategoryIcon(story.category)}</span>
                 {category}

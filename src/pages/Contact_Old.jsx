@@ -92,7 +92,7 @@ const Contact = () => {
         <Layout>
             <div className="min-h-screen bg-white">
                 {/* Hero Section */}
-                <section className="py-12 md:py-16 px-6" style={{ backgroundColor: '#102C26' }}>
+                <section className="py-12 md:py-16 px-6" style={{ backgroundColor: 'var(--forest-dark)' }}>
                     <div className="max-w-3xl mx-auto text-center">
                         <h1
                             className="text-4xl md:text-5xl font-bold mb-4 text-white"
@@ -118,11 +118,11 @@ const Contact = () => {
                                 <div className="mb-8">
                                     <h2
                                         className="text-3xl font-bold mb-2"
-                                        style={{ color: '#102C26' }}
+                                        style={{ color: 'var(--forest-dark)' }}
                                     >
                                         Send us a Message
                                     </h2>
-                                    <p style={{ color: '#145C44', fontSize: '1.05rem', fontStyle: 'italic' }}>
+                                    <p style={{ color: 'var(--forest)', fontSize: '1.05rem', fontStyle: 'italic' }}>
                                         We typically respond within 24-48 hours
                                     </p>
                                 </div>
@@ -148,7 +148,7 @@ const Contact = () => {
 
                                     {/* Name Field */}
                                     <div>
-                                        <label htmlFor="name" className="block font-semibold mb-2" style={{ color: '#145C44' }}>
+                                        <label htmlFor="name" className="block font-semibold mb-2" style={{ color: 'var(--forest)' }}>
                                             Your Name
                                         </label>
                                         <input
@@ -162,7 +162,7 @@ const Contact = () => {
                                                     ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                     : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
-                                            style={{ color: '#102C26' }}
+                                            style={{ color: 'var(--forest-dark)' }}
                                         />
                                         {errors.name && (
                                             <p className="text-red-600 text-sm mt-1 font-medium">{errors.name}</p>
@@ -171,7 +171,7 @@ const Contact = () => {
 
                                     {/* Email Field */}
                                     <div>
-                                        <label htmlFor="email" className="block font-semibold mb-2" style={{ color: '#145C44' }}>
+                                        <label htmlFor="email" className="block font-semibold mb-2" style={{ color: 'var(--forest)' }}>
                                             Email Address
                                         </label>
                                         <input
@@ -185,7 +185,7 @@ const Contact = () => {
                                                     ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                     : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
-                                            style={{ color: '#102C26' }}
+                                            style={{ color: 'var(--forest-dark)' }}
                                         />
                                         {errors.email && (
                                             <p className="text-red-600 text-sm mt-1 font-medium">{errors.email}</p>
@@ -194,7 +194,7 @@ const Contact = () => {
 
                                     {/* Subject Field */}
                                     <div>
-                                        <label htmlFor="subject" className="block font-semibold mb-2" style={{ color: '#145C44' }}>
+                                        <label htmlFor="subject" className="block font-semibold mb-2" style={{ color: 'var(--forest)' }}>
                                             Subject
                                         </label>
                                         <input
@@ -208,7 +208,7 @@ const Contact = () => {
                                                     ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                     : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
-                                            style={{ color: '#102C26' }}
+                                            style={{ color: 'var(--forest-dark)' }}
                                         />
                                         {errors.subject && (
                                             <p className="text-red-600 text-sm mt-1 font-medium">{errors.subject}</p>
@@ -217,7 +217,7 @@ const Contact = () => {
 
                                     {/* Message Field */}
                                     <div>
-                                        <label htmlFor="message" className="block font-semibold mb-2" style={{ color: '#145C44' }}>
+                                        <label htmlFor="message" className="block font-semibold mb-2" style={{ color: 'var(--forest)' }}>
                                             Message
                                         </label>
                                         <textarea
@@ -231,7 +231,7 @@ const Contact = () => {
                                                     ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                     : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
-                                            style={{ color: '#102C26' }}
+                                            style={{ color: 'var(--forest-dark)' }}
                                         />
                                         {errors.message && (
                                             <p className="text-red-600 text-sm mt-1 font-medium">{errors.message}</p>
@@ -243,12 +243,12 @@ const Contact = () => {
                                         type="submit"
                                         className="w-full font-bold text-white text-lg py-3 px-6 rounded-lg transition-all duration-200 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4"
                                         style={{
-                                            backgroundColor: '#102C26',
-                                            color: '#FFFFFF',
+                                            backgroundColor: 'var(--forest-dark)',
+                                            color: 'var(--white)',
                                             letterSpacing: '0.05em'
                                         }}
-                                        onMouseEnter={(e) => e.target.style.backgroundColor = '#145C44'}
-                                        onMouseLeave={(e) => e.target.style.backgroundColor = '#102C26'}
+                                        onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--forest)'}
+                                        onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--forest-dark)'}
                                     >
                                         ✓ SEND MESSAGE
                                     </button>
@@ -263,15 +263,15 @@ const Contact = () => {
                                     <div
                                         className="rounded-lg p-6 border-l-4 transition-all duration-200 hover:shadow-md"
                                         style={{
-                                            backgroundColor: '#F5F5F5',
-                                            borderLeftColor: '#145C44'
+                                            backgroundColor: 'var(--surface-offwhite-alt)',
+                                            borderLeftColor: 'var(--forest)'
                                         }}
                                     >
                                         <div className="flex gap-4 items-start">
                                             <span className="text-3xl">📍</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-1" style={{ color: '#102C26' }}>Location</h3>
-                                                <p style={{ color: '#666666' }}>{CONTACT_INFO.location}</p>
+                                                <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--forest-dark)' }}>Location</h3>
+                                                <p style={{ color: 'var(--text-gray)' }}>{CONTACT_INFO.location}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -280,18 +280,18 @@ const Contact = () => {
                                     <div
                                         className="rounded-lg p-6 border-l-4 transition-all duration-200 hover:shadow-md"
                                         style={{
-                                            backgroundColor: '#F5F5F5',
-                                            borderLeftColor: '#145C44'
+                                            backgroundColor: 'var(--surface-offwhite-alt)',
+                                            borderLeftColor: 'var(--forest)'
                                         }}
                                     >
                                         <div className="flex gap-4 items-start">
                                             <span className="text-3xl">✉️</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-2" style={{ color: '#102C26' }}>Email</h3>
+                                                <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--forest-dark)' }}>Email</h3>
                                                 <a
                                                     href={`mailto:${CONTACT_INFO.email}`}
                                                     className="font-semibold hover:underline transition-colors duration-200 focus:outline-none focus:ring-2 rounded px-1 py-1"
-                                                    style={{ color: '#145C44' }}
+                                                    style={{ color: 'var(--forest)' }}
                                                 >
                                                     {CONTACT_INFO.email}
                                                 </a>
@@ -303,18 +303,18 @@ const Contact = () => {
                                     <div
                                         className="rounded-lg p-6 border-l-4 transition-all duration-200 hover:shadow-md"
                                         style={{
-                                            backgroundColor: '#F5F5F5',
-                                            borderLeftColor: '#145C44'
+                                            backgroundColor: 'var(--surface-offwhite-alt)',
+                                            borderLeftColor: 'var(--forest)'
                                         }}
                                     >
                                         <div className="flex gap-4 items-start">
                                             <span className="text-3xl">📞</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-2" style={{ color: '#102C26' }}>Phone</h3>
+                                                <h3 className="text-lg font-bold mb-2" style={{ color: 'var(--forest-dark)' }}>Phone</h3>
                                                 <a
                                                     href={`tel:${CONTACT_INFO.phone}`}
                                                     className="font-semibold hover:underline transition-colors duration-200 focus:outline-none focus:ring-2 rounded px-1 py-1"
-                                                    style={{ color: '#145C44' }}
+                                                    style={{ color: 'var(--forest)' }}
                                                 >
                                                     {CONTACT_INFO.phone}
                                                 </a>
@@ -326,32 +326,32 @@ const Contact = () => {
                                     <div
                                         className="rounded-lg p-6 border-l-4 transition-all duration-200 hover:shadow-md"
                                         style={{
-                                            backgroundColor: '#F5F5F5',
-                                            borderLeftColor: '#145C44'
+                                            backgroundColor: 'var(--surface-offwhite-alt)',
+                                            borderLeftColor: 'var(--forest)'
                                         }}
                                     >
                                         <div className="flex gap-4 items-start">
                                             <span className="text-3xl">👔</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-1" style={{ color: '#102C26' }}>{CEO_INFO.name}</h3>
-                                                <p className="text-sm mb-3" style={{ color: '#666666' }}>{CEO_INFO.title}</p>
+                                                <h3 className="text-lg font-bold mb-1" style={{ color: 'var(--forest-dark)' }}>{CEO_INFO.name}</h3>
+                                                <p className="text-sm mb-3" style={{ color: 'var(--text-gray)' }}>{CEO_INFO.title}</p>
                                                 <div className="space-y-2">
                                                     <div>
-                                                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: '#145C44', fontWeight: '600' }}>Main</p>
+                                                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--forest)', fontWeight: '600' }}>Main</p>
                                                         <a
                                                             href={`tel:${CEO_INFO.phone}`}
                                                             className="font-semibold hover:underline transition-colors duration-200 focus:outline-none focus:ring-2 rounded px-1 py-1 block"
-                                                            style={{ color: '#145C44' }}
+                                                            style={{ color: 'var(--forest)' }}
                                                         >
                                                             {CEO_INFO.phone}
                                                         </a>
                                                     </div>
                                                     <div>
-                                                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: '#145C44', fontWeight: '600' }}>Alternative</p>
+                                                        <p className="text-xs uppercase tracking-wide mb-1" style={{ color: 'var(--forest)', fontWeight: '600' }}>Alternative</p>
                                                         <a
                                                             href={`tel:${CEO_INFO.alternatePhone}`}
                                                             className="font-semibold hover:underline transition-colors duration-200 focus:outline-none focus:ring-2 rounded px-1 py-1 block"
-                                                            style={{ color: '#145C44' }}
+                                                            style={{ color: 'var(--forest)' }}
                                                         >
                                                             {CEO_INFO.alternatePhone}
                                                         </a>
@@ -366,30 +366,30 @@ const Contact = () => {
                                 <div
                                     className="rounded-lg p-6 border-2 mb-8"
                                     style={{
-                                        backgroundColor: '#F7E7CE',
-                                        borderColor: '#145C44'
+                                        backgroundColor: 'var(--champagne)',
+                                        borderColor: 'var(--forest)'
                                     }}
                                 >
-                                    <h3 className="text-lg font-bold mb-4" style={{ color: '#102C26' }}>Why Reach Out?</h3>
+                                    <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--forest-dark)' }}>Why Reach Out?</h3>
                                     <ul className="space-y-3">
                                         <li className="flex items-start gap-3">
-                                            <span className="text-xl mt-0.5" style={{ color: '#145C44' }}>✓</span>
-                                            <span style={{ color: '#666666' }}>Response within 24-48 hours</span>
+                                            <span className="text-xl mt-0.5" style={{ color: 'var(--forest)' }}>✓</span>
+                                            <span style={{ color: 'var(--text-gray)' }}>Response within 24-48 hours</span>
                                         </li>
                                         <li className="flex items-start gap-3">
-                                            <span className="text-xl mt-0.5" style={{ color: '#145C44' }}>✓</span>
-                                            <span style={{ color: '#666666' }}>Direct communication with team</span>
+                                            <span className="text-xl mt-0.5" style={{ color: 'var(--forest)' }}>✓</span>
+                                            <span style={{ color: 'var(--text-gray)' }}>Direct communication with team</span>
                                         </li>
                                         <li className="flex items-start gap-3">
-                                            <span className="text-xl mt-0.5" style={{ color: '#145C44' }}>✓</span>
-                                            <span style={{ color: '#666666' }}>Multiple contact options</span>
+                                            <span className="text-xl mt-0.5" style={{ color: 'var(--forest)' }}>✓</span>
+                                            <span style={{ color: 'var(--text-gray)' }}>Multiple contact options</span>
                                         </li>
                                     </ul>
                                 </div>
 
                                 {/* Social Links */}
                                 <div className="pt-8 border-t border-gray-200">
-                                    <p className="text-sm font-semibold mb-4" style={{ color: '#102C26' }}>Follow Us</p>
+                                    <p className="text-sm font-semibold mb-4" style={{ color: 'var(--forest-dark)' }}>Follow Us</p>
                                     <div className="flex gap-4">
                                         {[
                                             { icon: '🔗', url: SOCIAL_LINKS.linkedin, label: 'LinkedIn' },
@@ -404,8 +404,8 @@ const Contact = () => {
                                                 rel="noopener noreferrer"
                                                 className="inline-flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200 hover:scale-110"
                                                 style={{
-                                                    borderColor: '#145C44',
-                                                    color: '#145C44'
+                                                    borderColor: 'var(--forest)',
+                                                    color: 'var(--forest)'
                                                 }}
                                                 aria-label={social.label}
                                             >
@@ -426,19 +426,19 @@ const Contact = () => {
                         <div className="text-center mb-16">
                             <h2
                                 className="text-3xl md:text-4xl font-bold mb-4 uppercase tracking-wide"
-                                style={{ color: '#102C26', letterSpacing: '0.05em' }}
+                                style={{ color: 'var(--forest-dark)', letterSpacing: '0.05em' }}
                             >
                                 Volunteer With Us
                             </h2>
                             <p
                                 className="text-lg md:text-xl max-w-2xl mx-auto italic mb-2"
-                                style={{ color: '#145C44' }}
+                                style={{ color: 'var(--forest)' }}
                             >
                                 Your skills, passion, and time can change lives
                             </p>
                             <p
                                 className="text-base max-w-3xl mx-auto"
-                                style={{ color: '#666666' }}
+                                style={{ color: 'var(--text-gray)' }}
                             >
                                 From research and mentorship to storytelling and advocacy, volunteers are the heartbeat of our community-led programs. Whether you have 5 hours a month or can commit weekly, we'll find a role that matches your passion.
                             </p>
@@ -452,24 +452,24 @@ const Contact = () => {
                                     title: 'Research & Documentation',
                                     description: 'Help us document impact, analyze data, and build evidence that shapes policy.',
                                     benefits: ['Learn research methods', 'Build analytics skills', 'Contribute to publications'],
-                                    bgColor: '#FFFFFF',
-                                    borderColor: '#145C44'
+                                    bgColor: 'var(--white)',
+                                    borderColor: 'var(--forest)'
                                 },
                                 {
                                     icon: '🎓',
                                     title: 'Mentorship & Training',
                                     description: 'Share your expertise by mentoring youth and facilitating skill-building workshops.',
                                     benefits: ['Develop leadership skills', 'Build meaningful connections', 'Make direct impact'],
-                                    bgColor: '#F0F9F6',
-                                    borderColor: '#145C44'
+                                    bgColor: 'var(--mint-surface)',
+                                    borderColor: 'var(--forest)'
                                 },
                                 {
                                     icon: '📢',
                                     title: 'Communications & Stories',
                                     description: 'Tell powerful stories through writing, design, photography, or social media.',
                                     benefits: ['Showcase your creativity', 'Build your portfolio', 'Amplify youth voices'],
-                                    bgColor: '#FFFFFF',
-                                    borderColor: '#145C44'
+                                    bgColor: 'var(--white)',
+                                    borderColor: 'var(--forest)'
                                 }
                             ].map((role, index) => (
                                 <div
@@ -486,14 +486,14 @@ const Contact = () => {
 
                                     <h3
                                         className="text-xl font-bold mb-3"
-                                        style={{ color: '#145C44' }}
+                                        style={{ color: 'var(--forest)' }}
                                     >
                                         {role.title}
                                     </h3>
 
                                     <p
                                         className="text-sm mb-4 leading-relaxed"
-                                        style={{ color: '#666666' }}
+                                        style={{ color: 'var(--text-gray)' }}
                                     >
                                         {role.description}
                                     </p>
@@ -503,9 +503,9 @@ const Contact = () => {
                                             <p
                                                 key={idx}
                                                 className="text-xs font-semibold flex items-center gap-2"
-                                                style={{ color: '#102C26' }}
+                                                style={{ color: 'var(--forest-dark)' }}
                                             >
-                                                <span style={{ color: '#145C44' }}>✓</span> {benefit}
+                                                <span style={{ color: 'var(--forest)' }}>✓</span> {benefit}
                                             </p>
                                         ))}
                                     </div>
@@ -517,26 +517,26 @@ const Contact = () => {
                         <div
                             className="rounded-lg p-8 md:p-10 mb-16"
                             style={{
-                                backgroundColor: '#F7E7CE',
-                                borderLeft: '4px solid #145C44'
+                                backgroundColor: 'var(--champagne)',
+                                borderLeft: '4px solid var(--forest)'
                             }}
                         >
                             <div className="max-w-3xl">
                                 <p
                                     className="text-lg italic leading-relaxed mb-4"
-                                    style={{ color: '#102C26' }}
+                                    style={{ color: 'var(--forest-dark)' }}
                                 >
                                     "Volunteering with YoNISeRD gave me the chance to apply my skills to something meaningful. I've learned so much about community-led development, and seeing the impact we create together — that's what keeps me coming back."
                                 </p>
                                 <p
                                     className="font-bold text-base"
-                                    style={{ color: '#145C44' }}
+                                    style={{ color: 'var(--forest)' }}
                                 >
                                     — Sarah M., Youth Mentor
                                 </p>
                                 <p
                                     className="text-sm"
-                                    style={{ color: '#666666' }}
+                                    style={{ color: 'var(--text-gray)' }}
                                 >
                                     Volunteered for 8 months | Mentorship & Training
                                 </p>
@@ -549,9 +549,9 @@ const Contact = () => {
                                 <a
                                     href="mailto:info@youthintegrated.org?subject=Volunteer%20with%20YoNISeRD"
                                     className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-base text-white transition-all duration-300 hover:shadow-lg hover:scale-105 whitespace-nowrap"
-                                    style={{ backgroundColor: '#102C26', color: '#FFFFFF' }}
-                                    onMouseEnter={(e) => e.target.style.backgroundColor = '#145C44'}
-                                    onMouseLeave={(e) => e.target.style.backgroundColor = '#102C26'}
+                                    style={{ backgroundColor: 'var(--forest-dark)', color: 'var(--white)' }}
+                                    onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--forest)'}
+                                    onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--forest-dark)'}
                                 >
                                     <span>Become a Volunteer</span>
                                     <span>→</span>
@@ -563,7 +563,7 @@ const Contact = () => {
                                 <a
                                     href="#contact-form"
                                     className="text-sm font-semibold transition-colors duration-200 hover:opacity-80"
-                                    style={{ color: '#145C44' }}
+                                    style={{ color: 'var(--forest)' }}
                                 >
                                     Questions? Jump to the contact form ↓
                                 </a>
@@ -572,7 +572,7 @@ const Contact = () => {
                             {/* Info Text */}
                             <p
                                 className="text-sm max-w-2xl mx-auto"
-                                style={{ color: '#666666' }}
+                                style={{ color: 'var(--text-gray)' }}
                             >
                                 No experience necessary. All training and support provided. We'll work with you to find a volunteer opportunity that matches your interests, schedule, and expertise.
                             </p>

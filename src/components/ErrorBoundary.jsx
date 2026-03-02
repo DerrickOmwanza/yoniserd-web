@@ -44,7 +44,7 @@ class ErrorBoundary extends React.Component {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#f3f4f6',
+            backgroundColor: 'var(--surface-offwhite-alt)',
             padding: '2rem',
           }}
           role="alert"
@@ -53,7 +53,7 @@ class ErrorBoundary extends React.Component {
           <div
             style={{
               maxWidth: '600px',
-              backgroundColor: '#fff',
+              backgroundColor: 'var(--white)',
               borderRadius: '0.5rem',
               padding: '2rem',
               boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
@@ -64,7 +64,7 @@ class ErrorBoundary extends React.Component {
               style={{
                 fontSize: '1.875rem',
                 fontWeight: 'bold',
-                color: '#050F2A',
+                color: 'var(--primary-dark)',
                 marginBottom: '1rem',
               }}
             >
@@ -74,7 +74,7 @@ class ErrorBoundary extends React.Component {
             <p
               style={{
                 fontSize: '1rem',
-                color: '#6B7280',
+                color: 'var(--gray-slate)',
                 marginBottom: '1.5rem',
                 lineHeight: '1.6',
               }}
@@ -87,7 +87,7 @@ class ErrorBoundary extends React.Component {
                 style={{
                   marginBottom: '1.5rem',
                   padding: '1rem',
-                  backgroundColor: '#FEE2E2',
+                  backgroundColor: 'var(--danger-bg)',
                   borderRadius: '0.375rem',
                   textAlign: 'left',
                 }}
@@ -96,7 +96,7 @@ class ErrorBoundary extends React.Component {
                   style={{
                     cursor: 'pointer',
                     fontWeight: '600',
-                    color: '#DC2626',
+                    color: 'var(--danger)',
                     marginBottom: '0.5rem',
                   }}
                 >
@@ -106,7 +106,7 @@ class ErrorBoundary extends React.Component {
                   style={{
                     overflow: 'auto',
                     fontSize: '0.75rem',
-                    color: '#7F1D1D',
+                    color: 'var(--danger-dark)',
                     whiteSpace: 'pre-wrap',
                     wordWrap: 'break-word',
                   }}
@@ -130,8 +130,8 @@ class ErrorBoundary extends React.Component {
                 onClick={this.handleReset}
                 style={{
                   padding: '0.75rem 1.5rem',
-                  backgroundColor: '#7BBBFF',
-                  color: '#050F2A',
+                  backgroundColor: 'var(--action-blue)',
+                  color: 'var(--primary-dark)',
                   border: 'none',
                   borderRadius: '0.375rem',
                   fontWeight: '600',
@@ -140,10 +140,10 @@ class ErrorBoundary extends React.Component {
                   transition: 'background-color 200ms ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = '#6BA3E5';
+                  e.target.style.backgroundColor = 'var(--action-blue-hover)';
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = '#7BBBFF';
+                  e.target.style.backgroundColor = 'var(--action-blue)';
                 }}
               >
                 Try Again
@@ -153,8 +153,8 @@ class ErrorBoundary extends React.Component {
                 href={process.env.PUBLIC_URL + '/'}
                 style={{
                   padding: '0.75rem 1.5rem',
-                  backgroundColor: '#050F2A',
-                  color: '#fff',
+                  backgroundColor: 'var(--primary-dark)',
+                  color: 'var(--white)',
                   textDecoration: 'none',
                   borderRadius: '0.375rem',
                   fontWeight: '600',
@@ -164,10 +164,10 @@ class ErrorBoundary extends React.Component {
                   transition: 'background-color 200ms ease',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#0A1940';
+                  e.currentTarget.style.backgroundColor = 'var(--navy-hover)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#050F2A';
+                  e.currentTarget.style.backgroundColor = 'var(--primary-dark)';
                 }}
               >
                 Go Home
@@ -177,7 +177,7 @@ class ErrorBoundary extends React.Component {
             <p
               style={{
                 fontSize: '0.875rem',
-                color: '#9CA3AF',
+                color: 'var(--gray-slate-light)',
                 marginTop: '1.5rem',
               }}
             >
@@ -185,7 +185,7 @@ class ErrorBoundary extends React.Component {
               <a
                 href="mailto:youthnetwork4@gmail.com"
                 style={{
-                  color: '#7BBBFF',
+                  color: 'var(--action-blue)',
                   textDecoration: 'underline',
                 }}
               >

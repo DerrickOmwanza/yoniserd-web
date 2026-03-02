@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
+import Card from '../components/Card';
 
 const programs = [
   {
@@ -71,26 +72,26 @@ const ProgramModal = ({ program, isOpen, onClose }) => {
         {/* Modal Header */}
         <div
           className="p-8 border-b"
-          style={{ backgroundColor: '#F7E7CE', borderColor: '#E8F3EE' }}
+          style={{ backgroundColor: 'var(--champagne)', borderColor: 'var(--primary-light)' }}
         >
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-4">
               <div
                 className="w-16 h-16 rounded-lg flex items-center justify-center text-4xl"
                 style={{
-                  background: 'linear-gradient(135deg, #E8F3EE 0%, #D4E8E3 100%)',
+                  background: 'linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light-soft) 100%)',
                 }}
               >
                 {program.icon}
               </div>
-              <h2 className="text-3xl font-bold" style={{ color: '#145C44' }}>
+              <h2 className="text-3xl font-bold" style={{ color: 'var(--forest)' }}>
                 {program.title}
               </h2>
             </div>
             <button
               onClick={onClose}
               className="text-2xl transition-colors duration-200 hover:text-red-500"
-              style={{ color: '#8B8B8B' }}
+              style={{ color: 'var(--text-gray)' }}
             >
               ✕
             </button>
@@ -98,52 +99,52 @@ const ProgramModal = ({ program, isOpen, onClose }) => {
         </div>
 
         {/* Modal Body */}
-        <div className="p-8">
-          <h3 className="text-lg font-bold mb-4" style={{ color: '#102C26' }}>
-            About This Program
-          </h3>
-          <p className="text-base leading-relaxed mb-6" style={{ color: '#666666' }}>
-            {program.fullDescription}
-          </p>
+         <div className="p-8">
+           <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--forest-dark)' }}>
+             About This Program
+           </h3>
+           <p className="text-base leading-relaxed mb-6" style={{ color: 'var(--text-gray)' }}>
+             {program.fullDescription}
+           </p>
 
-          <div
-            className="p-4 rounded-lg mb-6"
-            style={{ backgroundColor: '#F7E7CE' }}
-          >
-            <h3 className="font-bold mb-2" style={{ color: '#102C26' }}>
-              📊 Impact & Reach
-            </h3>
-            <p className="text-sm" style={{ color: '#666666' }}>
-              {program.impact}
-            </p>
-          </div>
+           <div
+             className="p-4 rounded-lg mb-6"
+             style={{ backgroundColor: 'var(--champagne)' }}
+           >
+             <h3 className="text-base font-bold mb-2" style={{ color: 'var(--forest-dark)' }}>
+               📊 Impact & Reach
+             </h3>
+             <p className="text-base" style={{ color: 'var(--text-gray)' }}>
+               {program.impact}
+             </p>
+           </div>
 
-          <h3 className="text-lg font-bold mb-3" style={{ color: '#102C26' }}>
-            Get Involved
-          </h3>
-          <p className="text-sm mb-6" style={{ color: '#666666' }}>
-            Interested in contributing to this program? We welcome partnerships, volunteer support, and advocacy partnerships at all levels.
-          </p>
-        </div>
+           <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--forest-dark)' }}>
+             Get Involved
+           </h3>
+           <p className="text-base mb-6" style={{ color: 'var(--text-gray)' }}>
+             Interested in contributing to this program? We welcome partnerships, volunteer support, and advocacy partnerships at all levels.
+           </p>
+         </div>
 
         {/* Modal Footer */}
         <div
           className="p-6 border-t flex gap-3 justify-end"
-          style={{ backgroundColor: '#FFFFFF', borderColor: '#E8F3EE' }}
+          style={{ backgroundColor: 'var(--white)', borderColor: 'var(--primary-light)' }}
         >
           <button
             onClick={onClose}
             className="px-6 py-2 rounded transition-colors duration-300"
             style={{
-              backgroundColor: '#E8F3EE',
-              color: '#102C26',
+              backgroundColor: 'var(--primary-light)',
+              color: 'var(--forest-dark)',
               fontWeight: '600',
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#D4E8E3';
+              e.target.style.backgroundColor = 'var(--primary-light-soft)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#E8F3EE';
+              e.target.style.backgroundColor = 'var(--primary-light)';
             }}
           >
             Close
@@ -152,15 +153,15 @@ const ProgramModal = ({ program, isOpen, onClose }) => {
             to="/contact"
             className="px-6 py-2 rounded font-semibold transition-colors duration-300"
             style={{
-              backgroundColor: '#145C44',
-              color: '#FFFFFF',
+              backgroundColor: 'var(--forest)',
+              color: 'var(--white)',
               textDecoration: 'none',
             }}
             onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#102C26';
+              e.target.style.backgroundColor = 'var(--forest-dark)';
             }}
             onMouseLeave={(e) => {
-              e.target.style.backgroundColor = '#145C44';
+              e.target.style.backgroundColor = 'var(--forest)';
             }}
           >
             Get Involved
@@ -190,18 +191,22 @@ const Programs = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-white">
-        {/* Hero Section */}
-        <section className="py-10 md:py-12 px-6 bg-white">
-          <div className="max-w-6xl mx-auto">
+        {/* Hero Section - Aligned with News/Gallery */}
+        <section className="py-12 md:py-16 px-6 bg-white">
+          <div className="max-w-6xl mx-auto text-center">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--forest)', letterSpacing: '0.15em' }}>
+              Our Initiatives
+            </p>
             <h1
-              className="text-3xl md:text-4xl font-bold mb-2 text-center uppercase tracking-wide"
-              style={{ color: '#102C26', letterSpacing: '0.05em' }}
+              className="text-3xl md:text-5xl font-bold mb-3 uppercase tracking-tight"
+              style={{ color: 'var(--forest-dark)', letterSpacing: '0.05em' }}
             >
               Empowering Communities Through Action
             </h1>
+            <div className="h-1 w-16 bg-accent-green mx-auto mb-6" style={{ backgroundColor: 'var(--primary-blue)' }}></div>
             <p
-              className="text-center text-base md:text-lg max-w-3xl mx-auto italic"
-              style={{ color: '#145C44' }}
+              className="text-base md:text-lg max-w-3xl mx-auto"
+              style={{ color: 'var(--forest)' }}
             >
               Our integrated programs address critical issues affecting youth and their communities.
             </p>
@@ -212,89 +217,32 @@ const Programs = () => {
         <section className="py-12 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {programs.map((program, index) => {
-                const rowIndex = Math.floor(index / 2);
-                const bgColor = rowIndex % 2 === 0 ? '#FFFFFF' : '#F7E7CE';
-                
-                return (
-                  <div
-                    key={program.id}
-                    className="group h-full transition-all duration-300"
-                    style={{
-                      transform: 'none',
-                    }}
+              {programs.map((program) => (
+                <Card key={program.id} badge={program.icon} title={program.title} onClick={() => setSelectedProgram(program)}>
+                  <p className="text-base leading-relaxed mb-5">{program.shortDescription}</p>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setSelectedProgram(program); }}
+                    className="text-base font-bold transition-all duration-300 inline-flex items-center gap-1.5 bg-transparent border-0 p-0 cursor-pointer text-[var(--primary-blue)]"
                   >
-                    <div
-                      className="h-full p-6 rounded-lg shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-lg"
-                      style={{
-                        backgroundColor: bgColor,
-                        transform: 'translateY(0)',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-6px)';
-                        e.currentTarget.style.boxShadow = '0 16px 32px rgba(16, 44, 38, 0.12)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(16, 44, 38, 0.06)';
-                      }}
-                    >
-                      {/* Icon Container with Gradient */}
-                      <div
-                        className="w-14 h-14 rounded-lg mb-4 flex items-center justify-center text-3xl transition-all duration-300 group-hover:scale-110"
-                        style={{
-                          background: 'linear-gradient(135deg, #E8F3EE 0%, #D4E8E3 100%)',
-                        }}
-                      >
-                        {program.icon}
-                      </div>
-
-                      {/* Title */}
-                      <h3
-                        className="text-xl font-bold mb-3 transition-colors duration-300"
-                        style={{ color: '#145C44' }}
-                      >
-                        {program.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-sm leading-relaxed mb-5 flex-grow" style={{ color: '#8B8B8B' }}>
-                        {program.shortDescription}
-                      </p>
-
-                      {/* Learn More Link */}
-                      <button
-                        onClick={() => setSelectedProgram(program)}
-                        className="text-sm font-semibold transition-all duration-300 inline-flex items-center bg-transparent border-0 p-0 cursor-pointer"
-                        style={{ color: '#102C26', textDecoration: 'none' }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.color = '#145C44';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.color = '#102C26';
-                        }}
-                      >
-                        Learn more <span className="ml-1">→</span>
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
+                    Learn more <span>→</span>
+                  </button>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
 
         {/* Impact Metrics - Horizontal Strip */}
-        <section className="py-8 px-6" style={{ backgroundColor: '#F7E7CE' }}>
+        <section className="py-8 px-6" style={{ backgroundColor: 'var(--champagne)' }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
               {metrics.map((metric, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
                   <span className="text-4xl mb-2">{metric.icon}</span>
-                  <p className="text-2xl md:text-3xl font-bold" style={{ color: '#145C44' }}>
+                  <p className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest)' }}>
                     {metric.value}
                   </p>
-                  <p className="text-xs md:text-sm mt-1" style={{ color: '#102C26' }}>
+                  <p className="text-xs md:text-sm mt-1" style={{ color: 'var(--forest-dark)' }}>
                     {metric.label}
                   </p>
                 </div>
@@ -306,43 +254,43 @@ const Programs = () => {
         {/* Get Involved Section */}
         <section className="py-12 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center" style={{ color: '#102C26' }}>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center" style={{ color: 'var(--forest-dark)' }}>
               How You Can Get Involved
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div
                 className="p-6 rounded-lg text-center transition-all duration-300 hover:shadow-md"
-                style={{ backgroundColor: '#F7E7CE' }}
+                style={{ backgroundColor: 'var(--champagne)' }}
               >
                 <p className="text-3xl mb-3">🤝</p>
-                <h3 className="font-bold mb-2 text-lg" style={{ color: '#102C26' }}>
+                <h3 className="font-bold mb-2 text-lg" style={{ color: 'var(--forest-dark)' }}>
                   Volunteer
                 </h3>
-                <p className="text-sm" style={{ color: '#666666' }}>
+                <p className="text-sm" style={{ color: 'var(--text-gray)' }}>
                   Contribute your skills and time to programs in your community.
                 </p>
               </div>
               <div
-                className="p-6 rounded-lg text-center border border-gray-200 transition-all duration-300 hover:shadow-md"
-                style={{ backgroundColor: '#FFFFFF' }}
-              >
+                  className="p-6 rounded-lg text-center border border-gray-200 transition-all duration-300 hover:shadow-md"
+                  style={{ backgroundColor: 'var(--white)' }}
+                >
                 <p className="text-3xl mb-3">💡</p>
-                <h3 className="font-bold mb-2 text-lg" style={{ color: '#102C26' }}>
+                <h3 className="font-bold mb-2 text-lg" style={{ color: 'var(--forest-dark)' }}>
                   Collaborate
                 </h3>
-                <p className="text-sm" style={{ color: '#666666' }}>
+                <p className="text-sm" style={{ color: 'var(--text-gray)' }}>
                   Partner with us to co-design new initiatives and solutions.
                 </p>
               </div>
               <div
                 className="p-6 rounded-lg text-center transition-all duration-300 hover:shadow-md"
-                style={{ backgroundColor: '#F7E7CE' }}
+                style={{ backgroundColor: 'var(--champagne)' }}
               >
                 <p className="text-3xl mb-3">🙌</p>
-                <h3 className="font-bold mb-2 text-lg" style={{ color: '#102C26' }}>
+                <h3 className="font-bold mb-2 text-lg" style={{ color: 'var(--forest-dark)' }}>
                   Support
                 </h3>
-                <p className="text-sm" style={{ color: '#666666' }}>
+                <p className="text-sm" style={{ color: 'var(--text-gray)' }}>
                   Donate or advocate for youth-centered change in your networks.
                 </p>
               </div>
@@ -355,41 +303,41 @@ const Programs = () => {
           <div
             style={{
               height: '1px',
-              background: 'linear-gradient(90deg, transparent, #145C44, transparent)',
+              background: `linear-gradient(90deg, transparent, var(--forest), transparent)`,
             }}
           />
         </div>
 
          {/* Partnerships CTA Section */}
-         <section className="py-12 px-6 bg-white" id="partnerships">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2
-              className="text-3xl md:text-4xl font-bold mb-4"
-              style={{ color: '#102C26' }}
-            >
-              Let&apos;s co-design the next youth-powered program
-            </h2>
-            <p className="text-sm md:text-base mb-8 mx-auto max-w-2xl" style={{ color: '#666666' }}>
-              Whether you&apos;re a community-based organization, research lab, or social enterprise, we&apos;d love to explore collaboration opportunities.
-            </p>
-            <Link
-              to="/contact"
-              className="inline-flex px-8 py-3 rounded font-semibold transition-all duration-300 hover:shadow-lg"
-              style={{
-                backgroundColor: '#102C26',
-                color: '#FFFFFF',
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = '#145C44';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = '#102C26';
-              }}
-            >
-              Start a conversation
-            </Link>
-          </div>
-        </section>
+         <section className="py-12 px-6 bg-gradient-to-r from-brand-primary to-accent-green" id="partnerships">
+           <div className="max-w-4xl mx-auto text-center">
+             <h2
+               className="text-3xl md:text-4xl font-bold mb-4 text-white"
+               style={{ letterSpacing: '0.05em' }}
+             >
+               Let&apos;s co-design the next youth-powered program
+             </h2>
+             <p className="text-sm md:text-base mb-8 mx-auto max-w-2xl text-white/90">
+               Whether you&apos;re a community-based organization, research lab, or social enterprise, we&apos;d love to explore collaboration opportunities.
+             </p>
+             <Link
+               to="/contact"
+               className="inline-flex px-8 py-3 rounded font-semibold transition-all duration-300 hover:shadow-lg"
+               style={{
+                 backgroundColor: '#1a4838',
+                 color: 'var(--white)',
+               }}
+               onMouseEnter={(e) => {
+                 e.target.style.backgroundColor = '#0d2d1e';
+               }}
+               onMouseLeave={(e) => {
+                 e.target.style.backgroundColor = '#1a4838';
+               }}
+             >
+               Start a conversation
+             </Link>
+           </div>
+         </section>
 
         {/* Program Modal */}
         <ProgramModal

@@ -29,11 +29,11 @@ const PrinciplePage = () => {
     <Layout>
       <div className="min-h-screen bg-light">
         {/* Header with back button */}
-        <section className="bg-[#102C26] text-white py-12">
+        <section className="bg-[var(--forest-dark)] text-white py-12">
           <div className="max-w-6xl mx-auto px-4">
             <Link 
               to="/#values" 
-              className="inline-flex items-center text-[#F7E7CE] font-semibold hover:text-white transition-colors mb-6"
+              className="inline-flex items-center text-[var(--champagne)] font-semibold hover:text-white transition-colors mb-6"
             >
               ← Back to Principles
             </Link>
@@ -42,7 +42,7 @@ const PrinciplePage = () => {
         </section>
 
         {/* Definition Scrolling Section */}
-        <section className="bg-[#F7E7CE] py-12">
+        <section className="bg-[var(--champagne)] py-12">
           <div className="max-w-6xl mx-auto px-4">
             <div 
               className="principle-ticker-container"
@@ -81,8 +81,8 @@ const PrinciplePage = () => {
                     to={`/values/${key}`}
                     className={`p-4 rounded-lg border-2 transition-all duration-300 text-center font-semibold ${
                       key === principle
-                        ? 'bg-[#102C26] text-white border-[#102C26]'
-                        : 'bg-white text-[#102C26] border-gray-200 hover:border-brand-accent hover:bg-[#F7E7CE]'
+                        ? 'bg-[var(--forest-dark)] text-white border-[var(--forest-dark)]'
+                        : 'bg-white text-[var(--forest-dark)] border-gray-200 hover:border-brand-accent hover:bg-[var(--champagne)]'
                     }`}
                   >
                     {value.title}
@@ -96,17 +96,17 @@ const PrinciplePage = () => {
         {/* CTA Section */}
         <section className="section-padded brand-sunrise text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="section-title text-[#102C26]">
+            <h2 className="section-title text-[var(--forest-dark)]">
               Want to live these principles with us?
             </h2>
-            <p className="text-[#102C26] text-lg leading-relaxed max-w-2xl mx-auto mt-6">
+            <p className="text-[var(--forest-dark)] text-lg leading-relaxed max-w-2xl mx-auto mt-6">
               Join our movement to empower youth, foster innovation, and create lasting change in Kenya's communities.
             </p>
             <div className="flex flex-wrap justify-center gap-6 mt-10">
-              <Link to="/contact" className="bg-[#102C26] text-white font-bold py-3 px-8 rounded hover:opacity-90 transition-all">
+              <Link to="/contact" className="bg-[var(--forest-dark)] text-white font-bold py-3 px-8 rounded hover:opacity-90 transition-all">
                 Partner With Us
               </Link>
-              <Link to="/#values" className="border-2 border-[#102C26] text-[#102C26] font-bold py-3 px-8 rounded hover:bg-[#102C26] hover:text-white transition-all">
+              <Link to="/#values" className="border-2 border-[var(--forest-dark)] text-[var(--forest-dark)] font-bold py-3 px-8 rounded hover:bg-[var(--forest-dark)] hover:text-white transition-all">
                 View All Principles
               </Link>
             </div>

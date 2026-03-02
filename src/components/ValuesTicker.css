@@ -1,7 +1,7 @@
 .ticker {
   overflow: hidden;
-  background: #F7E7CE; /* Champagne */
-  color: #102C26; /* Deep Forest text */
+  background: var(--champagne);
+  color: var(--forest-dark);
   padding: 1rem;
   font-size: 1.2rem;
   font-weight: 500;

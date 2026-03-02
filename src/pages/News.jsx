@@ -113,15 +113,15 @@ const News = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'success-story': { bg: '#145C44', text: '#FFFFFF' },
-      'impact': { bg: '#2E7D32', text: '#FFFFFF' },
-      'research': { bg: '#1e5f8e', text: '#FFFFFF' },
-      'programs': { bg: '#6B4C9A', text: '#FFFFFF' },
-      'environment': { bg: '#2E7D32', text: '#FFFFFF' },
-      'partnership': { bg: '#D97706', text: '#FFFFFF' },
-      'news': { bg: '#7EBBBF', text: '#FFFFFF' },
+      'success-story': { bg: 'var(--forest)', text: 'var(--white)' },
+      'impact': { bg: 'var(--emerald)', text: 'var(--white)' },
+      'research': { bg: 'var(--info-blue)', text: 'var(--white)' },
+      'programs': { bg: 'var(--programs-purple)', text: 'var(--white)' },
+      'environment': { bg: 'var(--emerald)', text: 'var(--white)' },
+      'partnership': { bg: 'var(--partnership-amber)', text: 'var(--white)' },
+      'news': { bg: 'var(--primary-blue)', text: 'var(--white)' },
     };
-    return colors[category] || { bg: '#7EBBBF', text: '#FFFFFF' };
+    return colors[category] || { bg: 'var(--primary-blue)', text: 'var(--white)' };
   };
 
   const getCategoryIcon = (category) => {
@@ -285,13 +285,13 @@ const News = () => {
 
             {/* Subheading */}
             <p className="text-base md:text-lg font-medium italic mb-2 max-w-2xl mx-auto leading-relaxed"
-                style={{ color: '#A3A3A3' }}>
+                style={{ color: 'var(--gray-muted)' }}>
               Stay informed about our latest achievements, ongoing initiatives, and upcoming events.
             </p>
 
             {/* Secondary description */}
             <p className="text-sm max-w-3xl mx-auto leading-relaxed"
-                style={{ color: '#A3A3A3' }}>
+                style={{ color: 'var(--gray-muted)' }}>
               Real stories from youth leaders, partners, and communities transforming lives through innovation and collaboration.
             </p>
           </div>
@@ -355,7 +355,7 @@ const News = () => {
                 <h2 className="news-section-title text-2xl md:text-3xl font-bold text-brand-primary mb-3 uppercase tracking-tight">
                   📰 Latest Updates
                 </h2>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed" style={{ color: '#A3A3A3' }}>
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed" style={{ color: 'var(--gray-muted)' }}>
                   Our most recent achievements — check back soon.
                 </p>
                 <div className="h-1.5 w-16 bg-[var(--primary-blue)] mt-3"></div>
@@ -381,11 +381,11 @@ const News = () => {
                     {subscribeSubmitted ? (
                       <div className="text-center py-6">
                         <div className="text-6xl mb-4">✓</div>
-                        <h3 style={{ color: '#27AE60', fontSize: '1.6rem' }}>Subscription Successful!</h3>
-                        <p style={{ color: '#27AE60', fontSize: '1.1rem', marginBottom: '1rem' }}>
+                        <h3 style={{ color: 'var(--success)', fontSize: '1.6rem' }}>Subscription Successful!</h3>
+                        <p style={{ color: 'var(--success)', fontSize: '1.1rem', marginBottom: '1rem' }}>
                           Thank you for subscribing. Check your email for updates!
                         </p>
-                        <p style={{ color: '#A3A3A3', fontSize: '0.9rem' }}>
+                        <p style={{ color: 'var(--gray-muted)', fontSize: '0.9rem' }}>
                           You'll hear from us soon with the latest news and stories.
                         </p>
                       </div>
@@ -456,7 +456,7 @@ const News = () => {
                 <h2 className="news-section-title text-2xl md:text-3xl font-bold text-brand-primary mb-3 uppercase tracking-tight">
                   🌟 Past Highlights
                 </h2>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed" style={{ color: '#A3A3A3' }}>
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed" style={{ color: 'var(--gray-muted)' }}>
                   Archived stories showcasing our impact — check back soon.
                 </p>
                 <div className="h-1.5 w-16 bg-[var(--primary-blue)] mt-3"></div>
@@ -482,11 +482,11 @@ const News = () => {
                     {subscribeSubmitted ? (
                       <div className="text-center py-6">
                         <div className="text-6xl mb-4">✓</div>
-                        <h3 style={{ color: '#27AE60', fontSize: '1.6rem' }}>Subscription Successful!</h3>
-                        <p style={{ color: '#27AE60', fontSize: '1.1rem', marginBottom: '1rem' }}>
+                        <h3 style={{ color: 'var(--success)', fontSize: '1.6rem' }}>Subscription Successful!</h3>
+                        <p style={{ color: 'var(--success)', fontSize: '1.1rem', marginBottom: '1rem' }}>
                           Thank you for subscribing. Check your email for updates!
                         </p>
-                        <p style={{ color: '#A3A3A3', fontSize: '0.9rem' }}>
+                        <p style={{ color: 'var(--gray-muted)', fontSize: '0.9rem' }}>
                           You'll hear from us soon with the latest news and stories.
                         </p>
                       </div>
