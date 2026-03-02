@@ -2053,3 +2053,96 @@ main {
         padding: 2rem 1rem;
     }
 }
+
+/* ========================================
+   BACKGROUND COLOR CONSISTENCY FIX
+   ======================================== */
+
+/* Ensure background colors stay exactly the same on all viewport sizes */
+section {
+    background-color: inherit;
+    width: 100%;
+}
+
+/* Home page specific sections - ensure consistent background colors */
+#program-grid {
+    background-color: var(--champagne) !important;
+    width: 100%;
+}
+
+#news {
+    background-color: var(--white) !important;
+    width: 100%;
+}
+
+#values {
+    background-color: var(--champagne) !important;
+    width: 100%;
+}
+
+#impact {
+    background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%) !important;
+    width: 100%;
+}
+
+/* CTA section gradient */
+section[style*="linear-gradient(135deg, var(--forest-dark)"] {
+    width: 100%;
+}
+
+/* Mobile: Ensure section backgrounds don't change */
+@media (max-width: 768px) {
+    #program-grid {
+        background-color: var(--champagne) !important;
+    }
+    
+    #news {
+        background-color: var(--white) !important;
+    }
+    
+    #values {
+        background-color: var(--champagne) !important;
+    }
+    
+    #impact {
+        background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%) !important;
+    }
+}
+
+/* Tablet: Ensure section backgrounds don't change */
+@media (min-width: 641px) and (max-width: 1024px) {
+    #program-grid {
+        background-color: var(--champagne) !important;
+    }
+    
+    #news {
+        background-color: var(--white) !important;
+    }
+    
+    #values {
+        background-color: var(--champagne) !important;
+    }
+    
+    #impact {
+        background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%) !important;
+    }
+}
+
+/* Desktop: Maintain background colors */
+@media (min-width: 1025px) {
+    #program-grid {
+        background-color: var(--champagne) !important;
+    }
+    
+    #news {
+        background-color: var(--white) !important;
+    }
+    
+    #values {
+        background-color: var(--champagne) !important;
+    }
+    
+    #impact {
+        background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%) !important;
+    }
+}
