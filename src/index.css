@@ -2146,3 +2146,16 @@ section[style*="linear-gradient(135deg, var(--forest-dark)"] {
         background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%) !important;
     }
 }
+
+/* Section Classes for consistent backgrounds - overrides inline styles */
+.program-section { background-color: var(--champagne) !important; }
+.latest-stories-section { background-color: var(--white) !important; }
+.values-section { background-color: var(--champagne) !important; }
+.cta-section { background: linear-gradient(135deg, var(--forest-dark) 0%, var(--emerald) 100%) !important; }
+
+@media (max-width: 768px) {
+    .program-section { background-color: var(--champagne) !important; }
+    .latest-stories-section { background-color: var(--white) !important; }
+    .values-section { background-color: var(--champagne) !important; }
+    .cta-section { background: linear-gradient(135deg, var(--forest-dark) 0%, var(--emerald) 100%) !important; }
+}

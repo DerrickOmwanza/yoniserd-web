@@ -51,7 +51,7 @@ const Home = () => {
                 <AboutHeroSectionStyled images={homeImages.slice(0, 3)} captions={homeDescriptions.slice(0, 3)} containerHeight="h-80 sm:h-96 md:h-[500px]" />
 
                 {/* Program Highlights - Champagne */}
-                <section className="py-12 px-6" style={{ backgroundColor: 'var(--champagne)' }} id="program-grid">
+                <section className="py-12 px-6 program-section" id="program-grid">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-10">
                             <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: 'var(--forest-dark)' }}>What We Do</h2>
@@ -74,39 +74,47 @@ const Home = () => {
                     <ImpactMetricsComponent />
                 </section>
 
-                {/* Stories / News - White background with enhanced cards */}
-                <section className="py-12 px-6" style={{ backgroundColor: 'var(--white)' }} id="news">
+                {/* Stories / News - Latest Stories Section with White Background and Dark Text */}
+                <section className="py-12 px-6 bg-white" id="news">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
                             <div className="order-2 sm:order-1">
                                 <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--forest)', letterSpacing: '0.15em' }}>Latest stories</p>
-                                <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest-dark)' }}>Youth-led change that inspires</h2>
+                                <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest-dark)', borderBottom: '2px solid var(--emerald)', paddingBottom: '0.5rem', display: 'inline-block' }}>Youth-led change that inspires</h2>
                             </div>
-                            <Link to="/our-work" className="order-1 sm:order-2 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: 'var(--emerald)', color: 'var(--emerald)', backgroundColor: 'transparent' }}>View all stories →</Link>
+                            <Link to="/our-work" className="order-1 sm:order-2 inline-flex items-center justify-center px-4 py-2 rounded-md font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ backgroundColor: 'var(--emerald)', color: 'var(--white)' }}>View all stories →</Link>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                            {storyHighlights.map((story) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {storyHighlights.map((story, index) => (
                                 <div key={story.title} 
-                                    className="rounded-xl p-5 shadow-md border-2 transition-all duration-300 flex flex-col hover:-translate-y-1" 
+                                    className="rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-xl bg-white" 
                                     style={{ 
-                                        minHeight: '260px',
-                                        backgroundColor: 'var(--primary-dark)',
-                                        borderColor: 'var(--primary-blue)',
-                                        boxShadow: '0 0 12px rgba(126, 187, 191, 0.4)'
+                                        minHeight: '280px',
+                                        border: '1px solid var(--champagne)'
                                     }}
                                 >
-                                    <span className="inline-block text-white text-xs font-bold px-3 py-1 rounded uppercase mb-3 w-fit" style={{ backgroundColor: 'var(--primary-blue)' }}>{story.tag}</span>
-                                    <h3 className="text-base font-bold mb-2 line-clamp-2" style={{ color: 'var(--white)', lineHeight: '1.4' }}>{story.title}</h3>
-                                    <p className="text-sm mb-4 flex-grow" style={{ color: 'rgba(255,255,255,0.85)', lineHeight: '1.6' }}>{story.excerpt}</p>
-                                    <Link to={story.link} className="font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all" style={{ color: 'var(--primary-blue)' }}>Keep reading <span>→</span></Link>
+                                    {/* Card Image Area - Forest Green Header */}
+                                    <div className="relative h-32" style={{ height: '120px', background: 'linear-gradient(135deg, var(--forest) 0%, var(--forest-dark) 100%)' }}>
+                                        {/* Category Badge Overlay */}
+                                        <span className="absolute top-3 left-3 text-white text-xs font-bold px-3 py-1 rounded uppercase" style={{ backgroundColor: 'var(--emerald)' }}>
+                                            {story.tag}
+                                        </span>
+                                    </div>
+                                    
+                                    {/* Card Content - Dark Text on White */}
+                                    <div className="p-5 flex flex-col flex-grow">
+                                        <h3 className="text-base font-bold mb-2 line-clamp-2" style={{ color: 'var(--forest-dark)', lineHeight: '1.4' }}>{story.title}</h3>
+                                        <p className="text-sm mb-4 flex-grow" style={{ color: 'var(--text-gray)', lineHeight: '1.6' }}>{story.excerpt}</p>
+                                        <Link to={story.link} className="font-bold text-sm flex items-center gap-1 transition-all duration-300 hover:gap-2" style={{ color: 'var(--emerald)' }}>Keep reading <span>→</span></Link>
+                                    </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
 
-                {/* Values - Champagne background (different from Stories) */}
-                <section className="py-12 px-6" style={{ backgroundColor: 'var(--champagne)' }} id="values">
+                {/* Values - Principles Section */}
+                <section className="py-12 px-6 values-section" id="values">
                     <div className="max-w-6xl mx-auto text-center">
                         <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--forest)', letterSpacing: '0.15em' }}>Values</p>
                         <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: 'var(--forest-dark)' }}>Principles that anchor every partnership</h2>
@@ -114,8 +122,8 @@ const Home = () => {
                     </div>
                 </section>
 
-                {/* CTA - Forest to Emerald gradient */}
-                <section className="py-12 px-6" style={{ background: 'linear-gradient(135deg, var(--forest-dark) 0%, var(--emerald) 100%)' }}>
+                {/* CTA - Call to Action Section */}
+                <section className="py-12 px-6 cta-section">
                     <div className="max-w-4xl mx-auto text-center">
                         <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Ready to collaborate on youth-centered research and development?</h2>
                         <p className="text-base mb-8 max-w-2xl mx-auto text-white/90">Let's co-design programs, document evidence, and amplify the leadership of Kenya's next generation.</p>
