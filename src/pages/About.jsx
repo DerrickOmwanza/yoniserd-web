@@ -82,7 +82,7 @@ const About = () => {
                     </div>
                 </nav>
 
-                {/* Hero Section - Ocean Gradient (matches News/Homepage Hero) */}
+                {/* Hero Section - Ocean Gradient */}
                 <section id="mission" aria-label="Mission and Vision statements" className="w-full py-6 md:py-8 px-6" style={{ background: 'linear-gradient(135deg, var(--primary-dark) 0%, var(--navy-850) 50%, var(--teal-deep) 100%)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-6">
@@ -141,7 +141,7 @@ const About = () => {
                         </div>
                         <div className="flex flex-col items-center justify-center" style={{ borderTop: '2px solid var(--forest)', paddingTop: '1.5rem' }}>
                             <p className="text-sm font-semibold mb-4 text-center" style={{ color: 'var(--forest-dark)' }}>Download Certificate of Registration</p>
-                            <a href={certificate} download="YoNISeRD-Certificate-of-Registration.jpg" className="inline-flex items-center gap-2 px-6 py-2 rounded-lg font-bold text-sm transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-lg" style={{ backgroundColor: 'var(--forest-dark)', color: 'var(--white)', textDecoration: 'none' }}>
+                            <a href={certificate} download="YoNISeRD-Certificate-of-Registration.jpg" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-lg" style={{ backgroundColor: 'var(--forest-dark)', color: 'var(--white)', textDecoration: 'none' }}>
                                 <span>📥</span><span>Download Certificate</span>
                             </a>
                         </div>
@@ -185,9 +185,9 @@ const About = () => {
                                     <h3 className="text-base font-bold mb-2" style={{ color: 'var(--forest-dark)' }}>Together We Create Impact</h3>
                                     <p className="text-sm leading-relaxed" style={{ color: 'var(--forest-dark)' }}>Your partnership enables us to transform lives and create lasting, positive change.</p>
                                 </div>
-                                <div className="flex gap-3 flex-wrap w-full">
-                                    <Link to="/contact#volunteer" className="flex-1 font-bold py-2 px-4 rounded-lg hover:-translate-y-1 transition-all duration-300 text-center shadow-md hover:shadow-lg" style={{ backgroundColor: 'var(--emerald)', color: 'var(--white)', textDecoration: 'none', display: 'block', fontSize: '0.9rem' }}>Get Involved</Link>
-                                    <Link to="/programs#partnerships" className="flex-1 font-bold py-2 px-4 rounded-lg hover:-translate-y-1 transition-all duration-300 text-center" style={{ borderColor: 'var(--emerald)', color: 'var(--emerald)', border: '2px solid var(--emerald)', textDecoration: 'none', display: 'block', backgroundColor: 'transparent', fontSize: '0.9rem' }}>Partner With Us</Link>
+                                <div className="flex gap-3 flex-wrap justify-center">
+                                    <Link to="/contact#volunteer" className="font-bold py-2 px-6 rounded-lg hover:-translate-y-1 transition-all duration-300 text-center shadow-md hover:shadow-lg inline-block" style={{ backgroundColor: 'var(--emerald)', color: 'var(--white)', textDecoration: 'none', fontSize: '0.9rem', minWidth: '140px' }}>Get Involved</Link>
+                                    <Link to="/programs#partnerships" className="font-bold py-2 px-6 rounded-lg hover:-translate-y-1 transition-all duration-300 text-center inline-block" style={{ borderColor: 'var(--emerald)', color: 'var(--emerald)', border: '2px solid var(--emerald)', textDecoration: 'none', backgroundColor: 'transparent', fontSize: '0.9rem', minWidth: '140px' }}>Partner With Us</Link>
                                 </div>
                             </div>
                         </div>
