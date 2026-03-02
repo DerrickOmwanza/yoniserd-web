@@ -162,7 +162,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             placeholder="John Doe"
-                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.name
+                                            className={`w-full md:w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.name
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -185,7 +185,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             placeholder="your.email@example.com"
-                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.email
+                                            className={`w-full md:w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.email
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -208,7 +208,7 @@ const Contact = () => {
                                             value={formData.subject}
                                             onChange={handleChange}
                                             placeholder="e.g., Partnership, Volunteering"
-                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.subject
+                                            className={`w-full md:w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.subject
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -231,7 +231,7 @@ const Contact = () => {
                                             onChange={handleChange}
                                             placeholder="Tell us more about your inquiry..."
                                             rows="4"
-                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none resize-none ${errors.message
+                                            className={`w-full md:w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none resize-none ${errors.message
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
