@@ -155,7 +155,7 @@ const ImageCard = ({ image, caption, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 focus:outline-none focus:ring-4"
+      className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(126,187,191,0.8)] hover:-translate-y-2 focus:outline-none focus:ring-4"
       style={{ focusRing: '#145C44' }}
       aria-label={`View image: ${caption}`}
     >
@@ -188,8 +188,8 @@ const ImageCard = ({ image, caption, onClick }) => {
       </div>
 
       {/* Caption */}
-      <div className="p-3 sm:p-4" style={{ backgroundColor: '#FFFFFF' }}>
-        <p className="text-xs sm:text-sm font-semibold text-left" style={{ color: '#102C26' }}>
+      <div className="p-3 sm:p-4 border-t-2" style={{ backgroundColor: '#050F2A', borderColor: 'var(--primary-blue)' }}>
+        <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#FFFFFF' }}>
           {caption}
         </p>
       </div>
@@ -202,7 +202,7 @@ const VideoCard = ({ video, caption, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 focus:outline-none focus:ring-4"
+      className="group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-[0_0_15px_rgba(126,187,191,0.8)] hover:-translate-y-2 focus:outline-none focus:ring-4"
       style={{ focusRing: '#145C44' }}
       aria-label={`Play video: ${caption}`}
     >
@@ -232,8 +232,8 @@ const VideoCard = ({ video, caption, onClick }) => {
       </div>
 
       {/* Caption */}
-      <div className="p-3 sm:p-4" style={{ backgroundColor: '#FFFFFF' }}>
-        <p className="text-xs sm:text-sm font-semibold text-left" style={{ color: '#102C26' }}>
+      <div className="p-3 sm:p-4 border-t-2" style={{ backgroundColor: '#050F2A', borderColor: 'var(--primary-blue)' }}>
+        <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#FFFFFF' }}>
           {caption}
         </p>
       </div>
@@ -339,16 +339,31 @@ const Gallery = () => {
         {activeTab === 'images' && (
           <section className="py-12 px-6" style={{ backgroundColor: '#F7E7CE' }}>
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                {imageGallery.map((item, index) => (
-                  <ImageCard
-                    key={index}
-                    image={item.src}
-                    caption={item.caption}
-                    onClick={() => handleImageClick(item)}
-                  />
-                ))}
-              </div>
+              {imageGallery.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+                    {imageGallery.map((item, index) => (
+                      <ImageCard
+                        key={index}
+                        image={item.src}
+                        caption={item.caption}
+                        onClick={() => handleImageClick(item)}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex justify-center">
+                    <button className="view-more-btn">View More</button>
+                  </div>
+                </>
+              ) : (
+                <div className="gallery-placeholder">
+                  <span className="text-4xl">📸</span>
+                  <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginTop: '0.5rem' }}>
+                    Coming Soon
+                  </h3>
+                  <p>No photos available yet. Check back later!</p>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -357,16 +372,31 @@ const Gallery = () => {
         {activeTab === 'videos' && (
           <section className="py-12 px-6" style={{ backgroundColor: '#F7E7CE' }}>
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {videoGallery.map((item, index) => (
-                  <VideoCard
-                    key={index}
-                    video={item.src}
-                    caption={item.caption}
-                    onClick={() => handleVideoClick(item)}
-                  />
-                ))}
-              </div>
+              {videoGallery.length > 0 ? (
+                <>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    {videoGallery.map((item, index) => (
+                      <VideoCard
+                        key={index}
+                        video={item.src}
+                        caption={item.caption}
+                        onClick={() => handleVideoClick(item)}
+                      />
+                    ))}
+                  </div>
+                  <div className="flex justify-center">
+                    <button className="view-more-btn">View More</button>
+                  </div>
+                </>
+              ) : (
+                <div className="gallery-placeholder">
+                  <span className="text-4xl">🎬</span>
+                  <h3 style={{ color: '#FFFFFF', fontSize: '1.6rem', marginTop: '0.5rem' }}>
+                    Coming Soon
+                  </h3>
+                  <p>No videos available yet. Check back later!</p>
+                </div>
+              )}
             </div>
           </section>
         )}

@@ -1026,10 +1026,13 @@ const About = () => {
                 >
                     <div className="max-w-6xl mx-auto">
                         {/* Section Header */}
-                        <div className="text-center mb-10 pb-6 border-b-2" style={{ borderColor: '#145C44' }}>
+                        <div className="text-center mb-10 pb-6 border-b-2" style={{ borderColor: '#7EBBBF' }}>
                             <h2
-                                className="text-3xl md:text-4xl font-bold leading-tight"
-                                style={{ color: '#102C26' }}
+                                className="text-3xl md:text-4xl font-bold leading-tight text-white"
+                                style={{
+                                    color: '#FFFFFF',
+                                    textShadow: '0 2px 4px rgba(0,0,0,0.6)',
+                                }}
                             >
                                 Our Impact by Numbers
                             </h2>
@@ -1042,28 +1045,26 @@ const About = () => {
                                 return (
                                     <div
                                         key={index}
-                                        className="group bg-white rounded-lg p-5 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-200 flex flex-col items-center justify-center text-center"
+                                        className="impact-card group bg-[var(--primary-dark)] border border-[var(--primary-blue)] rounded-lg p-5 shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 flex flex-col items-center justify-center text-center text-white"
                                     >
                                         {/* Icon */}
-                                        <div className="text-4xl mb-2">
+                                        <div className="impact-icon text-4xl mb-2 text-white">
                                             {icons[index]}
                                         </div>
 
                                         {/* Stat Value */}
                                         <p
-                                            className="text-4xl md:text-5xl font-bold mb-2"
-                                            style={{ color: '#2E7D32' }}
+                                            className="text-4xl md:text-5xl font-bold mb-2 text-white"
                                         >
                                             {stat.value}
                                         </p>
 
                                         {/* Divider */}
-                                        <div className="w-6 h-0.5 bg-gradient-to-r from-accent-green to-champagne mb-3" />
+                                        <div className="w-6 h-0.5 bg-[var(--primary-blue)] mb-3" />
 
                                         {/* Stat Label */}
                                         <p
-                                            className="text-xs md:text-sm font-medium"
-                                            style={{ color: '#102C26' }}
+                                            className="text-xs md:text-sm font-medium text-gray-300"
                                         >
                                             {stat.label}
                                         </p>

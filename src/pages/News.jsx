@@ -8,6 +8,12 @@ const News = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [countdowns, setCountdowns] = useState({});
+  
+  // Subscribe form state
+  const [subscribeData, setSubscribeData] = useState({ name: '', email: '' });
+  const [subscribeErrors, setSubscribeErrors] = useState({});
+  const [subscribeSubmitted, setSubscribeSubmitted] = useState(false);
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
 
   const stories = [
     // Latest Updates (Most Recent)
@@ -163,6 +169,93 @@ const News = () => {
     ? stories 
     : stories.filter(story => story.category === selectedCategory);
 
+  // scroll-trigger animations
+  useEffect(() => {
+    // Small delay to ensure DOM is fully updated after render
+    const timeoutId = setTimeout(() => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const elements = document.querySelectorAll('.news-card, .placeholder-card, .filter-buttons');
+      elements.forEach(el => {
+        observer.observe(el);
+      });
+
+      return () => observer.disconnect();
+    }, 50);
+
+    return () => clearTimeout(timeoutId);
+  }, [selectedCategory]);
+
+  // Subscribe form validation
+  const validateSubscribeForm = (formData) => {
+    const errors = {};
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required';
+    }
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      errors.email = 'Please enter a valid email address';
+    }
+    return errors;
+  };
+
+  const handleSubscribeChange = (e) => {
+    const { name, value } = e.target;
+    setSubscribeData((prev) => ({ ...prev, [name]: value }));
+    if (subscribeErrors[name]) {
+      setSubscribeErrors((prev) => ({ ...prev, [name]: '' }));
+    }
+  };
+
+  const handleSubscribeSubmit = async (e) => {
+    e.preventDefault();
+    const errors = validateSubscribeForm(subscribeData);
+
+    if (Object.keys(errors).length === 0) {
+      // Show loading state immediately
+      setSubscribeLoading(true);
+      
+      // Clear form fields immediately so user sees them disappear
+      setSubscribeData({ name: '', email: '' });
+      setSubscribeErrors({});
+      
+      // Simulate submission delay for better UX
+      setTimeout(() => {
+        // Show success message
+        setSubscribeSubmitted(true);
+        setSubscribeLoading(false);
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setSubscribeSubmitted(false);
+        }, 5000);
+      }, 800);
+      
+      // Also submit the form data to Netlify if deployed there
+      const formDataObj = new FormData(e.target);
+      try {
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formDataObj).toString(),
+        }).catch(() => {
+          // Silently fail if not on Netlify (for local development)
+        });
+      } catch (error) {
+        // Silently fail
+      }
+    } else {
+      setSubscribeErrors(errors);
+    }
+  };
+
   const latestStories = filteredStories.filter(s => s.section === 'latest');
   const highlightStories = filteredStories.filter(s => s.section === 'highlights');
 
@@ -176,27 +269,29 @@ const News = () => {
     <Layout>
       <div className="min-h-screen bg-white">
         {/* ===== HERO SECTION (REDESIGNED) ===== */}
-        <section className="relative bg-champagne py-6 md:py-8 px-6 overflow-hidden">
+        <section className="relative bg-champagne py-6 md:py-8 px-6 overflow-hidden news-hero">
           <div className="max-w-6xl mx-auto text-center">
             {/* Main Heading with Icon */}
             <div className="flex items-center justify-center gap-2 mb-2 animate-fadeIn">
               <span className="text-3xl md:text-4xl">📰</span>
-              <h1 className="text-3xl md:text-5xl font-bold text-brand-primary uppercase tracking-widest leading-tight"
+              <h1 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-widest leading-tight"
                   style={{textShadow: '0 2px 4px rgba(0,0,0,0.1)'}}>
                 News & Updates
               </h1>
             </div>
 
             {/* Decorative underline */}
-            <div className="h-1 bg-accent-green w-20 mx-auto mb-4 rounded-full"></div>
+            <div className="h-1 bg-[var(--primary-blue)] w-20 mx-auto mb-4 rounded-full"></div>
 
             {/* Subheading */}
-            <p className="text-base md:text-lg font-medium text-accent-green italic mb-2 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg font-medium italic mb-2 max-w-2xl mx-auto leading-relaxed"
+                style={{ color: '#A3A3A3' }}>
               Stay informed about our latest achievements, ongoing initiatives, and upcoming events.
             </p>
 
             {/* Secondary description */}
-            <p className="text-sm text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-sm max-w-3xl mx-auto leading-relaxed"
+                style={{ color: '#A3A3A3' }}>
               Real stories from youth leaders, partners, and communities transforming lives through innovation and collaboration.
             </p>
           </div>
@@ -224,7 +319,7 @@ const News = () => {
 
         {/* ===== FEATURED STORY STRIP ===== */}
         {featuredStory && (
-          <section className="bg-accent-green text-white py-4 px-6 sticky top-0 z-30">
+          <section className="breaking-news sticky top-0 z-30">
             <div className="max-w-6xl mx-auto flex items-center gap-3 text-center md:text-left overflow-x-auto">
               <span className="text-lg font-bold whitespace-nowrap flex-shrink-0">🔥 Breaking News:</span>
               <p className="text-sm md:text-base whitespace-nowrap flex-shrink-0 font-semibold">
@@ -235,19 +330,15 @@ const News = () => {
         )}
 
         {/* ===== FILTER SECTION ===== */}
-        <section className="bg-white border-b-2 border-champagne py-6 px-6 sticky top-0 z-40 shadow-sm">
+        <section className="bg-white border-b-2 border-champagne py-6 px-6 sticky top-[72px] z-40 shadow-sm">
           <div className="max-w-6xl mx-auto">
             <p className="text-brand-primary font-bold mb-3 text-center text-sm md:text-base">Filter by category:</p>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="filter-buttons flex flex-wrap justify-center gap-2 opacity-0 transform -translate-x-8">
               {categories.map(cat => (
                 <button
                   key={cat.value}
                   onClick={() => setSelectedCategory(cat.value)}
-                  className={`px-4 py-1.5 rounded-full font-semibold transition-all duration-300 text-xs md:text-sm ${
-                    selectedCategory === cat.value
-                      ? 'bg-accent-green text-white shadow-lg scale-105'
-                      : 'bg-champagne text-brand-primary hover:bg-accent-green hover:text-white border-2 border-accent-green'
-                  }`}
+                  className={`px-4 py-1.5 rounded-full font-semibold transition-all duration-300 text-xs md:text-sm ${selectedCategory === cat.value ? 'active' : ''}`}
                 >
                   {cat.label}
                 </button>
@@ -257,70 +348,206 @@ const News = () => {
         </section>
 
         {/* ===== LATEST UPDATES SECTION ===== */}
-        {latestStories.length > 0 && (
+        
           <section className="py-12 px-6 bg-white">
             <div className="max-w-6xl mx-auto">
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-3 uppercase tracking-tight">
-                  Latest Updates
+                <h2 className="news-section-title text-2xl md:text-3xl font-bold text-brand-primary mb-3 uppercase tracking-tight">
+                  📰 Latest Updates
                 </h2>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Our most recent achievements and stories transforming communities.
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed" style={{ color: '#A3A3A3' }}>
+                  Our most recent achievements — check back soon.
                 </p>
-                <div className="h-1.5 w-16 bg-accent-green mt-3"></div>
+                <div className="h-1.5 w-16 bg-[var(--primary-blue)] mt-3"></div>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {latestStories.map(story => (
-                  <NewsCard 
-                    key={story.id} 
-                    story={story} 
-                    categories={categories}
-                    categoryColor={getCategoryColor(story.category)}
-                    categoryIcon={getCategoryIcon(story.category)}
-                    onReadMore={() => {
-                      setSelectedStory(story);
-                      setIsModalOpen(true);
-                    }}
-                  />
-                ))}
+                {latestStories.length > 0 ? (
+                  latestStories.map(story => (
+                    <NewsCard 
+                      key={story.id} 
+                      story={story} 
+                      categories={categories}
+                      categoryColor={getCategoryColor(story.category)}
+                      categoryIcon={getCategoryIcon(story.category)}
+                      onReadMore={() => {
+                        setSelectedStory(story);
+                        setIsModalOpen(true);
+                      }}
+                    />
+                  ))
+                ) : (
+                  <div className="placeholder-card">
+                    {subscribeSubmitted ? (
+                      <div className="text-center py-6">
+                        <div className="text-6xl mb-4">✓</div>
+                        <h3 style={{ color: '#27AE60', fontSize: '1.6rem' }}>Subscription Successful!</h3>
+                        <p style={{ color: '#27AE60', fontSize: '1.1rem', marginBottom: '1rem' }}>
+                          Thank you for subscribing. Check your email for updates!
+                        </p>
+                        <p style={{ color: '#A3A3A3', fontSize: '0.9rem' }}>
+                          You'll hear from us soon with the latest news and stories.
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <span className="text-4xl">📰</span>
+                        <h3>Coming Soon</h3>
+                        <p>No updates yet — stay tuned for upcoming stories and highlights.</p>
+                        
+                        <form 
+                          className="subscribe-form" 
+                          name="subscribe-form"
+                          method="POST"
+                          data-netlify="true"
+                          data-netlify-honeypot="bot-field"
+                          onSubmit={handleSubscribeSubmit}
+                        >
+                          <input type="hidden" name="form-name" value="subscribe-form" />
+                          <input type="hidden" name="bot-field" />
+
+                          {subscribeErrors.name && (
+                            <p className="text-red-600 text-xs font-semibold mb-1">{subscribeErrors.name}</p>
+                          )}
+                          <input 
+                            type="text" 
+                            name="name" 
+                            placeholder="Your Name" 
+                            value={subscribeData.name}
+                            onChange={handleSubscribeChange}
+                            disabled={subscribeLoading}
+                            required
+                          />
+
+                          {subscribeErrors.email && (
+                            <p className="text-red-600 text-xs font-semibold mb-1">{subscribeErrors.email}</p>
+                          )}
+                          <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Your Email Address" 
+                            value={subscribeData.email}
+                            onChange={handleSubscribeChange}
+                            disabled={subscribeLoading}
+                            required
+                          />
+                          <button 
+                            type="submit" 
+                            className="subscribe-btn"
+                            disabled={subscribeLoading}
+                          >
+                            {subscribeLoading ? 'Subscribing...' : 'Subscribe for Updates →'}
+                          </button>
+                        </form>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </section>
-        )}
+        
 
         {/* ===== PAST HIGHLIGHTS SECTION ===== */}
-        {highlightStories.length > 0 && (
+        
           <section className="py-12 px-6 bg-champagne/20 border-t-2 border-b-2 border-champagne/40">
             <div className="max-w-6xl mx-auto">
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-3 uppercase tracking-tight">
-                  Past Highlights
+                <h2 className="news-section-title text-2xl md:text-3xl font-bold text-brand-primary mb-3 uppercase tracking-tight">
+                  🌟 Past Highlights
                 </h2>
-                <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Archived stories showcasing our impact and achievements.
+                <p className="text-sm md:text-base text-gray-700 leading-relaxed" style={{ color: '#A3A3A3' }}>
+                  Archived stories showcasing our impact — check back soon.
                 </p>
-                <div className="h-1.5 w-16 bg-accent-green mt-3"></div>
+                <div className="h-1.5 w-16 bg-[var(--primary-blue)] mt-3"></div>
               </div>
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {highlightStories.map(story => (
-                  <NewsCard 
-                    key={story.id} 
-                    story={story} 
-                    categories={categories}
-                    categoryColor={getCategoryColor(story.category)}
-                    categoryIcon={getCategoryIcon(story.category)}
-                    onReadMore={() => {
-                      setSelectedStory(story);
-                      setIsModalOpen(true);
-                    }}
-                  />
-                ))}
+                {highlightStories.length > 0 ? (
+                  highlightStories.map(story => (
+                    <NewsCard 
+                      key={story.id} 
+                      story={story} 
+                      categories={categories}
+                      categoryColor={getCategoryColor(story.category)}
+                      categoryIcon={getCategoryIcon(story.category)}
+                      onReadMore={() => {
+                        setSelectedStory(story);
+                        setIsModalOpen(true);
+                      }}
+                    />
+                  ))
+                ) : (
+                  <div className="placeholder-card">
+                    {subscribeSubmitted ? (
+                      <div className="text-center py-6">
+                        <div className="text-6xl mb-4">✓</div>
+                        <h3 style={{ color: '#27AE60', fontSize: '1.6rem' }}>Subscription Successful!</h3>
+                        <p style={{ color: '#27AE60', fontSize: '1.1rem', marginBottom: '1rem' }}>
+                          Thank you for subscribing. Check your email for updates!
+                        </p>
+                        <p style={{ color: '#A3A3A3', fontSize: '0.9rem' }}>
+                          You'll hear from us soon with the latest news and stories.
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <span className="text-4xl">📰</span>
+                        <h3>Coming Soon</h3>
+                        <p>No highlights yet — stay tuned for archival stories.</p>
+                        
+                        <form 
+                          className="subscribe-form" 
+                          name="subscribe-form"
+                          method="POST"
+                          data-netlify="true"
+                          data-netlify-honeypot="bot-field"
+                          onSubmit={handleSubscribeSubmit}
+                        >
+                          <input type="hidden" name="form-name" value="subscribe-form" />
+                          <input type="hidden" name="bot-field" />
+
+                          {subscribeErrors.name && (
+                            <p className="text-red-600 text-xs font-semibold mb-1">{subscribeErrors.name}</p>
+                          )}
+                          <input 
+                            type="text" 
+                            name="name" 
+                            placeholder="Your Name" 
+                            value={subscribeData.name}
+                            onChange={handleSubscribeChange}
+                            disabled={subscribeLoading}
+                            required
+                          />
+
+                          {subscribeErrors.email && (
+                            <p className="text-red-600 text-xs font-semibold mb-1">{subscribeErrors.email}</p>
+                          )}
+                          <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Your Email Address" 
+                            value={subscribeData.email}
+                            onChange={handleSubscribeChange}
+                            disabled={subscribeLoading}
+                            required
+                          />
+                          <button 
+                            type="submit" 
+                            className="subscribe-btn"
+                            disabled={subscribeLoading}
+                          >
+                            {subscribeLoading ? 'Subscribing...' : 'Subscribe for Updates →'}
+                          </button>
+                        </form>
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </section>
-        )}
+        
 
         {/* ===== UPCOMING EVENTS SECTION ===== */}
         <section className="py-12 px-6 bg-white">
@@ -431,7 +658,7 @@ const News = () => {
 /* ===== NEWS CARD COMPONENT ===== */
 const NewsCard = ({ story, categories, categoryColor, categoryIcon, onReadMore }) => {
   return (
-    <article className="h-full rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer bg-white border-2 border-transparent hover:border-accent-green flex flex-col hover:-translate-y-1">
+    <article className="news-card h-full rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer border-2 border-transparent hover:border-accent-green flex flex-col hover:-translate-y-1">
       {/* Image Container with Overlay */}
       <div className="relative h-48 overflow-hidden flex-shrink-0 bg-gray-200">
         <img 
@@ -469,12 +696,12 @@ const NewsCard = ({ story, categories, categoryColor, categoryIcon, onReadMore }
         </div>
 
         {/* Title */}
-        <h3 className="text-base md:text-lg font-bold text-brand-primary mb-3 line-clamp-2 group-hover:text-accent-green transition-colors leading-tight">
+        <h3 className="text-base md:text-lg font-bold mb-3 line-clamp-2 group-hover:text-accent-green transition-colors leading-tight">
           {story.title}
         </h3>
 
         {/* Excerpt */}
-        <p className="text-gray-700 text-sm mb-4 line-clamp-2 leading-relaxed flex-grow">
+        <p className="text-sm mb-4 line-clamp-2 leading-relaxed flex-grow">
           {story.excerpt}
         </p>
 
@@ -536,7 +763,7 @@ const UpcomingEventCard = ({ title, teaser, description, icon, countdown, ctaTex
 
         {/* Countdown Timer */}
         {countdown && countdown.days > 0 && (
-          <div className="mb-4 p-3 bg-accent-green/10 rounded-lg border border-accent-green/30 text-center">
+          <div className="mb-4 p-3 bg-accent-green/10 rounded-lg border border-accent-green/30 text-center countdown-timer">
             <p className="text-xs text-gray-600 mb-1">Launching in</p>
             <p className="text-lg font-bold text-accent-green">
               {countdown.days}d {countdown.hours}h

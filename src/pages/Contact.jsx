@@ -77,16 +77,16 @@ const Contact = () => {
         <Layout>
             <div className="min-h-screen bg-white">
                 {/* Hero Section - Refined & Professional */}
-                <section className="w-full pt-10 md:pt-12 pb-10 md:pb-12 px-6 flex items-center justify-center" style={{ backgroundColor: '#F7E7CE' }}>
+                <section className="contact-hero w-full pt-10 md:pt-12 pb-10 md:pb-12 px-6 flex items-center justify-center bg-[var(--primary-dark)]">
                     <div className="max-w-4xl w-full text-center">
                         {/* Main Heading */}
                         <h1
-                            className="text-5xl md:text-6xl font-bold mb-2 uppercase text-center"
+                            className="text-3xl md:text-4xl font-bold mb-2 uppercase text-center"
                             style={{
+                                fontSize: '2rem',
                                 letterSpacing: '0.05em',
-                                color: '#102C26',
-                                fontWeight: '700',
-                                marginLeft: '-0.025em'
+                                color: '#FFFFFF',
+                                fontWeight: '700'
                             }}
                         >
                             Contact
@@ -95,16 +95,16 @@ const Contact = () => {
                         {/* Underline Divider */}
                         <div
                             className="w-16 h-1 mx-auto mb-4"
-                            style={{ backgroundColor: '#145C44' }}
+                            style={{ backgroundColor: '#7EBBBF' }}
                         ></div>
 
-                        {/* Subheading - Larger Font */}
+                        {/* Subheading - Refined Font */}
                         <p
-                            className="text-xl md:text-2xl leading-relaxed text-center"
+                            className="text-lg leading-relaxed text-center mx-auto"
                             style={{
-                                fontWeight: '500',
-                                letterSpacing: '0.01em',
-                                color: '#145C44'
+                                fontSize: '1.2rem',
+                                color: '#A3A3A3',
+                                maxWidth: '700px'
                             }}
                         >
                             Have a question, partnership opportunity, or volunteer inquiry? Reach out and let's connect.
@@ -115,7 +115,7 @@ const Contact = () => {
                 {/* Main Contact Section - Optimized with Divider */}
                 <section className="py-8 md:py-12 px-6 border-b-2" style={{ borderBottomColor: '#145C44' }}>
                     <div className="max-w-6xl mx-auto">
-                        <div className="grid md:grid-cols-2 gap-6 md:gap-10 md:divide-x-2" style={{ borderColor: '#145C44' }}>
+                        <div className="grid md:grid-cols-2 gap-6 md:gap-10">
                             {/* Contact Form - Left Column */}
                             <div id="contact-form" className="md:pr-6">
                                 <h2
@@ -145,7 +145,7 @@ const Contact = () => {
                                     data-netlify="true"
                                     data-netlify-honeypot="bot-field"
                                     onSubmit={handleSubmit}
-                                    className="space-y-4"
+                                    className="space-y-4 contact-form"
                                 >
                                     <input type="hidden" name="form-name" value="contact-form" />
                                     <input type="hidden" name="bot-field" />
@@ -162,7 +162,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             placeholder="John Doe"
-                                            className={`w-full px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.name
+                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.name
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -185,7 +185,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             placeholder="your.email@example.com"
-                                            className={`w-full px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.email
+                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.email
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -208,7 +208,7 @@ const Contact = () => {
                                             value={formData.subject}
                                             onChange={handleChange}
                                             placeholder="e.g., Partnership, Volunteering"
-                                            className={`w-full px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.subject
+                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none ${errors.subject
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -231,7 +231,7 @@ const Contact = () => {
                                             onChange={handleChange}
                                             placeholder="Tell us more about your inquiry..."
                                             rows="4"
-                                            className={`w-full px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none resize-none ${errors.message
+                                            className={`w-4/5 px-4 py-2.5 rounded-lg border-2 bg-white text-base transition-all duration-200 focus:outline-none resize-none ${errors.message
                                                 ? 'border-red-400 focus:border-red-400 focus:ring-2 focus:ring-red-200'
                                                 : 'border-gray-300 focus:border-green-400 focus:ring-2 focus:ring-green-100'
                                                 }`}
@@ -298,42 +298,33 @@ const Contact = () => {
                             </div>
 
                             {/* Contact Info - Right Column */}
-                            <div className="flex flex-col justify-start md:pl-6">
+                            <div className="flex flex-col justify-start md:pl-6 contact-info">
                                 {/* Contact Cards */}
                                 <div className="space-y-4 mb-6">
                                     {/* Location Card */}
                                     <div
-                                        className="rounded-lg p-5 border-l-4 transition-all duration-200 hover:shadow-sm"
-                                        style={{
-                                            backgroundColor: '#FAFAFA',
-                                            borderLeftColor: '#145C44'
-                                        }}
+                                        className="rounded-lg p-5 transition-all duration-200 hover:shadow-sm contact-card"
                                     >
                                         <div className="flex gap-3 items-start">
                                             <span className="text-2xl">📍</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-1" style={{ color: '#102C26' }}>Location</h3>
-                                                <p className="text-base" style={{ color: '#666666' }}>{CONTACT_INFO.location}</p>
+                                                <h3 className="text-lg font-bold mb-1">Location</h3>
+                                                <p className="text-base">{CONTACT_INFO.location}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Email Card */}
                                     <div
-                                        className="rounded-lg p-5 border-l-4 transition-all duration-200 hover:shadow-sm"
-                                        style={{
-                                            backgroundColor: '#FAFAFA',
-                                            borderLeftColor: '#145C44'
-                                        }}
+                                        className="rounded-lg p-5 transition-all duration-200 hover:shadow-sm contact-card"
                                     >
                                         <div className="flex gap-3 items-start">
                                             <span className="text-2xl">✉️</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-1" style={{ color: '#102C26' }}>Email</h3>
+                                                <h3 className="text-lg font-bold mb-1">Email</h3>
                                                 <a
                                                     href={`mailto:${CONTACT_INFO.email}`}
                                                     className="text-base font-semibold hover:underline transition-colors duration-200"
-                                                    style={{ color: '#145C44' }}
                                                 >
                                                     {CONTACT_INFO.email}
                                                 </a>
@@ -343,20 +334,15 @@ const Contact = () => {
 
                                     {/* Phone Card */}
                                     <div
-                                        className="rounded-lg p-5 border-l-4 transition-all duration-200 hover:shadow-sm"
-                                        style={{
-                                            backgroundColor: '#FAFAFA',
-                                            borderLeftColor: '#145C44'
-                                        }}
+                                        className="rounded-lg p-5 transition-all duration-200 hover:shadow-sm contact-card"
                                     >
                                         <div className="flex gap-3 items-start">
                                             <span className="text-2xl">📞</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-1" style={{ color: '#102C26' }}>Phone</h3>
+                                                <h3 className="text-lg font-bold mb-1">Phone</h3>
                                                 <a
                                                     href={`tel:${CONTACT_INFO.phone}`}
                                                     className="text-base font-semibold hover:underline transition-colors duration-200"
-                                                    style={{ color: '#145C44' }}
                                                 >
                                                     {CONTACT_INFO.phone}
                                                 </a>
@@ -366,34 +352,28 @@ const Contact = () => {
 
                                     {/* CEO Card */}
                                     <div
-                                        className="rounded-lg p-5 border-l-4 transition-all duration-200 hover:shadow-sm"
-                                        style={{
-                                            backgroundColor: '#FAFAFA',
-                                            borderLeftColor: '#145C44'
-                                        }}
+                                        className="rounded-lg p-5 transition-all duration-200 hover:shadow-sm contact-card"
                                     >
                                         <div className="flex gap-3 items-start">
                                             <span className="text-2xl">👔</span>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold mb-0.5" style={{ color: '#102C26' }}>{CEO_INFO.name}</h3>
-                                                <p className="text-sm mb-2" style={{ color: '#666666' }}>{CEO_INFO.title}</p>
+                                                <h3 className="text-lg font-bold mb-0.5">{CEO_INFO.name}</h3>
+                                                <p className="text-sm mb-2">{CEO_INFO.title}</p>
                                                 <div className="space-y-1">
                                                     <div>
-                                                        <p className="text-sm font-semibold mb-0.5" style={{ color: '#145C44' }}>MAIN</p>
+                                                        <p className="text-sm font-semibold mb-0.5">MAIN</p>
                                                         <a
                                                             href={`tel:${CEO_INFO.phone}`}
                                                             className="text-sm font-semibold hover:underline transition-colors duration-200 block"
-                                                            style={{ color: '#145C44' }}
                                                         >
                                                             {CEO_INFO.phone}
                                                         </a>
                                                     </div>
                                                     <div>
-                                                        <p className="text-sm font-semibold mb-0.5" style={{ color: '#145C44' }}>ALT</p>
+                                                        <p className="text-sm font-semibold mb-0.5">ALT</p>
                                                         <a
                                                             href={`tel:${CEO_INFO.alternatePhone}`}
                                                             className="text-sm font-semibold hover:underline transition-colors duration-200 block"
-                                                            style={{ color: '#145C44' }}
                                                         >
                                                             {CEO_INFO.alternatePhone}
                                                         </a>
