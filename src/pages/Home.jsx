@@ -74,7 +74,7 @@ const Home = () => {
                     <ImpactMetricsComponent />
                 </section>
 
-                {/* Stories / News - White background */}
+                {/* Stories / News - White background with enhanced cards */}
                 <section className="py-12 px-6" style={{ backgroundColor: 'var(--white)' }} id="news">
                     <div className="max-w-6xl mx-auto">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
@@ -82,15 +82,23 @@ const Home = () => {
                                 <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--forest)', letterSpacing: '0.15em' }}>Latest stories</p>
                                 <h2 className="text-2xl md:text-3xl font-bold" style={{ color: 'var(--forest-dark)' }}>Youth-led change that inspires</h2>
                             </div>
-                            <Link to="/our-work" className="order-1 sm:order-2 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: 'var(--forest)', color: 'var(--forest)', backgroundColor: 'transparent' }}>View all stories →</Link>
+                            <Link to="/our-work" className="order-1 sm:order-2 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg font-bold text-sm border-2 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5" style={{ borderColor: 'var(--emerald)', color: 'var(--emerald)', backgroundColor: 'transparent' }}>View all stories →</Link>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                             {storyHighlights.map((story) => (
-                                <div key={story.title} className="bg-white rounded-xl p-5 shadow-md border-2 border-gray-100 hover:border-emerald hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col" style={{ minHeight: '260px' }}>
-                                    <span className="inline-block bg-emerald text-white text-xs font-bold px-3 py-1 rounded uppercase mb-3 w-fit">{story.tag}</span>
-                                    <h3 className="text-base font-bold mb-2 line-clamp-2" style={{ color: 'var(--forest-dark)', lineHeight: '1.4' }}>{story.title}</h3>
-                                    <p className="text-sm mb-4 flex-grow" style={{ color: 'var(--text-gray)', lineHeight: '1.6' }}>{story.excerpt}</p>
-                                    <Link to={story.link} className="text-emerald font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">Keep reading <span>→</span></Link>
+                                <div key={story.title} 
+                                    className="rounded-xl p-5 shadow-md border-2 transition-all duration-300 flex flex-col hover:-translate-y-1" 
+                                    style={{ 
+                                        minHeight: '260px',
+                                        backgroundColor: 'var(--primary-dark)',
+                                        borderColor: 'var(--primary-blue)',
+                                        boxShadow: '0 0 12px rgba(126, 187, 191, 0.4)'
+                                    }}
+                                >
+                                    <span className="inline-block text-white text-xs font-bold px-3 py-1 rounded uppercase mb-3 w-fit" style={{ backgroundColor: 'var(--primary-blue)' }}>{story.tag}</span>
+                                    <h3 className="text-base font-bold mb-2 line-clamp-2" style={{ color: 'var(--white)', lineHeight: '1.4' }}>{story.title}</h3>
+                                    <p className="text-sm mb-4 flex-grow" style={{ color: 'rgba(255,255,255,0.85)', lineHeight: '1.6' }}>{story.excerpt}</p>
+                                    <Link to={story.link} className="font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all" style={{ color: 'var(--primary-blue)' }}>Keep reading <span>→</span></Link>
                                 </div>
                             ))}
                         </div>
