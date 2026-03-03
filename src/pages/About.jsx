@@ -69,12 +69,13 @@ const About = () => {
     return (
         <Layout>
             <div className="min-h-screen">
-                <nav aria-label="Page sections navigation" className="sticky top-16 bg-white shadow-md z-40 hidden md:block">
+                {/* Secondary Nav - Unified with Primary Nav styling */}
+                <nav aria-label="Page sections navigation" className="sticky top-16 z-40 hidden md:block" style={{ backgroundColor: 'var(--primary-dark)', borderBottom: '2px solid var(--primary-blue)' }}>
                     <div className="flex justify-center px-4 py-0">
-                        <div className="flex gap-8 overflow-x-auto">
+                        <div className="flex gap-6 lg:gap-8 overflow-x-auto">
                             {sections.map(section => (
                                 <a key={section.id} href={`#${section.id}`} onClick={() => setActiveSection(section.id)}
-                                    className={`py-4 px-3 font-semibold text-sm uppercase tracking-wider transition-all border-b-3 whitespace-nowrap ${activeSection === section.id ? 'border-brand-blue text-brand-blue' : 'border-transparent text-gray-600 hover:text-brand-blue'}`}>
+                                    className={`py-3 px-2 lg:px-3 font-semibold text-xs lg:text-sm uppercase tracking-wider transition-all border-b-2 whitespace-nowrap ${activeSection === section.id ? 'border-emerald text-white' : 'border-transparent text-white/70 hover:text-white hover:border-white/30'}`}>
                                     {section.label}
                                 </a>
                             ))}
@@ -148,12 +149,12 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* CEO Message Section */}
+                {/* CEO Message Section - Champagne background */}
                 <section className="py-12 px-6" aria-label="CEO leadership message" id="ceo" style={{ backgroundColor: 'var(--champagne)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-8">
                             <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: 'var(--forest)', letterSpacing: '0.15em' }}>Leadership</p>
-                            <h2 className="text-2xl md:text-3xl font-bold leading-tight text-center mb-3 uppercase tracking-tight" style={{ color: 'var(--forest-dark)', letterSpacing: '0.05em' }}>Message from the CEO</h2>
+                            <h2 className="text-2xl md:text-3xl font-bold leading-tight text-center uppercase tracking-tight" style={{ color: 'var(--forest-dark)', letterSpacing: '0.05em' }}>Message from the CEO</h2>
                         </div>
                         <div className="grid md:grid-cols-2 gap-6 items-stretch max-w-6xl mx-auto">
                             <div className="flex flex-col items-center md:items-start">
@@ -194,7 +195,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Leadership Team Section */}
+                {/* Leadership Team Section - Off-white background */}
                 <section className="py-12 px-6" id="leadership" aria-label="Leadership team" style={{ backgroundColor: 'var(--surface-offwhite-alt)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-8">
@@ -249,7 +250,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Journey Section - Forest to Emerald */}
+                {/* Journey Section - Forest to Emerald gradient */}
                 <section className="py-12 px-6" id="journey" aria-label="Our organizational journey" style={{ background: 'linear-gradient(135deg, var(--forest-dark) 0%, var(--emerald) 100%)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-8">
@@ -286,7 +287,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Awards Section */}
+                {/* Awards Section - Off-white background */}
                 <section className="py-12 px-4" id="awards" aria-label="Awards and recognition" style={{ backgroundColor: 'var(--surface-offwhite-alt)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-8 pb-4">
@@ -313,7 +314,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Impact Statistics Section - Forest to Emerald */}
+                {/* Impact Statistics Section - Forest to Emerald gradient */}
                 <section className="py-12 px-4" id="impact" aria-label="Impact statistics and metrics" style={{ background: 'linear-gradient(135deg, var(--forest-dark) 0%, var(--emerald) 100%)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-8 pb-4 border-b-2" style={{ borderColor: 'rgba(255,255,255,0.2)' }}>
@@ -335,7 +336,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Testimonials Section */}
+                {/* Testimonials Section - White background */}
                 <section className="py-12 px-6" aria-label="Success stories and testimonials" style={{ backgroundColor: 'var(--white)' }}>
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-8 pb-4">
@@ -359,7 +360,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Core Principles Section */}
+                {/* Core Principles Section - Champagne background */}
                 <section className="py-12 px-4" id="values" aria-label="Core organizational principles" style={{ backgroundColor: 'var(--champagne)' }}>
                     <div className="max-w-6xl mx-auto text-center">
                         <div className="mb-8 pb-4 border-b-2" style={{ borderColor: 'var(--forest)' }}>
@@ -374,7 +375,7 @@ const About = () => {
                     </div>
                 </section>
 
-                {/* Final CTA Section - Forest to Emerald */}
+                {/* Final CTA Section - Forest to Emerald gradient */}
                 <section className="px-4 py-12 md:py-14 relative overflow-hidden" aria-label="Call to action" style={{ background: 'linear-gradient(135deg, var(--forest-dark) 0%, var(--emerald) 100%)' }}>
                     <div className="max-w-3xl mx-auto text-center relative z-10">
                         <h2 className="text-2xl md:text-3xl font-bold mb-4 leading-tight" style={{ color: 'var(--white)' }}>Ready to Join Our Movement?</h2>
