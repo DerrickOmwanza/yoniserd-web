@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
@@ -97,21 +97,37 @@ const initiatives = [
 ];
 
 const StoryModal = ({ initiative, isOpen, onClose }) => {
+    // Prevent body scroll when modal is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
     if (!isOpen || !initiative) return null;
 
     return (
         <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+            style={{ 
+                backgroundColor: 'rgba(5, 15, 42, 0.6)',
+                backdropFilter: 'blur(6px)',
+                WebkitBackdropFilter: 'blur(6px)'
+            }}
             onClick={onClose}
         >
             <div
-                className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col"
                 style={{ animation: 'slideUp 0.3s ease-out' }}
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Modal Header with Image */}
-                <div className="relative h-56 overflow-hidden">
+                {/* Modal Header with Image - Fixed */}
+                <div className="relative h-48 flex-shrink-0 overflow-hidden">
                     <img
                         src={initiative.image}
                         alt={initiative.title}
@@ -120,25 +136,25 @@ const StoryModal = ({ initiative, isOpen, onClose }) => {
                     <div className="absolute inset-0 bg-black/40" />
                     <button
                         onClick={onClose}
-                         className="absolute top-4 right-4 bg-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg transition-colors duration-200 hover:bg-gray-200"
+                         className="absolute top-3 right-3 bg-white rounded-full w-9 h-9 flex items-center justify-center font-bold text-lg transition-colors duration-200 hover:bg-gray-200"
                          style={{ color: 'var(--forest-dark)' }}
                     >
                         ✕
                     </button>
                 </div>
 
-                {/* Modal Content */}
-                <div className="p-6">
+                {/* Modal Content - Scrollable */}
+                <div className="flex-1 overflow-y-auto p-5">
                     {/* Category Badge */}
                      <span
-                         className="text-xs font-bold px-4 py-2 rounded-full inline-block mb-4"
+                         className="text-xs font-bold px-3 py-1 rounded-full inline-block mb-3"
                          style={{ backgroundColor: 'var(--forest)', color: 'var(--white)' }}
                      >
                         {initiative.category}
                     </span>
 
                     {/* Title */}
-                     <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--forest-dark)' }}>
+                     <h2 className="text-xl font-bold mb-4" style={{ color: 'var(--forest-dark)' }}>
                         {initiative.title}
                     </h2>
 
@@ -171,9 +187,9 @@ const StoryModal = ({ initiative, isOpen, onClose }) => {
                     </p>
                 </div>
 
-                {/* Modal Footer */}
+                {/* Modal Footer - Fixed */}
                 <div
-                    className="p-4 border-t flex gap-3 justify-end"
+                    className="p-4 border-t flex gap-3 justify-end flex-shrink-0"
                     style={{ borderColor: 'var(--primary-light)', backgroundColor: 'var(--white)' }}
                 >
                     <button

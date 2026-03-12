@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Card from '../components/Card';
@@ -50,47 +50,63 @@ const metrics = [
   { icon: '📋', value: '5', label: 'Core Programs' },
   { icon: '👥', value: '10K+', label: 'Youth Reached' },
   { icon: '🤝', value: '50+', label: 'Partner Orgs' },
-  { icon: '🌍', value: '5 Yrs', label: 'Impact Track' },
+  { icon: '🌍', value: '5 Yrs', label: 'ImpactTrack' },
 ];
 
 const ProgramModal = ({ program, isOpen, onClose }) => {
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
+      style={{ 
+        backgroundColor: 'rgba(5, 15, 42, 0.6)',
+        backdropFilter: 'blur(6px)',
+        WebkitBackdropFilter: 'blur(6px)'
+      }}
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transition-all duration-300"
+        className="bg-white rounded-lg shadow-2xl w-full max-w-2xl max-h-[90vh] flex flex-col transition-all duration-300"
         style={{
           animation: 'slideUp 0.3s ease-out',
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Modal Header */}
+        {/* Modal Header - Fixed at top */}
         <div
-          className="p-8 border-b"
+          className="p-6 border-b flex-shrink-0"
           style={{ backgroundColor: 'var(--champagne)', borderColor: 'var(--primary-light)' }}
         >
           <div className="flex items-start justify-between">
             <div className="flex items-center gap-4">
               <div
-                className="w-16 h-16 rounded-lg flex items-center justify-center text-4xl"
+                className="w-14 h-14 rounded-lg flex items-center justify-center text-3xl"
                 style={{
                   background: 'linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light-soft) 100%)',
                 }}
               >
                 {program.icon}
               </div>
-              <h2 className="text-3xl font-bold" style={{ color: 'var(--forest)' }}>
+              <h2 className="text-2xl font-bold" style={{ color: 'var(--forest)' }}>
                 {program.title}
               </h2>
             </div>
             <button
               onClick={onClose}
-              className="text-2xl transition-colors duration-200 hover:text-red-500"
+              className="text-2xl transition-colors duration-200 hover:text-red-500 p-1"
               style={{ color: 'var(--text-gray)' }}
             >
               ✕
@@ -98,8 +114,8 @@ const ProgramModal = ({ program, isOpen, onClose }) => {
           </div>
         </div>
 
-        {/* Modal Body */}
-         <div className="p-8">
+        {/* Modal Body - Scrollable */}
+        <div className="flex-1 overflow-y-auto p-6">
            <h3 className="text-lg font-bold mb-4" style={{ color: 'var(--forest-dark)' }}>
              About This Program
            </h3>
@@ -122,19 +138,19 @@ const ProgramModal = ({ program, isOpen, onClose }) => {
            <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--forest-dark)' }}>
              Get Involved
            </h3>
-           <p className="text-base mb-6" style={{ color: 'var(--text-gray)' }}>
+           <p className="text-base mb-4" style={{ color: 'var(--text-gray)' }}>
              Interested in contributing to this program? We welcome partnerships, volunteer support, and advocacy partnerships at all levels.
            </p>
-         </div>
+        </div>
 
-        {/* Modal Footer */}
+        {/* Modal Footer - Fixed at bottom */}
         <div
-          className="p-6 border-t flex gap-3 justify-end"
+          className="p-4 border-t flex gap-3 justify-end flex-shrink-0"
           style={{ backgroundColor: 'var(--white)', borderColor: 'var(--primary-light)' }}
         >
           <button
             onClick={onClose}
-            className="px-6 py-2 rounded transition-colors duration-300"
+            className="px-5 py-2 rounded transition-colors duration-300"
             style={{
               backgroundColor: 'var(--primary-light)',
               color: 'var(--forest-dark)',
@@ -151,7 +167,7 @@ const ProgramModal = ({ program, isOpen, onClose }) => {
           </button>
           <Link
             to="/contact"
-            className="px-6 py-2 rounded font-semibold transition-colors duration-300"
+            className="px-5 py-2 rounded font-semibold transition-colors duration-300"
             style={{
               backgroundColor: 'var(--forest)',
               color: 'var(--white)',

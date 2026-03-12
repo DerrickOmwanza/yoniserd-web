@@ -22,7 +22,7 @@ Allow: /
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://youthnetworkonline.org/sitemap.xml
+Sitemap: https://yoniserd.co.ke/sitemap.xml
 
 # Allow social media crawlers
 User-agent: facebookexternalhit
