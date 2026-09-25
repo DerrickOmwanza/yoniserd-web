@@ -22,6 +22,13 @@
 - `public/media/` - videos (served as-is, never imported)
 - `archive/` - old notes, screenshots and scripts. Not part of the site.
 
+## Contact form
+
+`src/app/contact/actions.ts` is a Server Action that validates input and sends email through the Resend REST API.
+Spam protection: hidden honeypot field (`website`) and a minimum fill time (`startedAt`, set client-side).
+Env vars (see `.env.example`): `RESEND_API_KEY` (required in production), `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`.
+Without an API key, development logs the message instead of sending it.
+
 ## Conventions
 
 - Server Components by default; add `"use client"` only for interactivity.
