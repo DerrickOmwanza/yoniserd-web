@@ -23,17 +23,23 @@ const StoryModal = ({ story, isOpen, onClose, categories }) => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300"
+        className="fixed inset-0 z-40 transition-opacity duration-300"
         onClick={onClose}
-        style={{ backdropFilter: 'blur(5px)' }}
+        style={{ 
+          backgroundColor: 'rgba(5, 15, 42, 0.6)',
+          backdropFilter: 'blur(6px)',
+          WebkitBackdropFilter: 'blur(6px)'
+        }}
       />
 
       {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto py-8">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div
-          className="w-full max-w-2xl rounded-2xl shadow-2xl bg-white hover:shadow-3xl transition-shadow duration-300 overflow-hidden"
+          className="w-full max-w-2xl max-h-[90vh] rounded-2xl shadow-2xl bg-white hover:shadow-3xl transition-shadow duration-300 overflow-hidden"
           onClick={e => e.stopPropagation()}
         >
+          {/* Scrollable Content Container */}
+          <div className="overflow-y-auto max-h-[90vh]">
           {/* Close Button */}
           <button
             onClick={onClose}
@@ -133,6 +139,7 @@ const StoryModal = ({ story, isOpen, onClose, categories }) => {
               </button>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </>

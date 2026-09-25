@@ -85,11 +85,11 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 px-4 sm:px-6 py-3 backdrop-blur-md navbar-bg" role="navigation" aria-label="Main navigation">
       <div className="flex items-center justify-between">
-        <NavLink to="/" className="flex items-center gap-3" aria-label="YoNISeRD Home" onClick={() => setActiveDropdown(null)}>
-          <img src={logo} alt="YoNISeRD Logo" className="h-11 w-auto rounded-full bg-white/90 p-1 shadow-lg" />
-          <div className="hidden sm:flex flex-col text-white leading-tight">
-            <span className="text-xs uppercase tracking-[0.3em] text-white/80">Youth Network Integrated Services</span>
-            <span className="text-sm font-semibold">Research & Development</span>
+        <NavLink to="/" className="flex items-center gap-2 sm:gap-3" aria-label="YoNISeRD Home" onClick={() => setActiveDropdown(null)}>
+          <img src={logo} alt="YoNISeRD Logo" className="h-9 sm:h-11 w-auto rounded-full bg-white/90 p-1 shadow-lg" />
+          <div className="flex flex-col text-white leading-tight">
+            <span className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.3em] text-white/80">Youth Network Integrated Services</span>
+            <span className="text-xs sm:text-base font-semibold">Research & Development</span>
           </div>
         </NavLink>
 
@@ -188,7 +188,7 @@ const Navbar = () => {
       {/* Slide-in drawer panel */}
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-screen w-80 bg-slate-900/90 backdrop-blur-lg shadow-2xl z-50 lg:hidden transform transition-transform duration-400 ease-out flex flex-col border-l border-white/10 ${
+        className={`fixed top-0 right-0 h-screen w-80 bg-slate-900/90 backdrop-blur-lg shadow-2xl lg:hidden transform transition-transform duration-400 ease-out flex flex-col border-l border-white/10 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"

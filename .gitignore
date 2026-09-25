@@ -53,3 +53,8 @@ Thumbs.db
 
 # Kombai debug files
 .kombai/
+
+# OpenMemory - IDE/Assistant specific rules
+.cursor\rules\openmemory.mdc
+AGENTS.md
+.codebuddy
