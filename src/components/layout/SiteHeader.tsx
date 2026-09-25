@@ -79,14 +79,14 @@ export function SiteHeader() {
                     <Link
                       href={item.href}
                       aria-current={active ? "page" : undefined}
-                      className={`relative rounded-full px-3.5 py-2 text-[0.95rem] font-medium transition-colors ${
+                      className={`relative rounded-full px-2.5 py-2 text-[0.95rem] font-medium whitespace-nowrap transition-colors xl:px-3.5 ${
                         active ? "text-navy-900" : "text-muted hover:text-navy-900"
                       }`}
                     >
                       {item.label}
                       <span
                         aria-hidden="true"
-                        className={`absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-gold-500 transition-transform duration-300 ease-out-soft ${
+                        className={`absolute inset-x-2.5 -bottom-0.5 xl:inset-x-3.5 h-0.5 rounded-full bg-gold-500 transition-transform duration-300 ease-out-soft ${
                           active ? "scale-x-100" : "scale-x-0"
                         }`}
                       />
@@ -100,7 +100,7 @@ export function SiteHeader() {
           <div className="flex items-center gap-2">
             <Link
               href="/contact"
-              className="hidden rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-800 sm:inline-flex"
+              className="hidden rounded-full bg-navy-900 px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-white transition-colors hover:bg-navy-800 sm:inline-flex"
             >
               Get involved
             </Link>

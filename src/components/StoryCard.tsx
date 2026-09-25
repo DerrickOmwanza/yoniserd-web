@@ -43,7 +43,7 @@ export function FeaturedStoryCard({ story }: { story: Story }) {
       <div className="mt-auto p-6 sm:p-10">
         <Meta story={story} onDark />
         <h3 className="mt-3 max-w-xl text-3xl leading-tight font-medium text-white sm:text-4xl">
-          <Link href="/news" className="after:absolute after:inset-0">
+          <Link href={`/news#${story.slug}`} className="after:absolute after:inset-0">
             {story.title}
           </Link>
         </h3>
@@ -71,7 +71,7 @@ export function StoryCard({ story }: { story: Story }) {
         <Meta story={story} />
         <h3 className="mt-2 text-xl leading-snug font-medium sm:text-2xl">
           <Link
-            href="/news"
+            href={`/news#${story.slug}`}
             className="decoration-gold-500 decoration-2 underline-offset-4 after:absolute after:inset-0 group-hover:underline"
           >
             {story.title}
@@ -80,6 +80,38 @@ export function StoryCard({ story }: { story: Story }) {
         <div className="mt-2 hidden sm:block">
           <p className="line-clamp-2 text-sm leading-relaxed text-muted">{story.excerpt}</p>
         </div>
+      </div>
+    </article>
+  );
+}
+
+/** Vertical card for grids. */
+export function StoryTile({ story, headingLevel = "h3" }: { story: Story; headingLevel?: "h2" | "h3" }) {
+  const Heading = headingLevel;
+  return (
+    <article className="group relative flex flex-col">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-navy-100">
+        <Image
+          src={story.image}
+          alt={story.imageAlt}
+          fill
+          sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+          placeholder="blur"
+          className="object-cover transition-transform duration-500 ease-out-soft group-hover:scale-105"
+        />
+      </div>
+      <div className="mt-5">
+        <Meta story={story} />
+        <Heading className="mt-2 font-serif text-2xl leading-snug font-medium text-navy-900">
+          <Link
+            href={`/news#${story.slug}`}
+            className="decoration-gold-500 decoration-2 underline-offset-4 after:absolute after:inset-0 group-hover:underline"
+          >
+            {story.title}
+          </Link>
+        </Heading>
+        <p className="mt-2 leading-relaxed text-muted">{story.excerpt}</p>
+        <p className="mt-3 text-sm text-muted">{story.location}</p>
       </div>
     </article>
   );

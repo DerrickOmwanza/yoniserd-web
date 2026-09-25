@@ -16,11 +16,10 @@
 - `src/app/` - routes (`page.tsx` per route), root `layout.tsx`, `globals.css` (design tokens), `sitemap.ts`, `robots.ts`, icons and OG image
 - `src/components/layout/` - `SiteHeader` (client component: sticky nav + mobile menu), `SiteFooter`
 - `src/components/ui/` - design-system primitives: `ButtonLink`, `Container`, `Section`, `Eyebrow`, `SectionHeading`
-- `src/components/` - shared blocks (`PageHeader`, `StoryCard`, ...)
-- `src/content/` - single source of truth: `site.ts` (org, contact, nav, socials), `programs.ts`, `stories.ts`, `team.ts`, `impact.ts`
+- `src/components/` - shared blocks (`PageHeader`, `CtaBand`, `StatGrid`, `StoryCard`/`StoryTile`, `ProgramIcon`, `PhotoGallery` lightbox)
+- `src/content/` - single source of truth: `site.ts` (org, contact, nav, socials), `programs.ts`, `stories.ts`, `team.ts`, `impact.ts`, `gallery.ts`
 - `src/assets/` - images imported via `next/image` (automatic resizing, AVIF/WebP, blur placeholders)
 - `public/media/` - videos (served as-is, never imported)
-- `legacy/` - the old Create React App site, kept for reference while porting content. Excluded from build/lint/typecheck. Delete once the redesign is complete.
 - `archive/` - old notes, screenshots and scripts. Not part of the site.
 
 ## Conventions

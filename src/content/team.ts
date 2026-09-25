@@ -12,6 +12,8 @@ export type TeamMember = {
   role: string;
   bio?: string;
   photo: StaticImageData;
+  /** Tailwind object-position class to keep the face in frame. */
+  photoPosition?: string;
 };
 
 export const ceo = {
@@ -32,12 +34,14 @@ export const team: TeamMember[] = [
   {
     name: "Mukolwe Alubokho Patrick",
     role: "Board Member",
+    photoPosition: "object-[50%_22%]",
     bio: "Strengthens programme outcomes through resource mobilisation, data-driven decisions and stakeholder engagement.",
     photo: mukolwePatrick,
   },
   {
     name: "Catherine Ngotho",
     role: "Programme Officer",
+    photoPosition: "object-[50%_12%]",
     photo: catherineNgotho,
   },
   {

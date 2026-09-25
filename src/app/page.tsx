@@ -1,23 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  BookOpenCheck,
-  Handshake,
-  HandHeart,
-  HeartPulse,
-  Leaf,
-  Ribbon,
-  ShieldCheck,
-  Users,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
 
+import { CtaBand } from "@/components/CtaBand";
+import { ProgramIcon } from "@/components/ProgramIcon";
 import { FeaturedStoryCard, StoryCard } from "@/components/StoryCard";
+import { StatGrid } from "@/components/StatGrid";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container, Eyebrow, Section, SectionHeading } from "@/components/ui/Section";
 import { approach, headlineStats } from "@/content/impact";
-import { programs, type ProgramIcon } from "@/content/programs";
+import { programs } from "@/content/programs";
 import { site } from "@/content/site";
 import { stories } from "@/content/stories";
 import { ceo } from "@/content/team";
@@ -26,35 +18,6 @@ import heroImage from "@/assets/gallery/gallery-10.jpg";
 import heroInset from "@/assets/gallery/gallery-4.jpg";
 import aboutMain from "@/assets/gallery/gallery-13.jpg";
 import aboutInset from "@/assets/gallery/gallery-7.jpg";
-
-const programIcons: Record<ProgramIcon, LucideIcon> = {
-  shield: ShieldCheck,
-  leaf: Leaf,
-  heart: HeartPulse,
-  ribbon: Ribbon,
-  users: Users,
-};
-
-const pathways = [
-  {
-    icon: Handshake,
-    title: "Partner with us",
-    description: "Co-design and fund programmes with a trusted, community-rooted implementing partner.",
-    href: "/contact?topic=partnership",
-  },
-  {
-    icon: BookOpenCheck,
-    title: "Collaborate on research",
-    description: "Work with our community research hub to generate evidence on youth wellbeing.",
-    href: "/contact?topic=research",
-  },
-  {
-    icon: HandHeart,
-    title: "Volunteer",
-    description: "Share your skills as a mentor, facilitator or peer counsellor in Kisii.",
-    href: "/contact?topic=volunteer",
-  },
-];
 
 export default function HomePage() {
   const featured = stories.find((s) => s.slug === "national-mental-health-walk-kisii") ?? stories[0];
@@ -134,22 +97,7 @@ export default function HomePage() {
       {/* ───────────── Headline figures ───────────── */}
       <section aria-label="Our reach in numbers" className="border-b border-line bg-white">
         <Container>
-          <dl className="grid grid-cols-2 gap-px bg-line lg:grid-cols-4">
-            {headlineStats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`flex flex-col bg-white py-10 sm:py-12 ${i % 2 === 0 ? "pr-5" : "pl-5 sm:pl-10"} ${
-                  i === 2 ? "lg:pl-10" : ""
-                }`}
-              >
-                <dt className="text-sm font-semibold text-navy-900">{stat.label}</dt>
-                <dd className="order-first font-serif text-4xl font-medium tracking-tight text-navy-900 sm:text-5xl xl:text-6xl">
-                  {stat.value}
-                </dd>
-                {stat.note && <dd className="mt-1 text-sm text-muted">{stat.note}</dd>}
-              </div>
-            ))}
-          </dl>
+          <StatGrid stats={headlineStats} />
         </Container>
       </section>
 
@@ -225,7 +173,6 @@ export default function HomePage() {
 
         <ol className="mt-14 border-t border-line">
           {programs.map((program, i) => {
-            const Icon = programIcons[program.icon];
             return (
               <li key={program.slug} className="group relative border-b border-line">
                 <div className="grid items-center gap-x-8 gap-y-3 py-7 transition-colors duration-300 sm:grid-cols-[4rem_1fr_auto] md:grid-cols-[5rem_minmax(0,18rem)_1fr_auto] md:py-9">
@@ -237,7 +184,7 @@ export default function HomePage() {
                   </h3>
                   <p className="leading-relaxed text-muted sm:col-start-2 md:col-start-auto">{program.summary}</p>
                   <span className="hidden size-12 items-center justify-center rounded-full border border-line text-navy-900 transition-colors duration-300 group-hover:border-navy-900 group-hover:bg-navy-900 group-hover:text-white sm:inline-flex sm:row-span-2 sm:row-start-1 sm:col-start-3 md:row-span-1 md:col-start-auto">
-                    <Icon aria-hidden="true" className="size-5 group-hover:hidden" />
+                    <ProgramIcon name={program.icon} className="size-5 group-hover:hidden" />
                     <ArrowUpRight aria-hidden="true" className="hidden size-5 group-hover:block" />
                   </span>
                 </div>
@@ -329,55 +276,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* ───────────── Get involved ───────────── */}
-      <section
-        aria-labelledby="involve-title"
-        className="relative isolate overflow-hidden bg-navy-900 py-20 text-white sm:py-28"
-      >
-        <div
-          aria-hidden="true"
-          className="absolute -right-32 -bottom-48 -z-10 size-[32rem] rounded-full bg-gold-500/15 blur-3xl"
-        />
-        <Container>
-          <div className="grid gap-14 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <SectionHeading
-                id="involve-title"
-                onDark
-                eyebrow="Get involved"
-                title="Let’s build Kenya’s next generation of leaders — together."
-              />
-              <div className="mt-10 flex flex-wrap gap-3">
-                <ButtonLink href="/contact" variant="gold" size="lg" arrow>
-                  Talk to our team
-                </ButtonLink>
-              </div>
-            </div>
-            <ul className="grid gap-4 lg:col-span-7">
-              {pathways.map(({ icon: Icon, title, description, href }) => (
-                <li key={title}>
-                  <Link
-                    href={href}
-                    className="group flex items-start gap-5 rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-gold-500/60 hover:bg-white/[0.08] sm:p-7"
-                  >
-                    <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-gold-500 text-navy-950">
-                      <Icon aria-hidden="true" className="size-5" />
-                    </span>
-                    <span className="flex-1">
-                      <span className="block font-serif text-2xl text-white">{title}</span>
-                      <span className="mt-1 block leading-relaxed text-navy-100/75">{description}</span>
-                    </span>
-                    <ArrowUpRight
-                      aria-hidden="true"
-                      className="mt-1 size-5 shrink-0 text-gold-300 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </section>
+      <CtaBand />
     </>
   );
 }
