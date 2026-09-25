@@ -1,62 +1,55 @@
-# AGENTS.md - Development Guidelines for YNIS-RD Website
+# AGENTS.md - Development Guidelines for YoNISeRD Website
 
 ## Commands
 
-- **Start dev server**: `npm start` (runs on localhost:3000)
-- **Build for production**: `npm run build`
-- **Run tests**: `npm test` (interactive watch mode)
-- **Single test run**: `npm test -- --testPathPattern=<test-name> --watchAll=false`
-- **Lint**: ESLint is configured via Create React App (extends react-app/jest presets)
+- **Dev server**: `npm run dev` (http://localhost:3000)
+- **Production build**: `npm run build`, then `npm start`
+- **Lint**: `npm run lint`
+- **Type check**: `npm run typecheck`
 
-## Architecture & Structure
+## Architecture
 
-**Tech Stack**: React 19, React Router 7, TailwindCSS, PostCSS  
-**No database** - static site with hardcoded content
+**Stack**: Next.js 16 (App Router, statically pre-rendered), React 19, TypeScript, Tailwind CSS v4, lucide-react icons.
+**Hosting**: Vercel. Pushes to `main` deploy to production (https://yoniserd.co.ke); every other branch/PR gets a preview URL.
+**No database / CMS** - content lives in typed files under `src/content/`.
 
-**Key directories**:
-- `src/pages/` - Route pages (Home, About, Contact, Programs, OurWork, News, Impact, NotFound)
-- `src/components/` - Reusable components (Navbar, Footer, Layout, ImageSlideshow, ImpactMetrics)
-- `src/assets/` - Images and static files
-- `src/constants/` - Config values (contact info, social links, etc.)
-- `src/index.css` - Global Tailwind styles
-- `public/` - Static HTML/assets
+- `src/app/` - routes (`page.tsx` per route), root `layout.tsx`, `globals.css` (design tokens), `sitemap.ts`, `robots.ts`, icons and OG image
+- `src/components/layout/` - `SiteHeader` (client component: sticky nav + mobile menu), `SiteFooter`
+- `src/components/ui/` - design-system primitives: `ButtonLink`, `Container`, `Section`, `Eyebrow`, `SectionHeading`
+- `src/components/` - shared blocks (`PageHeader`, `StoryCard`, ...)
+- `src/content/` - single source of truth: `site.ts` (org, contact, nav, socials), `programs.ts`, `stories.ts`, `team.ts`, `impact.ts`
+- `src/assets/` - images imported via `next/image` (automatic resizing, AVIF/WebP, blur placeholders)
+- `public/media/` - videos (served as-is, never imported)
+- `legacy/` - the old Create React App site, kept for reference while porting content. Excluded from build/lint/typecheck. Delete once the redesign is complete.
+- `archive/` - old notes, screenshots and scripts. Not part of the site.
 
-**Key Components**:
-- **Layout.jsx** - Wrapper providing Navbar/Footer/main content structure
-- **Navbar.jsx** - Sticky navigation with desktop dropdowns and mobile hamburger menu
-- **Footer.jsx** - Site footer with links and contact info
-- **ImpactMetrics.jsx** - Stats display component
-- **ImageSlideshow.jsx** - Carousel/image gallery component
+## Conventions
 
-**Routing** handled in App.js with React Router v7 (BrowserRouter, Routes, Route).
+- Server Components by default; add `"use client"` only for interactivity.
+- Never hard-code organisation details (email, phone, domain, registration no.) in pages - import from `src/content/site.ts`.
+- Page metadata via `export const metadata` with a `canonical`.
+- Imports: framework → internal (`@/components`, `@/content`) → assets.
+- Styling: Tailwind utilities using the design tokens in `globals.css`. No inline `style={{}}` colours, no per-component CSS files.
 
-## Code Style & Conventions
+## Design System - "Trust Navy & Gold"
 
-**File naming**: Use `.jsx` for component files (not `.js`)  
-**Functional components** - Use React hooks (useState, useEffect, etc.)  
-**Props**: No PropTypes (consider adding for type safety)  
+| Token | Hex | Use |
+|---|---|---|
+| `navy-900` | #14284B | Primary brand, headings, primary buttons |
+| `navy-950` | #0B1830 | Hero / dark sections, footer |
+| `gold-500` | #C9A227 | Accents, rules, buttons **on navy only** (2.4:1 on white - never text on light) |
+| `gold-700` | #8A6A0C | Gold text on light backgrounds (5.1:1) |
+| `sky-500` | #5B8DB8 | Decorative, focus ring; use `sky-300` for text on navy, `sky-700` for links on light |
+| `surface` | #F7F8FA | Alternate light section background |
+| `ink` / `muted` | #111827 / #4B5563 | Body text / secondary text |
 
-**Imports**: Group as:
-1. React/Router imports first
-2. Internal components/utils
-3. Assets last
+**Type**: Newsreader (serif, `font-serif`) for headings and display; Public Sans (`font-sans`) for body/UI.
+**Signature details**: gold hairline + uppercase eyebrow before section titles; italic gold word in hero headlines; hairline dividers instead of heavy cards.
 
-**Styling**: TailwindCSS utility classes (no separate CSS files except global); semantic HTML with ARIA labels  
+## Accessibility (WCAG 2.1 AA)
 
-**Naming**: camelCase for variables/functions, PascalCase for components  
-**Error handling**: No error boundaries yet - add ErrorBoundary component for production  
-**Testing**: React Testing Library setup included (setupTests.js configures jest-dom)  
-
-**Code quality**: Follow recommendations in STANDARDIZATION_RECOMMENDATIONS.md - accessibility (WCAG 2.1), mobile-responsive, semantic HTML, proper heading hierarchy, ARIA labels
-
-## Accessibility Standards (WCAG 2.1 Level AA)
-
-**Skip Link**: Already implemented in Layout.jsx - press `Tab` to reveal
-**Heading Hierarchy**: h1 for pages, h2 for sections, h3 for subsections (no skipping levels)
-**Keyboard Focus**: Blue outline (#7EBBBFF) on all interactive elements via `:focus-visible`
-**Mobile Menu**: Fully keyboard accessible with `aria-expanded` on dropdowns
-**Reduced Motion**: Respects `prefers-reduced-motion` system setting for animations
-**Color Contrast**: Target AA standard (4.5:1 for normal text)
-**Image Alt Text**: All images must have descriptive alt text or `alt=""`
-
-**Testing**: See ACCESSIBILITY_TESTING_GUIDE.md and QUICK_A11Y_CHECK.md for verification steps
+- Skip link in root layout; one `h1` per page, `h2` per section, `h3` inside - no skipped levels
+- `:focus-visible` ring (sky-500) on all interactive elements
+- Respect `prefers-reduced-motion` (handled globally in `globals.css`)
+- All images need meaningful `alt` or `alt=""` if decorative
+- Contrast: follow the token rules above

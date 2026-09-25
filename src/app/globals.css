@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/*
+ * YoNISeRD design tokens — "Trust Navy & Gold"
+ *
+ * Contrast rules (WCAG AA):
+ *  - gold-500 is for fills, rules and text on navy only (2.4:1 on white — never text on light).
+ *  - gold-700 is the gold for text on light surfaces (5.1:1).
+ *  - sky-500 is decorative; use sky-300 for text on navy, sky-700 for links on light.
+ */
+@theme {
+  --color-navy-950: #0b1830;
+  --color-navy-900: #14284b;
+  --color-navy-800: #1d365f;
+  --color-navy-700: #2a4a7a;
+  --color-navy-100: #e6ecf4;
+  --color-navy-50: #f3f6fa;
+
+  --color-gold-300: #e3c766;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #b08c1c;
+  --color-gold-700: #8a6a0c;
+  --color-gold-100: #f6efd6;
+
+  --color-sky-300: #9cc0de;
+  --color-sky-500: #5b8db8;
+  --color-sky-700: #3f6f99;
+
+  --color-surface: #f7f8fa;
+  --color-ink: #111827;
+  --color-muted: #4b5563;
+  --color-line: #e3e7ee;
+
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif text-navy-900;
+    text-wrap: balance;
+    letter-spacing: -0.015em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Anchored sections clear the sticky header */
+  [id] {
+    scroll-margin-top: 6rem;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-sky-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-gold-300);
+    color: var(--color-navy-950);
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed top-3 left-3 z-[100] rounded-md bg-navy-900 px-4 py-2 font-semibold text-white;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

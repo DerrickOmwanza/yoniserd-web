@@ -58,3 +58,13 @@ Thumbs.db
 .cursor\rules\openmemory.mdc
 AGENTS.md
 .codebuddy
+
+# Private business documents (never commit)
+_private/
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+.vercel
